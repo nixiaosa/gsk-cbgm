@@ -93,6 +93,7 @@
   }
 }
     .tophead {
+        display: none;
         width: 100%;
         height: 72px;
         line-height: 72px;
