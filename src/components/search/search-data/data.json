@@ -1,0 +1,165 @@
+{
+  "//": "答题竞赛领取详情",
+  "competitionTask": [
+    {
+      "label": "手机号",
+      "type": "input",
+      "placeholder": "请输入手机号",
+      "model": "phone"
+    },
+    {
+      "label": "姓名",
+      "type": "input",
+      "placeholder": "请输入姓名",
+      "model": "name"
+    },
+    {
+      "label": [
+        {
+          "value": "查询",
+          "prop": "SEARCH"
+        },
+        {
+          "value": "导出",
+          "prop": "EXPORT"
+        }
+      ],
+      "type": "action"
+    }
+  ],
+  "//": "答题竞赛",
+  "AnswerCompetitionManage": [
+    {
+      "label": "任务名称",
+      "type": "input",
+      "placeholder": "请输入任务名称",
+      "model": "title"
+    },
+    {
+      "label": "任务状态",
+      "type": "select",
+      "model": "status",
+      "options": [
+        {
+          "value": null,
+          "label": "全部"
+        },
+        {
+          "value": "-1",
+          "label": "未发布"
+        },
+        {
+          "value": "0",
+          "label": "未开始"
+        },
+        {
+          "value": "1",
+          "label": "已开始"
+        },
+        {
+          "value": "2",
+          "label": "已结束"
+        }
+      ]
+    },
+    {
+      "label": "任务周期",
+      "type": "daterange"
+    },
+    {
+      "label": "创建者",
+      "type": "input",
+      "model": "nickname"
+    },
+    {
+      "label": [
+        {
+          "value": "查询",
+          "prop": "SEARCH"
+        }
+      ],
+      "type": "action"
+    }
+  ],
+  "//": "调研问卷",
+  "QuestionnaireManage": [
+    {
+      "label": "问卷状态",
+      "type": "select",
+      "options": [
+        {
+          "value": null,
+          "label": "全部"
+        },
+        {
+          "value": "0",
+          "label": "未发布"
+        },
+        {
+          "value": "2",
+          "label": "未开始"
+        },
+        {
+          "value": "3",
+          "label": "进行中"
+        },
+        {
+          "value": "4",
+          "label": "已结束"
+        }
+      ]
+    },
+    {
+      "label": "问卷周期",
+      "type": "daterange"
+    },
+    {
+      "label": "问卷名称",
+      "type": "input",
+      "placeholder": "请输入问卷名称",
+      "model": "title"
+    },
+    {
+      "label": "创建者",
+      "type": "input",
+      "placeholder": "请输入创建者",
+      "model": "createBy"
+    },
+    {
+      "label": [
+        {
+          "value": "查询",
+          "prop": "SEARCH"
+        }
+      ],
+      "type": "action"
+    }
+  ],
+  "QuestionnaireUserList": [
+    {
+      "label": "手机号",
+      "type": "input",
+      "model": "phone"
+    },
+    {
+      "label": [
+        {
+          "prop": "SEARCH",
+          "value": "查询"
+        }
+      ],
+      "type": "action"
+    }
+  ],
+  "lookcmsTask": [
+    {
+      "label": [
+        {
+          "prop": "EXPORT",
+          "value": "导出"
+        }
+      ],
+      "type": "action"
+    }
+  ]
+}

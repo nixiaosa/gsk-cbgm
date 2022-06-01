@@ -1,0 +1,197 @@
+{
+  "formData": [
+    {
+      "label": "用户抽奖总数：",
+      "field": "totalJoinCount",
+      "tips": "注意事项：限制用户不能无限次进行抽奖",
+      "type": 0,
+      "value": 0,
+      "limitTime": 1
+    },
+    {
+      "label": "用户每天抽奖次数：",
+      "field": "dailyJoinCount",
+      "tips": "注意事项：限制用户每天抽奖次数，可以避免出现恶意刷单的现象",
+      "type": 0,
+      "value": 0,
+      "limitTime": 1
+    },
+    {
+      "label": "每人中奖次数：",
+      "field": "totalWinCount",
+      "tips": "注意事项：指每一个人在本次活动中所能中奖的次数",
+      "type": 0,
+      "value": 0,
+      "limitTime": 1
+    },
+    {
+      "label": "每人每项中奖次数：",
+      "field": "personPrizeWinCount",
+      "tips": "注意事项：限制用户对于每个奖项的中奖次数；每人每项中奖次数必须 小于或等于 每人中奖次数",
+      "type": 0,
+      "value": 0,
+      "limitTime": 1
+    },
+    {
+      "label": "参与人数限制：",
+      "field": "personNumLimit",
+      "tips": "",
+      "type": 0,
+      "value": 0,
+      "limitTime": 1
+    },
+    {
+      "label": "实时中奖信息公示：",
+      "field": "showList",
+      "tips": "注意事项：开启后，在抽奖活动顶部将实时显示用户的中奖情况",
+      "type": 1,
+      "value": 0
+    },
+    {
+      "label": "活动时间公示：",
+      "field": "showLotteryTime",
+      "tips": "注意事项：开启后，在抽奖活动页面实时显示活动时间",
+      "type": 1,
+      "value": 0
+    },
+    {
+      "label": "审核中奖名单：",
+      "field": "verifyCode",
+      "tips": "注意事项：开启后，在中奖名单页面，需要管理员审核中奖人员相关信息",
+      "type": 1,
+      "value": 0,
+      "valueReverse": true
+    }
+  ],
+  "backDecorationList": [
+    {
+      "isActive": true,
+      "name": "无",
+      "src": ""
+    },
+    {
+      "isActive": false,
+      "name": "float_one",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_one.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_two",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_two.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_three",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_three.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_four",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_four.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_five",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_five.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_six",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_six.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_seven",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_seven.png"
+    },
+    {
+      "isActive": false,
+      "name": "float_eight",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%BC%82%E6%B5%AE%E7%89%A9/float_eight.png"
+    }
+  ],
+  "backMusicList": [
+    {
+      "select": false,
+      "title": "the truth that you leave",
+      "type": "忧伤",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/the%20truth%20that%20you%20leave.mp3"
+    },
+    {
+      "select": false,
+      "title": "优美",
+      "type": "优美",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E4%BC%98%E7%BE%8E.mp3"
+    },
+    {
+      "select": false,
+      "title": "回家",
+      "type": "回家",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E5%9B%9E%E5%AE%B6.mp3"
+    },
+    {
+      "select": false,
+      "title": "孩子",
+      "type": "趣味",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E5%AD%A9%E5%AD%90.mp3"
+    },
+    {
+      "select": false,
+      "title": "故乡",
+      "type": "思乡",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E6%95%85%E4%B9%A1.mp3"
+    },
+    {
+      "select": false,
+      "title": "月光下的凤尾竹",
+      "type": "柔美",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E6%9C%88%E5%85%89%E4%B8%8B%E7%9A%84%E5%87%A4%E5%B0%BE%E7%AB%B9.mp3"
+    },
+    {
+      "select": false,
+      "title": "超级马里奥",
+      "type": "游戏",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E6%B8%B8%E6%88%8F.mp3"
+    },
+    {
+      "select": false,
+      "title": "青花瓷",
+      "type": "古典",
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/%E6%8A%BD%E5%A5%96%E6%9C%8D%E5%8A%A1/%E6%B4%BB%E5%8A%A8%E9%9F%B3%E4%B9%90/%E9%9D%92%E8%8A%B1%E7%93%B7.mp3"
+    }
+  ],
+  "defaultBgList": [
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/01.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/02.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/03.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/04.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/05.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/06.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/07.png"
+    },
+    {
+      "isActive": false,
+      "src": "https://yibaiyunzhongtai-1252497236.cos.ap-beijing.myqcloud.com/VOTE/background/08.png"
+    }
+  ]
+}

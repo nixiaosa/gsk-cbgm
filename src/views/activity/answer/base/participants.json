@@ -1,0 +1,48 @@
+{
+  "tabList": [
+    {
+      "lable": "姓名",
+      "prop": "userName"
+    },
+    {
+      "lable": "性别",
+      "prop": "userName"
+    },
+    {
+      "lable": "手机号",
+      "prop": "userName"
+    },
+    {
+      "lable": "省份",
+      "prop": "userName"
+    },
+    {
+      "lable": "城市",
+      "prop": "userName"
+    },
+    {
+      "lable": "区县",
+      "prop": "userName"
+    },
+    {
+      "lable": "医院",
+      "prop": "userName"
+    },
+    {
+      "lable": "科室",
+      "prop": "userName"
+    },
+    {
+      "lable": "职称",
+      "prop": "userName"
+    },
+    {
+      "lable": "领取积分",
+      "prop": "userName"
+    },
+    {
+      "lable": "领取时间",
+      "prop": "userName"
+    }
+  ]
+}

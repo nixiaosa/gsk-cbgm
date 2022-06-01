@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+  <style>
+    html, body, div, object {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      font-family: 'helvetica neue', tahoma, arial, 'hiragino sans gb', 'microsoft yahei', 'Simsun', sans-serif;
+    }
+
+    body {
+      line-height: 1.5em;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+    }
+    #id_test_video, #audio {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+<!--<div id="id_video_container" style="margin:0px auto;"></div>-->
+<div id="id_test_video" style="margin:0px auto;"></div>
+<div id="audio">
+  <audio id="fry_audio" controls src=""></audio>
+</div>
+<script src="//imgcache.qq.com/open/qcloud/video/h5/h5connect.js?v=3" charset="utf-8"></script>
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js" charset="utf-8"></script>
+<script type="text/javascript">
+  (function () {
+    var ps = (window.location.href.split('?')[1] || '').split('&')
+      // var ps = (href.split('?')[1] || '').split('&')
+      , opt = {
+        "autoplay": false,
+        "coverpic": {
+          "style": "cover",
+          "src": ''
+        },
+        "width": 0,
+        "height": 0,
+        "mp4": ''
+      }
+      , i1 = 0 , i2 = ps.length, i4,key
+    for (; i1 < i2; i1++) {
+      i4 = ps[i1].split('=');
+      key = i4[0];
+      if(key == 'IMG'){
+        opt.coverpic.src = i4[1];
+      } else if(key == 'MP4'){
+        document.getElementById("id_test_video").style.display="block"
+        opt.mp4 = i4[1]
+      }
+      if (key == 'MP3') {
+        document.getElementById("audio").style.display="block"
+        opt.mp3 = i4[1]
+      }
+    }
+
+    // var ele = document.getElementById('id_video_container');
+    var ele = document.getElementById('id_test_video');
+    var pureGH = (function(){
+      var doc = document;
+      var docE = doc.documentElement;
+      var body = doc.body;
+      return (docE && docE.clientHeight) || (body && body.offsetHeight) || window.innerHeight || 0;
+    })()-4;
+    var pureGw = (function(){
+      var doc = document;
+      var docE = doc.documentElement;
+      var body = doc.body;
+      return (docE && docE.clientWidth) || (body && body.offsetWidth) || window.innerWidth || 0;
+    })();
+    ele.style.width = pureGw + 'px';
+    ele.style.height = pureGH + 'px';
+
+    // new qcVideo.Player("id_video_container", opt);
+    if (opt.mp4 !== '') {
+      new TcPlayer('id_test_video', opt);
+    }
+    if (opt.mp3 !== '') {
+      var audio = document.getElementById("fry_audio");
+      audio.src = opt.mp3;
+      audio.load();
+    }
+  })()
+</script>
+</body>
+</html>

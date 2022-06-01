@@ -1,0 +1,75 @@
+{
+  "name": "cbgm-1.1.0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --host 0.0.0.0",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.6.4",
+    "css-loader": "^6.2.0",
+    "echarts": "^4.9.0",
+    "element-ui": "^2.13.2",
+    "html2canvas": "^1.4.1",
+    "jquery": "^3.5.1",
+    "js-base64": "^3.6.1",
+    "js-cookie": "^2.2.1",
+    "js-md5": "^0.7.3",
+    "js-sha256": "^0.9.0",
+    "jspdf": "^2.5.1",
+    "lrz": "^4.9.41",
+    "moment": "^2.26.0",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "pdfjs-dist": "^2.3.200",
+    "qrcode.vue": "^1.6.1",
+    "quill-image-drop-module": "^1.0.3",
+    "quill-image-resize-module": "^3.0.0",
+    "vue": "^2.6.11",
+    "vue-base64-upload": "^1.0.1",
+    "vue-cropper": "^0.5.2",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "yb-cos": "^1.0.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-plugin-eslint": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

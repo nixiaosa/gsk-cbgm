@@ -1,0 +1,778 @@
+{
+  "//": "导航2。0配置标题",
+  "NavigationTitleManage": [
+    {
+      "label": "模板",
+      "prop": "templateName"
+    },
+    {
+      "label": "页面类型",
+      "prop": "type"
+    },
+    {
+      "label": "页面标题",
+      "prop": "defalutTitles"
+    },
+    {
+      "label": "页面自定义标题",
+      "prop": "userDefineTitles"
+    },
+    {
+      "label": "操作",
+      "fixed": "right",
+      "type": "action",
+      "width": "300px",
+      "props": [
+        {
+          "value": "编辑",
+          "prop": "EDIT",
+          "type": "info"
+        }
+      ]
+    }
+  ],
+  "//": "调研问卷统计分析 申请导出数据列表",
+  "QuestionnaireExport": [
+    {
+      "label": "申请人",
+      "prop": "userName"
+    },
+    {
+      "label": "申请时间",
+      "prop": "createTime",
+      "type": "date"
+    },
+    {
+      "label": "导出数据类型",
+      "prop": "finishType",
+      "type": "finishType"
+    },
+    {
+      "label": "状态",
+      "fixed": "right",
+      "type": "action",
+      "width": "300px",
+      "props": [
+        {
+          "hidden": true,
+          "value": "申请中",
+          "prop": "WAIT",
+          "type": "text"
+        },
+        {
+          "hidden": true,
+          "value": "下载数据文件",
+          "prop": "DOWNLOAD",
+          "type": "info"
+        }
+      ]
+    }
+  ],
+  "//": "病例征集统计分析 申请导出数据列表",
+  "CaseExport": [
+    {
+      "label": "申请人",
+      "prop": "proposerName"
+    },
+    {
+      "label": "申请时间",
+      "prop": "applicationDate",
+      "type": "date"
+    },
+    {
+      "label": "状态",
+      "fixed": "right",
+      "type": "action",
+      "width": "300px",
+      "props": [
+        {
+          "hidden": true,
+          "value": "申请中",
+          "prop": "WAIT",
+          "type": "text"
+        },
+        {
+          "hidden": true,
+          "value": "下载数据文件",
+          "prop": "DOWNLOAD",
+          "type": "info"
+        }
+      ]
+    }
+  ],
+  "//": "签到统计",
+  "SignIn": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex",
+      "type": "sex"
+    },
+    {
+      "label": "手机号",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "签到时间",
+      "prop": "createTime",
+      "type": "date"
+    }
+  ],
+  "//": "报名统计",
+  "SignUp": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex",
+      "type": "sex"
+    },
+    {
+      "label": "手机号",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "报名时间",
+      "prop": "createTime",
+      "type": "date"
+    }
+  ],
+  "//": "BusinessManage",
+  "BusinessManage": [
+    {
+      "label": "业务名称",
+      "prop": "name"
+    },
+    {
+      "label": "业务别名",
+      "prop": "alias"
+    },
+    {
+      "label": "操作",
+      "fixed": "right",
+      "type": "action",
+      "width": "300px",
+      "props": [
+        {
+          "value": "编辑",
+          "prop": "EDIT",
+          "type": "info"
+        }
+      ]
+    }
+  ],
+  "//": "InteractData",
+  "InteractData": [
+    {
+      "label": "参与互动的姓名",
+      "prop": "name"
+    },
+    {
+      "label": "参与互动入会时间",
+      "prop": "join_time",
+      "type": "date"
+    },
+    {
+      "label": "参与互动离开时间",
+      "prop": "leave_time",
+      "type": "date"
+    },
+    {
+      "label": "参与互动时长",
+      "prop": "duration"
+    }
+  ],
+  "//": "答题竞赛排行榜",
+  "competitionTaskStatistics": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex"
+    },
+    {
+      "label": "手机号",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "领取次数",
+      "prop": "totalCount"
+    },
+    {
+      "label": "任务总领取积分",
+      "prop": "totalPoint"
+    },
+    {
+      "label": "总排名",
+      "prop": "totalRank"
+    }
+  ],
+  "//": "答题竞赛任务",
+  "competitionTask": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex"
+    },
+    {
+      "label": "手机号",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "领取积分",
+      "prop": "point"
+    },
+    {
+      "label": "领取时间",
+      "type": "date",
+      "prop": "createtime"
+    }
+  ],
+  "//": "答题奖励任务",
+  "questionTask": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex"
+    },
+    {
+      "label": "手机号",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "得分",
+      "prop": "score"
+    },
+    {
+      "label": "领取积分",
+      "prop": "point"
+    },
+    {
+      "label": "领取时间",
+      "type": "date",
+      "prop": "createtime"
+    }
+  ],
+  "//": "答题竞赛管理",
+  "AnswerCompetitionManage": [
+    {
+      "label": "任务名称",
+      "prop": "title"
+    },
+    {
+      "label": "任务周期",
+      "type": "daterange",
+      "width": "280px",
+      "prop": [
+        "startTime",
+        "endTime"
+      ]
+    },
+    {
+      "label": "创建者",
+      "prop": "nickname"
+    },
+    {
+      "label": "创建时间",
+      "type": "date",
+      "prop": "createTime"
+    },
+    {
+      "label": "任务状态",
+      "prop": "status",
+      "type": "status",
+      "statusRule": "1"
+    },
+    {
+      "label": "操作",
+      "fixed": "right",
+      "type": "action",
+      "width": "300px",
+      "props": [
+        {
+          "value": "查看",
+          "prop": "CHECK",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "编辑",
+          "prop": "EDIT",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "领取详情",
+          "prop": "DETAIL",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "结束任务",
+          "prop": "END",
+          "type": "danger"
+        }
+      ]
+    }
+  ],
+  "//": "调研问卷管理",
+  "QuestionnaireManage": [
+    {
+      "label": "问卷名称",
+      "prop": "questionName"
+    },
+    {
+      "label": "问卷创建时间",
+      "type": "date",
+      "prop": "createTime"
+    },
+    {
+      "label": "问卷状态",
+      "type": "status",
+      "prop": "status",
+      "statusRule": "0"
+    },
+    {
+      "label": "征集数量",
+      "prop": "totalNum"
+    },
+    {
+      "label": "已收集数量",
+      "prop": "submitNum"
+    },
+    {
+      "label": "创建者",
+      "prop": "createBy"
+    },
+    {
+      "label": "操作",
+      "type": "action",
+      "fixed": "right",
+      "props": [
+        {
+          "value": "查看",
+          "prop": "CHECK",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "结束问卷",
+          "prop": "END",
+          "type": "danger"
+        },
+        {
+          "hidden": true,
+          "value": "停用",
+          "prop": "STOP",
+          "type": "danger"
+        },
+        {
+          "hidden": true,
+          "value": "启用",
+          "prop": "START",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "导出证件信息",
+          "prop": "EXPORT",
+          "type": "info"
+        },
+        {
+          "value": "导出问卷数据",
+          "prop": "EXPORTDATA",
+          "type": "info"
+        },
+        {
+          "value": "申请管理",
+          "prop": "APPLYMANAGE",
+          "type": "info"
+        }
+      ],
+      "type": "action"
+    }
+  ],
+  "//": "调研问卷管理",
+  "QuestionnaireManageV2": [
+    {
+      "label": "问卷名称",
+      "prop": "questionName"
+    },
+    {
+      "label": "一级栏目",
+      "prop": "firstColumnName"
+    },
+    {
+      "label": "二级栏目",
+      "prop": "secondColumnName"
+    },
+    {
+      "label": "问卷创建时间",
+      "type": "date",
+      "prop": "createTime"
+    },
+    {
+      "label": "问卷状态",
+      "type": "status",
+      "prop": "status",
+      "statusRule": "0"
+    },
+    {
+      "label": "征集数量",
+      "prop": "totalNum"
+    },
+    {
+      "label": "已收集数量",
+      "prop": "submitNum"
+    },
+    {
+      "label": "创建者",
+      "prop": "createBy"
+    },
+    {
+      "label": "操作",
+      "type": "action",
+      "width": "350px",
+      "fixed": "right",
+      "props": [
+        {
+          "value": "查看",
+          "prop": "CHECK",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "结束问卷",
+          "prop": "END",
+          "type": "danger"
+        },
+        {
+          "hidden": true,
+          "value": "栏目设置",
+          "prop": "SET",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "停用",
+          "prop": "STOP",
+          "type": "danger"
+        },
+        {
+          "hidden": true,
+          "value": "启用",
+          "prop": "START",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "导出证件信息",
+          "prop": "EXPORT",
+          "type": "info"
+        },
+        {
+          "value": "导出问卷数据",
+          "prop": "EXPORTDATA",
+          "type": "info"
+        },
+        {
+          "value": "申请管理",
+          "prop": "APPLYMANAGE",
+          "type": "info"
+        }
+      ],
+      "type": "action"
+    }
+  ],
+  "//": "调研问卷详情用户统计",
+  "QuestionnaireUserList": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex"
+    },
+    {
+      "label": "手机",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "完成时间",
+      "prop": "compeleteTime",
+      "type": "date"
+    }
+  ],
+  "//": "文章浏览任务管理",
+  "LookcmsCompetitionManage": [
+    {
+      "label": "任务名称",
+      "prop": "title"
+    },
+    {
+      "label": "任务周期",
+      "type": "daterange",
+      "width": "280px",
+      "prop": [
+        "startTime",
+        "endTime"
+      ]
+    },
+    {
+      "label": "发放总积分",
+      "prop": "pointTotal"
+    },
+    {
+      "label": "创建者",
+      "prop": "nickname"
+    },
+    {
+      "label": "创建时间",
+      "type": "date",
+      "prop": "createTime"
+    },
+    {
+      "label": "任务状态",
+      "prop": "status",
+      "type": "status",
+      "statusRule": "1"
+    },
+    {
+      "label": "操作",
+      "fixed": "right",
+      "type": "action",
+      "width": "300px",
+      "props": [
+        {
+          "value": "查看",
+          "prop": "CHECK",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "编辑",
+          "prop": "EDIT",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "领取详情",
+          "prop": "DETAIL",
+          "type": "info"
+        },
+        {
+          "hidden": true,
+          "value": "结束任务",
+          "prop": "END",
+          "type": "danger"
+        }
+      ]
+    }
+  ],
+  "//": "文章浏览任务任务",
+  "lookcmsTask": [
+    {
+      "label": "姓名",
+      "prop": "name"
+    },
+    {
+      "label": "性别",
+      "prop": "sex"
+    },
+    {
+      "label": "手机号",
+      "prop": "phone"
+    },
+    {
+      "label": "省份",
+      "prop": "province"
+    },
+    {
+      "label": "城市",
+      "prop": "city"
+    },
+    {
+      "label": "区县",
+      "prop": "county"
+    },
+    {
+      "label": "医院",
+      "prop": "hospital"
+    },
+    {
+      "label": "科室",
+      "prop": "office"
+    },
+    {
+      "label": "职称",
+      "prop": "title"
+    },
+    {
+      "label": "领取积分",
+      "prop": "point"
+    },
+    {
+      "label": "领取时间",
+      "type": "date",
+      "prop": "createtime"
+    }
+  ]
+}

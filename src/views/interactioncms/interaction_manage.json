@@ -1,0 +1,40 @@
+{
+  "im": [
+    { "label": "手机号", "prop": "phone", "minWidth": 200 },
+    { "label": "聊天人", "prop": "nickName", "minWidth": 160 },
+    {
+      "label": "聊天内容",
+      "prop": "msgBody",
+      "type": "message",
+      "minWidth": 300
+    },
+    {
+      "label": "聊天时间",
+      "prop": "msgTime",
+      "type": "dateTime",
+      "minWidth": 200
+    },
+    { "label": "显示/屏蔽", "prop": "isShield", "type": "deleted" },
+    { "label": "操作", "prop": "action", "type": "action", "minWidth": 80 }
+  ],
+  "comment": [
+    { "label": "手机号", "prop": "phone", "minWidth": 130 },
+    { "label": "评论人", "prop": "fromNickname" },
+    { "label": "省份", "prop": "province" },
+    { "label": "城市", "prop": "city" },
+    { "label": "区县", "prop": "county" },
+    { "label": "医院", "prop": "hospital", "minWidth": 200 },
+    { "label": "科室", "prop": "office", "minWidth": 200 },
+    { "label": "职称", "prop": "title", "minWidth": 200 },
+    { "label": "评论内容", "prop": "content", "minWidth": 200 },
+    { "label": "被评论人", "prop": "toNickname", "minWidth": 100 },
+    {
+      "label": "评论时间",
+      "prop": "createtime",
+      "type": "dateTime",
+      "minWidth": 200
+    },
+    { "label": "显示/屏蔽", "prop": "isShield", "type": "deleted", "minWidth": 160 },
+    { "label": "操作", "type": "action", "minWidth": 200 }
+  ]
+}
