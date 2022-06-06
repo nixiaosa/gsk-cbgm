@@ -12,27 +12,27 @@ if (href.indexOf('localhost') >= 0 || window.location.port === '9004') {
   host = 'https://api.cmalive.cn/'
 }
 
-const getSig = `${host}djb_company/yb-resource-api-ntk/`
-const versionHost = `${host}djb_company/yb-user-api-ntk/`
+const getSig = `${host}yb-resource-api-ntk/`
+const versionHost = `${host}yb-user-api/`
 const companyHost = `${host}yb-company/`
-const djbUserApiHost = `${host}djb_company/yb-user-api/`
+const djbUserApiHost = `${host}yb-user-api/`
 const vmsHost = `${host}yb-vms/`
-const djbPayHost = `${host}djb_company/yb-pay-api/`
-const djbHost = `${host}djb_company/yb-question-api/`
-const djbCompanyHost = `${host}djb_company/yb-business-api/`
-const djbResourceHost = `${host}djb_company/yb-resource-api/`
-const djbImHost = `${host}djb_company/yb-im-api/`
-const djbCommentHost = `${host}djb_company/yb-comment-api/`
-const djbCMSHost = `${host}djb_company/yb-cms-api/`
-const djbSignHost = `${host}djb_company/yb-sign-api/`
-const djbQaHost = `${host}djb_company/yb-qa-api/`
-const djbTask = `${host}djb_company/yb-task-api/`
-const djbVote = `${host}djb_company/yb-vote-api/`
-const djbContent = `${host}djb_company/yb-strategy-api/`
-const userHost = `${host}djb_company/yb-user-api/`
-const djbLotteryHost = `${host}djb_company/yb-lottery-api/`
-const djbVoteHost = `${host}djb_company/yb-saas-vote-api/vote/`
-const djbDocumentHost = `${host}djb_company/yb-document-api/`
+const djbPayHost = `${host}yb-pay-api/`
+const djbHost = `${host}yb-question-api/`
+const djbCompanyHost = `${host}yb-business-api/`
+const djbResourceHost = `${host}yb-resource-api/`
+const djbImHost = `${host}yb-im-api/`
+const djbCommentHost = `${host}yb-comment-api/`
+const djbCMSHost = `${host}yb-cms-api/`
+const djbSignHost = `${host}yb-sign-api/`
+const djbQaHost = `${host}yb-qa-api/`
+const djbTask = `${host}yb-task-api/`
+const djbVote = `${host}yb-vote-api/`
+const djbContent = `${host}yb-strategy-api/`
+const userHost = `${host}yb-user-api/`
+const djbLotteryHost = `${host}yb-lottery-api/`
+const djbVoteHost = `${host}yb-saas-vote-api/vote/`
+const djbDocumentHost = `${host}yb-document-api/`
 const djbUserNtkHost = `${host}djb/yb-user-api-ntk/`
 
 
@@ -150,7 +150,7 @@ export default {
   createMenu: `${companyHost}company/navigation/create`, // 创建menu
   deteleMenu: `${companyHost}company/navigation/delete`, // 删除menu
   getMenu: `${companyHost}company/navigation/get`, // get menu
-  getMenuList: `${companyHost}company/navigation/list`, // 获取业务下的子级导航
+  getMenuList: `${djbCompanyHost}navigation/navigationList`, // 获取业务下的子级导航
   updateMenu: `${companyHost}company/navigation/update`, // 更新 menu
   getNavList: `${djbCMSHost}navigation/backList`, // 获取Nav列表
   createNav: `${djbCMSHost}navigation/create`, // 创建Nav
@@ -526,7 +526,8 @@ export default {
   // audittjList: `${companyHost}company/case/fill/statistics`, // 审核任务统计分析列表
   audittjDown: `${companyHost}company/case/fill/download/`, // 下载审核任务统计数据
   audittaskDetails: `${companyHost}company/audittask/details/`, // 加载审核任务详情
-  auditcloum: `${companyHost}company/navigation/list`, // 选择内容(加载栏目)
+  auditcloum: `${djbCompanyHost}navigation/navigationList`, // 选择内容(加载栏目)
+  // auditcloum: `${companyHost}company/navigation/list`, // 选择内容(加载栏目)
   distributeUser: `${companyHost}company/audittask/distribute/user`, // 获取审核人列表
   auditservice: `${companyHost}company/audittask/business/contents`, // 选择内容(加载业务内容)
   auditidentify: `${companyHost}company/audittask/distribut/identify/`, // 添加审核身份(加载审核身份)

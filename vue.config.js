@@ -48,6 +48,10 @@ module.exports = {
             '/djb' : {
                 target: accessOrigin,
                 changeOrigin: true
+            },
+            '/yb-user-api' : {
+                target: accessOrigin,
+                changeOrigin: true
             }
         }
     }

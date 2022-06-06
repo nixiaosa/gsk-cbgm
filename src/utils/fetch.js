@@ -61,15 +61,13 @@ export default {
     post(url, data) {
         return axios({
             method: 'post',
-            // baseURL: 'https://cnodejs.org/api/v1', //
             baseURL: domin, // api  host
             url,
-            // data: qs.stringify(data),
             data,
             timeout: 60000,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'Remote-Host': locationHost,
+                'agent': 'manager',
                 'Content-Type': 'application/json; charset=UTF-8'
             }
         }).then(
@@ -92,7 +90,8 @@ export default {
             timeout: 60000,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'Remote-Host': locationHost
+                'agent': 'manager',
+                'Content-Type': 'application/json; charset=UTF-8'
             }
         }).then(
             (response) => {
@@ -106,24 +105,24 @@ export default {
     },
     delete(url) {
         return axios({
-          method: 'delete',
-          // baseURL: 'https://cnodejs.org/api/v1',
-          baseURL: domin, // api  host
-          url,
-          timeout: 60000,
-          headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-            'Remote-Host': locationHost,
-            'Content-Type': 'application/json; charset=UTF-8'
-          }
+            method: 'delete',
+            // baseURL: 'https://cnodejs.org/api/v1',
+            baseURL: domin, // api  host
+            url,
+            timeout: 60000,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': 'application/json; charset=UTF-8',
+                'agent': 'manager',
+            }
         }).then(
-          (response) => {
-            return checkStatus(response)
-          }
+            (response) => {
+                return checkStatus(response)
+            }
         ).then(
-          (res) => {
-            return checkCode(res)
-          }
+            (res) => {
+                return checkCode(res)
+            }
         )
-      }
+    }
 }

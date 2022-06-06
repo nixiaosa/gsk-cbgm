@@ -91,7 +91,7 @@ export default {
     },
     getcompanyconf: async function() {
       var params = {}
-      const res = await http.post(userapi.getcompanyconf, params)
+      const res = await http.get(userapi.getcompanyconf, params)
       if (res.data.code === 0) {
         this.platname = res.data.data.platomName
         window.document.title = res.data.data.platomName + '后台管理'

@@ -397,7 +397,7 @@ export default {
       this.cancelUpload()
     },
     getVersion: async function () {
-      var res = await http.post(api.getVersion);
+      var res = await http.get(api.getVersion);
       if (res.data.code === 0) {
         this.isOld = res.data.data.webversion;
       } else {

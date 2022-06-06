@@ -1,4 +1,5 @@
 import { asyncRouterMap, constantRouterMap, asyncRouter404 } from '@/router/index'
+import config from '../../common/config'
 
 /**
  * 通过meta.role判断是否与当前用户权限匹配
@@ -36,8 +37,9 @@ function filterAsyncRouter(asyncRouterMap, roles) {
  * @param asyncRouterMap
  * @param roles
  */
-function createUserAsyncRouter(asyncRouterMap, menuData) {
+function createUserAsyncRouter(asyncRouterMap) {
   var userAsyncMenu = []
+  const menuData = config.COMPANY_MENU.data
   for (var i = 0; i < menuData.length; i++) {
     for (var j = 0; j < asyncRouterMap.length; j++) {
       if (asyncRouterMap[j].sign === menuData[i].front) {
@@ -78,7 +80,8 @@ function createUserAsyncRouter2(asyncRouterMap, menuData) {
  * 获取用户的权限列表
  * @param menuData
  */
-function getUserAuth(menuData) {
+function getUserAuth() {
+  let menuData = config.COMPANY_MENU.data
   var authArr = []
   var authObj = {}
   for (var i = 0; i < menuData.length; i++) {
@@ -180,8 +183,9 @@ const permission = {
     }
   },
   actions: {
-    GenerateRoutes({ commit }, menuData) {
+    GenerateRoutes({ commit }) {
       return new Promise((resolve) => {
+        let menuData = config.COMPANY_MENU.data
         var userMenu1 = createUserAsyncRouter(asyncRouterMap, menuData) // 生成用户的一级菜单（其中二级未排序），修改name以及去掉没有权限的菜单
         var [authArr, authObj] = getUserAuth(menuData) // 获取用户的权限列表
         const accessedRouters = filterAsyncRouter(userMenu1, authArr).concat(asyncRouter404)

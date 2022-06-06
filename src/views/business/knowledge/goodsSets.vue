@@ -7,7 +7,7 @@
     </div>
     <el-form :model="form" label-width="100px" :label-position="labelPosition" ref="artForm">
       <!-- <el-form-item label="内容防复制:" prop="title" class="switch">
-        <el-switch 
+        <el-switch
         v-model="form.isCopy"
         :active-value= "0"
         :inactive-value= "1"
@@ -127,7 +127,7 @@
     <!--视频上传进度结束-->
     <span v-show="videoHiden" class="hintLive">支持上传的格式：MP4</span>
     <!-- 上传视频结束 -->
-   
+
     <el-button type="primary" style="margin-top:20px" @click="save()">保 存</el-button>
     <el-button @click="cancel()">取 消</el-button>
   </div>
@@ -349,7 +349,7 @@ export default {
   },
   methods: {
     add0(m){
-      return m<10?'0'+m:m 
+      return m<10?'0'+m:m
     },
     formatDate(shijianchuo) {
       var time = new Date(shijianchuo);
@@ -359,7 +359,7 @@ export default {
       var h = time.getHours();
       var mm = time.getMinutes();
       var s = time.getSeconds();
-      return y+'-'+this.add0(m)+'-'+this.add0(d)+' '+this.add0(h)+':'+this.add0(mm)+':'+this.add0(s);    
+      return y+'-'+this.add0(m)+'-'+this.add0(d)+' '+this.add0(h)+':'+this.add0(mm)+':'+this.add0(s);
     },
     rulePrice(){
       if(this.form.unitPrice < 0.01){
@@ -368,7 +368,7 @@ export default {
       }
     },
     getVersion: async function() {
-      var res = await http.post(api.getVersion);
+      var res = await http.get(api.getVersion);
       if (res.data.code === 0) {
         this.isOld = res.data.data.webversion;
       } else {
@@ -815,5 +815,5 @@ $c-theme:var(--reset);$c-theme2:var(--reset2);$c-theme3:var(--reset3);
   ::v-deep  .el-form-item__content{
     line-height: 1 !important;
   }
-}      
+}
 </style>

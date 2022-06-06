@@ -55,6 +55,9 @@ function checkCode(res) {
                 window.location.href = '/admin'
             }
             break
+        case 204:
+            alert('登录失效，请重新登录')
+            break
     }
     // if (res.data && (!res.data.success)) {
     //   alert(res.data.error_msg)
@@ -77,7 +80,6 @@ export default {
     post(url, data) {
         return axios({
             method: 'post',
-            // baseURL: 'https://cnodejs.org/api/v1', //
             baseURL: domin, // api  host
             url,
             // data: qs.stringify(data),
@@ -85,7 +87,7 @@ export default {
             timeout: 60000,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'Remote-Host': locationHost,
+                'agent': 'manager',
                 'Content-Type': 'application/json; charset=UTF-8'
             }
         }).then(
@@ -114,7 +116,8 @@ export default {
             timeout: 60000,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'Remote-Host': locationHost
+                'agent': 'manager',
+                'Content-Type': 'application/json; charset=UTF-8'
             }
         }).then(
             (response) => {

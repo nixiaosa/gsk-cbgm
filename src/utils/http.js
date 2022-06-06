@@ -62,7 +62,7 @@ export default {
       timeout: 60000,
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
-        'Remote-Host': locationHost,
+        'agent': 'manager',
         'Content-Type': 'application/json; charset=UTF-8'
       }
     }).then(
@@ -91,7 +91,7 @@ export default {
       timeout: 60000,
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
-        'Remote-Host': locationHost,
+        'agent': 'manager',
         'Content-Type': 'application/json; charset=UTF-8'
       }
     }).then(
@@ -113,7 +113,7 @@ export default {
       timeout: 60000,
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
-        'Remote-Host': locationHost,
+        'agent': 'manager',
         'Content-Type': 'application/json; charset=UTF-8'
       }
     }).then(

@@ -58,6 +58,7 @@ import area from '@/api/area'
 import api from '@/api/tenantInfoSave'
 import { formatDate } from '@/common/data'
 import { mapGetters } from 'vuex'
+import config from '../../common/config'
 export default {
   name: 'modelist',
   components: {},
@@ -113,7 +114,10 @@ export default {
   methods: {
     //    获取业务类型
     getBusinessId: async function() {
-      var res = await http.post(api.getBusinessId)
+      // var res = await http.post(api.getBusinessId)
+      let res = {
+        data: config.COMPANY_BUSINESS
+      }
       if (res.data.code === 0) {
         var businessId = parseInt(res.data.data[0].businessId)
         localStorage.setItem('businessId', businessId)

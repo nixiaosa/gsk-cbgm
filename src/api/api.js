@@ -13,23 +13,23 @@ if (href.indexOf('localhost') >= 0 || window.location.port === '9004') {
 }
 
 const companyHost = `${host}yb-company/`
-const djbCompanyHost = `${host}djb_company/yb-user-api/`
+const djbCompanyHost = `${host}yb-user-api/`
 
 
 const vmsHost = `${host}yb-vms/`
-const djbHost = `${host}djb_company/yb-question-api/`
-const userHostNTK = `${host}djb_company/yb-user-api-ntk/`
-const BUSINESS_HOST = `${host}djb_company/yb-business-api/`
-const djbResourceHost = `${host}djb_company/yb-resource-api/`
-const djbImHost = `${host}djb_company/yb-im-api/`
-const djbCommentHost = `${host}djb_company/yb-comment-api/`
-const djbCMSHost = `${host}djb_company/yb-cms-api/`
-const djbSignHost = `${host}djb_company/yb-sign-api/`
-const djbQaHost = `${host}djb_company/yb-qa-api/`
-const djbTask = `${host}djb_company/yb-task-api/`
-const userHost = `${host}djb_company/yb-user-api/`
-const djbStatistics = `${host}djb_company/yb-statistics-api/`
-const djbstrategy = `${host}djb_company/yb-strategy-api/`
+const djbHost = `${host}yb-question-api/`
+const userHostNTK = `${host}yb-user-api-ntk/`
+const BUSINESS_HOST = `${host}yb-business-api/`
+const djbResourceHost = `${host}yb-resource-api/`
+const djbImHost = `${host}yb-im-api/`
+const djbCommentHost = `${host}yb-comment-api/`
+const djbCMSHost = `${host}yb-cms-api/`
+const djbSignHost = `${host}yb-sign-api/`
+const djbQaHost = `${host}yb-qa-api/`
+const djbTask = `${host}yb-task-api/`
+const userHost = `${host}yb-user-api/`
+const djbStatistics = `${host}yb-statistics-api/`
+const djbstrategy = `${host}yb-strategy-api/`
 export var Api = {
     // getCodeGenerate: `${userHost}user/code/generate`, // 获取衡石code
     getCodeGenerate: `${userHost}user/code/generate`, // 获取衡石code
@@ -207,7 +207,7 @@ export var Api = {
     createMenu: `${companyHost}company/navigation/create`, // 创建menu
     deteleMenu: `${companyHost}company/navigation/delete`, // 删除menu
     getMenu: `${companyHost}company/navigation/get`, // get menu
-    getMenuList: `${companyHost}company/navigation/list`, // 获取业务下的子级导航
+    getMenuList: `${BUSINESS_HOST}navigation/navigationList`, // 获取业务下的子级导航
     updateMenu: `${companyHost}company/navigation/update`, // 更新 menu
     getNavList: `${djbCMSHost}navigation/backList`, // 获取Nav列表
     createNav: `${djbCMSHost}navigation/create`, // 创建Nav
@@ -485,7 +485,8 @@ export var Api = {
     // audittjList: `${companyHost}company/case/fill/statistics`, // 审核任务统计分析列表
     audittjDown: `${companyHost}company/case/fill/download`, // 下载审核任务统计数据
     audittaskDetails: `${companyHost}company/audittask/details/`, // 加载审核任务详情
-    auditcloum: `${companyHost}company/navigation/list`, // 选择内容(加载栏目)
+    // auditcloum: `${companyHost}company/navigation/list`, // 选择内容(加载栏目)
+    auditcloum: `${BUSINESS_HOST}navigation/navigationList`, // 选择内容(加载栏目)
     distributeUser: `${companyHost}company/audittask/distribute/user`, // 获取审核人列表
     auditservice: `${companyHost}company/audittask/business/contents`, // 选择内容(加载业务内容)
     auditidentify: `${companyHost}company/audittask/distribut/identify/`, // 添加审核身份(加载审核身份)

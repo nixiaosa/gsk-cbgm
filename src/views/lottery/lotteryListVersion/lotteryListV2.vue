@@ -45,7 +45,7 @@
           <span>{{ scope.row.createTime | formatDate }}</span>
         </template>
       </el-table-column>
-      
+
       <!-- <el-table-column label="状态">
         <template slot-scope="scope">
           <span>{{ scope.row.status | getStatus }}</span>
@@ -102,7 +102,7 @@
             type="danger"
             size="small"
             @click="forbidden(scope.row.lotteryId,3)"
-            v-if="scope.row.activityState !== 0 && scope.row.activityState !== 3" 
+            v-if="scope.row.activityState !== 0 && scope.row.activityState !== 3"
           >结束</el-button>
         </template>
       </el-table-column>
@@ -120,7 +120,7 @@
         <li class="activityDetail"><span>活动介绍：</span><em v-html="detailForm.activityDetail"></em></li>
         <li>
           <span>主要奖品：</span>
-          <div v-for="(item,index) in prizeForm" :key="index">{{ item.name}}：{{ item.description}}</div>  
+          <div v-for="(item,index) in prizeForm" :key="index">{{ item.name}}：{{ item.description}}</div>
         </li>
       </ul>
       <span slot="footer" class="dialog-footer">
@@ -330,7 +330,7 @@ export default {
   },
   methods: {
     getVersion: async function() {
-      var res = await http.post(api.getVersion);
+      var res = await http.get(api.getVersion);
       if (res.data.code === 0) {
         this.isOld = res.data.data.webversion;
       } else {
@@ -614,7 +614,7 @@ export default {
         this.$message.error(res.data.msg);
       }
     },
-    
+
     goDetail: async function (id,type) { // 详情弹窗
       this.ends = type
       if(id){
@@ -695,7 +695,7 @@ export default {
     }
     em{
       display: inline-block;
-      max-width:500px; 
+      max-width:500px;
       font-style: normal;
       line-height: 1.5;
       margin-left: 80px;
@@ -708,7 +708,7 @@ export default {
   .activityDetail{
     em{
       display: inline-block;
-      margin-top: -14px 
+      margin-top: -14px
     }
   }
 }
