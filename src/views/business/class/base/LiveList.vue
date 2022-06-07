@@ -137,12 +137,12 @@
               </el-button>
             </el-row>
 
-            <el-row v-show="scope.row.businessId === 9 && (scope.row.status===3 || scope.row.status===9)">
+            <!-- <el-row v-show="scope.row.businessId === 9 && (scope.row.status===3 || scope.row.status===9)">
               <el-button
                   @click="inform('getInteractData', scope.row)" type="info" size="small">
                 互动数据
               </el-button>
-            </el-row>
+            </el-row> -->
 
             <el-row v-if="classStatic">
               <el-button @click="inform('handleClick', scope.row)" type="info" size="small"
@@ -157,21 +157,21 @@
               </el-button>
             </el-row>
 
-            <el-row v-if="scope.row.businessId===3">
+            <!-- <el-row v-if="scope.row.businessId===3">
               <el-button type="info" size="small"
                          @click="inform('userManage', scope.row)">
                 人员管理
               </el-button>
-            </el-row>
+            </el-row> -->
 
-            <el-row v-if="isCorrection">
+            <!-- <el-row v-if="isCorrection">
               <el-button
                   @click="inform('liveStatusCorrection', scope.row)"
                   type="warning"
                   size="small"
               >状态修正
               </el-button>
-            </el-row>
+            </el-row> -->
 
             <el-row
                 v-if="scope.row.status !== -1 && scope.row.status !== 0 && scope.row.status !== 2 && scope.row.status !== 1 && scope.row.status !== 3 && scope.row.isDeleted !== 1">
@@ -192,29 +192,29 @@
               </el-button>
             </el-row>
 
-            <el-row v-if="scope.row.status === 1">
+            <!-- <el-row v-if="scope.row.status === 1">
               <el-button type="danger" size="small" @click="inform('pause', scope.row)"
               >暂停
               </el-button>
-            </el-row>
+            </el-row> -->
 
-            <el-row v-if="scope.row.dataSource.isUploadIdentification">
+            <!-- <el-row v-if="scope.row.dataSource.isUploadIdentification">
               <el-button type="info" size="small" @click="inform('credentialsExport', scope.row)"
               >导出证件照
               </el-button>
-            </el-row>
+            </el-row> -->
 
-            <el-row v-show="!scope.row.isOld">
+            <!-- <el-row v-show="!scope.row.isOld">
               <el-button @click="inform('blackList', scope.row)" type="info" size="small"
               >会议黑名单
               </el-button>
-            </el-row>
+            </el-row> -->
 
-            <el-row v-show="!scope.row.isPublic">
+            <!-- <el-row v-show="!scope.row.isPublic">
               <el-button @click="inform('applyList', scope.row)" type="info" size="small"
               >申请管理
               </el-button>
-            </el-row>
+            </el-row> -->
           </div>
         </template>
       </el-table-column>

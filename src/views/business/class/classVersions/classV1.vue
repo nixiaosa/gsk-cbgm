@@ -915,13 +915,15 @@ export default {
     //   }
     // },
     getIdentityVideoVersion: async function (busId) {
-      var res = await http.get(api.getIdentityVideoVersion + busId);
-      if (res.data.code === 0) {
-        this.identityExist = res.data.data.exist;
-        this.identityPublic = res.data.data.isPublic;
-      } else {
-        this.$message.error(res.data.message);
-      }
+      this.identityExist = false;
+      this.identityPublic = true;
+      // var res = await http.get(api.getIdentityVideoVersion + busId);
+      // if (res.data.code === 0) {
+      //   this.identityExist = res.data.data.exist;
+      //   this.identityPublic = res.data.data.isPublic;
+      // } else {
+      //   this.$message.error(res.data.message);
+      // }
     },
     updateForm() {
       this.bidValue = this.$route.matched[0].meta.businessId.toString();
@@ -1136,9 +1138,10 @@ export default {
           path: `interactionV2/${businessId}/${busId}/${commentId}`
         });
       }
-      // this.$router.push({
-      //   path: `interaction/${businessId}/${busId}/${commentId}`
-      // });
+
+      this.$router.push({
+        path: `interaction/${businessId}/${busId}/${commentId}`
+      });
     },
     govideoManage(businessId, busId, id) {
       this.$router.push({path: `videoManage/${businessId}/${busId}/${id}`});

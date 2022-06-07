@@ -136,11 +136,11 @@
               </el-button>
             </el-row>
 
-            <el-row v-show="!scope.row.isOld">
+            <!-- <el-row v-show="!scope.row.isOld">
               <el-button @click="inform('blackList', scope.row)" type="info" size="small"
               >会议黑名单
               </el-button>
-            </el-row>
+            </el-row> -->
 
             <el-row v-show="!scope.row.isPublic">
               <el-button @click="inform('applyList', scope.row)" type="info" size="small"
