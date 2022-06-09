@@ -16,7 +16,8 @@ if (href.indexOf('localhost') > 0 || window.location.port === '9004') {
 }
 
 const companyHost = `${host}yb-company/`
-const vmsHost = `${host}yb-vms/`
+// const vmsHost = `${host}yb-vms/`
+const vmsHost = `${host}yb-vms-api/`
 
 export default {
   upimgurl: `${vmsHost}vms/asset/file`,

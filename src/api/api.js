@@ -16,7 +16,8 @@ const companyHost = `${host}yb-company/`
 const djbCompanyHost = `${host}yb-user-api/`
 
 
-const vmsHost = `${host}yb-vms/`
+// const vmsHost = `${host}yb-vms/`
+const vmsHost = `${host}yb-vms-api/`
 const djbHost = `${host}yb-question-api/`
 const userHostNTK = `${host}yb-user-api-ntk/`
 const BUSINESS_HOST = `${host}yb-business-api/`
