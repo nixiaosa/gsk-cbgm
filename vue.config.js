@@ -52,6 +52,14 @@ module.exports = {
             '/yb-user-api' : {
                 target: accessOrigin,
                 changeOrigin: true
+            },
+            '/yb-comment-api' : {
+                target: accessOrigin,
+                changeOrigin: true
+            },
+            '/yb-im-api' : {
+                target: accessOrigin,
+                changeOrigin: true
             }
         }
     }

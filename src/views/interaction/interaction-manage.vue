@@ -376,6 +376,7 @@ export default {
         params.groupId = this.args.groupId;
       }
       let res = await this.$http.post(this.$api.djbCommentBtn, params);
+      // let res = await this.$http.post("https://gsk.dev.100url.cn/yb-comment-api/comment/manage/index", params);
       this.id = res.data.data.id;
       this.commentId = res.data.data.commentId;
       this.auditStatus = res.data.data.auditStatus;
