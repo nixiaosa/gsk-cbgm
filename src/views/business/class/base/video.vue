@@ -197,22 +197,11 @@
     methods: {
       download(type) {
         this.isLoading = true
-        if (this.serviceId === 9) {
-          // http.get(api.adminWatchListExport + this.busId + '/' + 2).then(res => {
-          //   let data = res.data
-          //   if (data.code === 0) {
-          //     this.isLoading = false
-          //     window.location.href = data.data
-          //   } else {
-          //     this.isLoading = false
-          //     this.$message.error(data.message)
-          //   }
-          // })
+        // if (this.serviceId === 9) {
           var params = {
             businessId: this.serviceId,
             busId: this.busId,
             type: 2,
-            // identity: this.identity
           };
           http.post(api.adminWatchListExport, params).then(res => {
             let data = res.data;
@@ -224,19 +213,19 @@
               this.$message.error(data.message);
             }
           });
-          return
-        }
-        if (type === 1) {
-          this.isLoading = false
-          window.location.href = api.videoWatchOut + this.busId + '/' + 2
-        } else {
-          this.isLoading = false
-          if (this.serviceId === 5) {
-            window.location.href = api.videoWatchOut3 + this.busId + '/' + 2
-          } else {
-            window.location.href = api.videoWatchOut2 + this.busId + '/' + 2
-          }
-        }
+          // return
+        // }
+        // if (type === 1) {
+        //   this.isLoading = false
+        //   window.location.href = api.videoWatchOut + this.busId + '/' + 2
+        // } else {
+        //   this.isLoading = false
+        //   if (this.serviceId === 5) {
+        //     window.location.href = api.videoWatchOut3 + this.busId + '/' + 2
+        //   } else {
+        //     window.location.href = api.videoWatchOut2 + this.busId + '/' + 2
+        //   }
+        // }
       },
       videoDataList: async function(type,pageNum) {
         var params1 = {
@@ -248,19 +237,20 @@
             type: type
           }
         }
-        let apiLink = ''
-        if (this.serviceId !== 9) {
-          apiLink = api.watchList
-          if (this.version === '2') {
-            if (this.serviceId === 5) {
-              apiLink = api.watch3List
-            } else {
-              apiLink = api.watch2List
-            }
-          }
-        } else {
-          apiLink = api.adminWatchList
-        }
+        let apiLink = api.adminWatchList
+        // let apiLink = ''
+        // if (this.serviceId !== 9) {
+        //   apiLink = api.watchList
+        //   if (this.version === '2') {
+        //     if (this.serviceId === 5) {
+        //       apiLink = api.watch3List
+        //     } else {
+        //       apiLink = api.watch2List
+        //     }
+        //   }
+        // } else {
+        //   apiLink = api.adminWatchList
+        // }
         await http.post(apiLink, params1).then(response => {
           var data1 = response.data.data
           this.videoData = data1
