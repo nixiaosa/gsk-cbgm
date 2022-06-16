@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      isHidden: true
+      isHidden: false
     }
   },
   computed: {

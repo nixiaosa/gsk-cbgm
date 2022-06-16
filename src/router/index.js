@@ -101,6 +101,13 @@ export const asyncRouterMap = [
                 name: '身份管理',
                 sign: 'basics_identity_manage'
             },
+            {
+                path: 'sign/manage',
+                component: _import('base/signManage'),
+                icon: 'zonghe',
+                name: '签到管理',
+                // sign: 'basics_identity_manage'
+            },
         ]
     },
     {

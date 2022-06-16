@@ -157,6 +157,15 @@ export default {
   createNav: `${djbCMSHost}navigation/create`, // 创建Nav
   updateNav: `${djbCMSHost}navigation/update`, // 启停Nav
 
+  getSignList: `${djbCompanyHost}sign/in/config/list`, // 签到管理列表
+  getArticleList: `${djbCompanyHost}wxmaterial/published/list`, // 获取文章列表
+  getGskVideoList: `${djbCompanyHost}video/forsign/list`, // 获取直播回看列表
+  gskSignSave: `${djbCompanyHost}sign/in/config/save`, // 新增/编辑签到
+  gskSignEdit: `${djbCompanyHost}sign/in/config/get`, // 获取签到内容
+  gskSignExport: `${djbCompanyHost}sign/in/config/export`, // 签到内容导出
+
+
+
   getVideoList: [`${companyHost}company/`, 'video/list'], // 获得视频直播类信息列表
   videoDataList: `${companyHost}oss/manager/watchhistory/result`, // 视频统计结果
   queryQuestionnaire: `${companyHost}company/answer/list/`, // 问卷调查列表
