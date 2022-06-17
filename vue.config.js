@@ -60,7 +60,11 @@ module.exports = {
             '/yb-im-api' : {
                 target: accessOrigin,
                 changeOrigin: true
-            }
+            },
+            '/yake.manage': {
+                target: accessOrigin,
+                changeOrigin: true
+            },
         }
     }
 };

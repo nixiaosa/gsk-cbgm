@@ -169,7 +169,11 @@
       },
       formatDates(time) {
         var date = new Date(time)
-        return formatDate(date,'yyyy-MM-dd hh:mm')
+        if(time){
+          return formatDate(date,'yyyy-MM-dd hh:mm')
+        } else {
+          ""
+        }
       },
       getState(state) {
         switch (state) {
@@ -242,6 +246,7 @@
             this.editForm.id = res.data.data.id;
             this.editForm.type = String(res.data.data.type);
             this.editForm.effectiveDate = res.data.data.effectiveDate;
+            this.editForm.sourceId = res.data.data.sourceId;
             if(this.editForm.type == 1) {
               this.articleId = res.data.data.sourceId;
             } else if(this.editForm.type == 3) {
@@ -260,14 +265,13 @@
       gskSignSave: async function() {
         let params = {}
         params = {
-            pageNum: 1,
-            pageSize: 10,
-            params: this.editForm
+            ...this.editForm
         }
         var res = await http.post(api.gskSignSave,params);
         if (res.data.code === 0) {
           this.$message.success("操作成功");
-          this.getSignList(1);          
+          this.getSignList(1);
+          this.ends = false;          
         } else {
           this.$message.error(res.data.message);
         }
