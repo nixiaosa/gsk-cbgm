@@ -65,6 +65,10 @@ module.exports = {
                 target: accessOrigin,
                 changeOrigin: true
             },
+            '/yb-question-api': {
+                target: accessOrigin,
+                changeOrigin: true
+            },
         }
     }
 };

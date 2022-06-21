@@ -57,16 +57,16 @@
           <span>{{ scope.row.createBy }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="200">
+      <el-table-column label="操作" width="400">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="godetail(scope.row.id)">查看</el-button>
           <el-button type="danger" size="small" @click="endcase(scope.row.id)" v-if="scope.row.status === 2">结束答题</el-button>
-          <el-button v-show="scope.row.isCredentials" type="info" size="small" @click="photoExport(scope.row.id)">导出证件信息</el-button>
-          <el-button
+          <!-- <el-button v-show="scope.row.isCredentials" type="info" size="small" @click="photoExport(scope.row.id)">导出证件信息</el-button> -->
+          <!-- <el-button
             type="info"
             size="small"
             @click="goApplyList(scope.row)"
-          >申请管理</el-button>
+          >申请管理</el-button> -->
         </template>
       </el-table-column>
     </el-table>

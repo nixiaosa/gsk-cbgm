@@ -21,7 +21,15 @@
         >
       </el-form-item>
     </el-form>
-    <div class="identity-tab">
+    <IdentityTable
+      :data="tabData"
+      :tableConfig="doctorConfig"
+      :hasSelect="false"
+      ref="comment"
+    ></IdentityTable>
+
+
+    <!-- <div class="identity-tab">
       <el-button
         v-for="(item, index) in identityArr"
         :key="item.identity"
@@ -31,9 +39,9 @@
         :class="{ identityActive: identityActive == index }"
         >{{ item.titlename }}</el-button
       >
-    </div>
+    </div> -->
 
-    <IdentityTable
+    <!-- <IdentityTable
       v-if="identity === 1"
       :data="tabData"
       :tableConfig="doctorConfig"
@@ -88,7 +96,7 @@
       :tableConfig="technicianConfig"
       :hasSelect="false"
       ref="comment"
-    ></IdentityTable>
+    ></IdentityTable> -->
     <div style="margin: 20px"></div>
     <el-pagination
       background
@@ -197,7 +205,7 @@ export default {
   },
   mounted() {
     this.participants(this.currentPage);
-    this.getIdentityList();
+    // this.getIdentityList();
   },
   methods: {
     // async answerExport() {
@@ -235,7 +243,7 @@ export default {
     participants: async function (pageNum) {
       let params = {};
       params = {
-        identity: this.identity,
+        // identity: this.identity,
         pageNum: pageNum,
         pageSize: 10,
         examId: this.id,
@@ -258,22 +266,22 @@ export default {
       }
     },
     // 获取多身份
-    getIdentityList: async function () {
-      var params = {};
-      var res = await http.post(api.getQaIdentityList, params);
-      if (res.data.code === 0) {
-        this.identityArr = res.data.data;
-        this.identity = this.identityArr[0].titleId;
-      } else {
-        this.$message.error(res.data.msg);
-      }
-    },
-    identityClick(item, index) {
-      // this.identity = item.identity;
-      this.identity = item.titleId;
-      this.identityActive = index;
-      this.handleCurrentChange(1);
-    },
+    // getIdentityList: async function () {
+    //   var params = {};
+    //   var res = await http.post(api.getQaIdentityList, params);
+    //   if (res.data.code === 0) {
+    //     this.identityArr = res.data.data;
+    //     this.identity = this.identityArr[0].titleId;
+    //   } else {
+    //     this.$message.error(res.data.msg);
+    //   }
+    // },
+    // identityClick(item, index) {
+    //   // this.identity = item.identity;
+    //   this.identity = item.titleId;
+    //   this.identityActive = index;
+    //   this.handleCurrentChange(1);
+    // },
   },
 };
 </script>
