@@ -15,7 +15,7 @@
          <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExport" v-if="identity === 1">导出</el-button>
          <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExport2" v-if="identity === 0">导出</el-button>
        </el-form-item>
-         <el-table :data="tabData" v-if="identity === 0" border>
+         <el-table :data="tabData" border>
       <el-table-column label="姓名">
         <template slot-scope="scope">
           <span>{{ scope.row.userName }}</span>
@@ -79,7 +79,7 @@
     </el-table>
 
 
-       <div class="identity-tab" v-if="identity === 1" style="margin-bottom:10px"> 
+       <!-- <div class="identity-tab" v-if="identity === 1" style="margin-bottom:10px"> 
         <el-button
           v-for="(item,index) in identityArr"
           :key="item.titleId"
@@ -88,9 +88,9 @@
           size="small"
           :class="{'identityActive':identityActive==index}"
         >{{ item.titlename }}</el-button>
-      </div>
+      </div> -->
      </el-form>
-     <div v-if="identity === 1">
+     <!-- <div v-if="identity === 1">
        <IdentityTable
       v-if="titleId === 1"
       :data="tabData"
@@ -156,7 +156,7 @@
       ref="comment"
     ></IdentityTable>
 
-     </div>
+     </div> -->
      <div style="margin:20px"></div>
      <el-pagination
        background
@@ -268,7 +268,7 @@
     },
     mounted() {
       this.participants(this.currentPage)
-      this.getUserId()
+      // this.getUserId()
     },
     methods: {
       answerExport2: async function(pageNum) {
@@ -315,22 +315,22 @@
         this.currentPage = val
         this.participants(val)
       },
-      async getUserId() {
-        let params = {}
-        const res =  await http.get(api.getUserId + `${this.companyid}`, params)
-        if(res.data.code === 0) {
-          this.identityArr = res.data.data;
-        }
-      },
-      identityClick(item, index) {
-        this.titleId = item.titleId;
-        this.identityActive = index;
+      // async getUserId() {
+      //   let params = {}
+      //   const res =  await http.get(api.getUserId + `${this.companyid}`, params)
+      //   if(res.data.code === 0) {
+      //     this.identityArr = res.data.data;
+      //   }
+      // },
+      // identityClick(item, index) {
+      //   this.titleId = item.titleId;
+      //   this.identityActive = index;
 
-        // this.identity = item.titleId;
-        // this.identity = item.titleId;
-        // this.identityActive = index;
-        this.participants(1)
-      },
+      //   // this.identity = item.titleId;
+      //   // this.identity = item.titleId;
+      //   // this.identityActive = index;
+      //   this.participants(1)
+      // },
       participants: async function(pageNum) {
         let params = {}
         params = {

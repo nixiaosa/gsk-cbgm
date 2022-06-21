@@ -26,7 +26,7 @@
         <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExportDetail" v-if="identity === 1">导出</el-button>
         <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExportDetail2" v-if="identity === 0">导出</el-button>
       </el-form-item>
-      <div class="identity-tab" style="margin-bottom:10px" v-if="identity === 1">
+      <!-- <div class="identity-tab" style="margin-bottom:10px" v-if="identity === 1">
         <el-button
           v-for="(item,index) in identityArr"
           :key="item.titleId"
@@ -35,7 +35,7 @@
           size="small"
           :class="{'identityActive':identityActive==index}"
         >{{ item.titlename }}</el-button>
-      </div>
+      </div> -->
     </el-form>
     <el-table v-if="!showDetail" :data="tabData" border>
       <el-table-column label="序号">
@@ -80,7 +80,7 @@
       </el-table-column>
     </el-table>
      <!-- 未开通多身份表格开始 -->
-     <el-table :data="tabDataDetail" v-if="identity === 0 && showDetail" border>
+     <el-table :data="tabDataDetail" v-if="showDetail" border>
       <el-table-column label="姓名">
         <template slot-scope="scope">
           <span>{{ scope.row.userName }}</span>
@@ -144,7 +144,7 @@
     </el-table>
 
 
-    <div v-if="identity === 1 && showDetail">
+    <!-- <div v-if="identity === 1 && showDetail">
       <IdentityTable
       v-if="titleId === 1 && showDetail"
       :data="tabDataDetail"
@@ -209,7 +209,7 @@
       :hasSelect="false"
       ref="comment"
     ></IdentityTable>
-    </div>
+    </div> -->
     <div style="margin:20px"></div>
 
     <el-pagination
@@ -338,7 +338,7 @@ export default {
   },
   mounted() {
     this.participants(this.currentPage);
-    this.getUserId()
+    // this.getUserId()
   },
   methods: {
     async answerExportDetail() {
@@ -495,22 +495,22 @@ export default {
         this.$message.error(res.data.message);
       }
     },
-    async getUserId() {
-      let params = {}
-      const res =  await http.get(api.getUserId + `${this.companyid}`, params)
-      if(res.data.code === 0) {
-        this.identityArr = res.data.data;
-      }
-    },
-    identityClick(item, index) {
-      this.titleId = item.titleId;
-      this.identityActive = index;
+    // async getUserId() {
+    //   let params = {}
+    //   const res =  await http.get(api.getUserId + `${this.companyid}`, params)
+    //   if(res.data.code === 0) {
+    //     this.identityArr = res.data.data;
+    //   }
+    // },
+    // identityClick(item, index) {
+    //   this.titleId = item.titleId;
+    //   this.identityActive = index;
 
-      // this.identity = item.titleId;
-      // this.identity = item.titleId;
-      // this.identityActive = index;
-      this.participantsDetail(this.formInline.teamId,1)
-    }
+    //   // this.identity = item.titleId;
+    //   // this.identity = item.titleId;
+    //   // this.identityActive = index;
+    //   this.participantsDetail(this.formInline.teamId,1)
+    // }
   }
 };
 </script>
