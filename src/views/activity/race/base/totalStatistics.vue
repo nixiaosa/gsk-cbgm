@@ -13,7 +13,7 @@
        <el-form-item>
          <el-button type="info" size="small" @click="onSubmit">查询</el-button>
          <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExport" v-if="identity === 1">导出</el-button>
-         <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExport2" v-if="identity === 0">导出</el-button>
+         <el-button v-show="tabData.length > 0" type="info" size="small" @click="answerExport2">导出</el-button>
        </el-form-item>
          <el-table :data="tabData" border>
       <el-table-column label="姓名">
