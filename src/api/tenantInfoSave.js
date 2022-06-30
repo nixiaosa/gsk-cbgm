@@ -12,29 +12,29 @@ if (href.indexOf('localhost') >= 0 || window.location.port === '9004') {
   host = 'https://api.cmalive.cn/'
 }
 
-const getSig = `${host}yb-resource-api-ntk/`
-const versionHost = `${host}yb-user-api/`
-const companyHost = `${host}yb-company/`
-const djbUserApiHost = `${host}yb-user-api/`
+const getSig = `${host}api/yb-resource-api-ntk/`
+const versionHost = `${host}api/yb-user-api/`
+const companyHost = `${host}api/yb-company/`
+const djbUserApiHost = `${host}api/yb-user-api/`
 // const vmsHost = `${host}yb-vms/`
-const vmsHost = `${host}yb-vms-api/`
-const djbPayHost = `${host}yb-pay-api/`
-const djbHost = `${host}yb-question-api/`
-const djbCompanyHost = `${host}yb-business-api/`
-const djbResourceHost = `${host}yb-resource-api/`
-const djbImHost = `${host}yb-im-api/`
-const djbCommentHost = `${host}yb-comment-api/`
-const djbCMSHost = `${host}yb-cms-api/`
-const djbSignHost = `${host}yb-sign-api/`
-const djbQaHost = `${host}yb-qa-api/`
-const djbTask = `${host}yb-task-api/`
-const djbVote = `${host}yb-vote-api/`
-const djbContent = `${host}yb-strategy-api/`
-const userHost = `${host}yb-user-api/`
-const djbLotteryHost = `${host}yb-lottery-api/`
-const djbVoteHost = `${host}yb-saas-vote-api/vote/`
-const djbDocumentHost = `${host}yb-document-api/`
-const djbUserNtkHost = `${host}djb/yb-user-api-ntk/`
+const vmsHost = `${host}api/yb-vms-api/`
+const djbPayHost = `${host}api/yb-pay-api/`
+const djbHost = `${host}api/yb-question-api/`
+const djbCompanyHost = `${host}api/yb-business-api/`
+const djbResourceHost = `${host}api/yb-resource-api/`
+const djbImHost = `${host}api/yb-im-api/`
+const djbCommentHost = `${host}api/yb-comment-api/`
+const djbCMSHost = `${host}api/yb-cms-api/`
+const djbSignHost = `${host}api/yb-sign-api/`
+const djbQaHost = `${host}api/yb-qa-api/`
+const djbTask = `${host}api/yb-task-api/`
+const djbVote = `${host}api/yb-vote-api/`
+const djbContent = `${host}api/yb-strategy-api/`
+const userHost = `${host}api/yb-user-api/`
+const djbLotteryHost = `${host}api/yb-lottery-api/`
+const djbVoteHost = `${host}api/yb-saas-vote-api/vote/`
+const djbDocumentHost = `${host}api/yb-document-api/`
+const djbUserNtkHost = `${host}api/djb/yb-user-api-ntk/`
 
 
 export default {
