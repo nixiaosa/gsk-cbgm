@@ -69,6 +69,10 @@ module.exports = {
                 target: accessOrigin,
                 changeOrigin: true
             },
+            '/yb-vote-api': {
+                target: accessOrigin,
+                changeOrigin: true
+            },
         }
     }
 };

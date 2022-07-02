@@ -167,6 +167,7 @@ export default {
         if (fileUrlArr && fileUrlArr.length > 0) {
           this.attachList = fileUrlArr;
         }
+        console.log(fileUrlArr)
       } else {
         this.$message.error(res.data.message);
       }
@@ -184,6 +185,7 @@ export default {
       }
     },
     goPFill(url) {
+      console.log(url)
       let urlList = url.split(".");
       let length = urlList.length;
       let fileName = urlList[length - 1];
