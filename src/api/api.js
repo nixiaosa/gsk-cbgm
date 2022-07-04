@@ -103,7 +103,7 @@ export var Api = {
     // 登录 个人信息相关
     login: `${companyHost}company/user/login`, // 登录
     loginOut: `${companyHost}admin/user/logout`, // 退出
-    getcompanyconf: `${djbCompanyHost}company/config/get`, // 得到租户信息
+    // getcompanyconf: `${djbCompanyHost}company/config/get`, // 得到租户信息
     getuserinfo: `${companyHost}company/user/`, // 得到后台用户信息
     updateinfo: `${companyHost}company/user/update`, // 更新个人信息
     // 调研问卷 2.0版

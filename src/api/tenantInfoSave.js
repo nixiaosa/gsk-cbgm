@@ -44,7 +44,7 @@ export default {
   // 登录 个人信息相关
   login: `${companyHost}company/user/login`, // 登录
   loginOut: `${companyHost}admin/user/logout`, // 退出
-  getcompanyconf: `${djbUserApiHost}company/config/get`, // 得到租户信息
+  // getcompanyconf: `${djbUserApiHost}company/config/get`, // 得到租户信息
 
   getuserinfo: `${companyHost}company/user/`, // 得到后台用户信息
   updateinfo: `${companyHost}company/user/update`, // 更新个人信息
@@ -622,7 +622,7 @@ export default {
   getContentColumnsByIds: `${djbContent}contentManager/getContentColumnsByIds`, // 批量获取内容对应的栏目
   editReShow: `${djbContent}contentManager/findByContentId`, // 根据contentId获取内容详情
   editReShowContent: `${djbContent}contentManager/editByContentId`, // 根据contentId编辑内容
-  getVersion: `${versionHost}company/config/get`, // 获取新老网站版本
+  // getVersion: `${versionHost}company/config/get`, // 获取新老网站版本
   cancelRelation: `${djbContent}contentManager/deleteContentById`, // 取消栏目关联
   getSig: `${getSig}upload/getsignature`, // 获取腾讯桶签名
   batchAdd: `${userHost}user/manager/batch/add`, // 批量创建培训管理者
