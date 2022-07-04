@@ -5,7 +5,8 @@ import axios from 'axios'
 const Config = require('../common/config')
 const domin = process.env.BASE_API
 axios.interceptors.request.use(config => {
-    const token = window.localStorage.getItem('yibai_token_c')
+    // const token = window.localStorage.getItem('yibai_token_c')
+    const token = 'Hm_lvt_02f4954098ca538f83974f3e0e52f365=1654667496; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22731099580438937600%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22url%E7%9A%84domain%E8%A7%A3%E6%9E%90%E5%A4%B1%E8%B4%A5%22%2C%22%24latest_search_keyword%22%3A%22url%E7%9A%84domain%E8%A7%A3%E6%9E%90%E5%A4%B1%E8%B4%A5%22%2C%22%24latest_referrer%22%3A%22url%E7%9A%84domain%E8%A7%A3%E6%9E%90%E5%A4%B1%E8%B4%A5%22%7D%2C%22%24device_id%22%3A%2218141de4567632-00073be8aebd7d39c-367b6706-1764000-18141de456888d%22%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfYW5vbnltb3VzX2lkIjoiNzMxMDk5NTgwNDM4OTM3NjAwIiwiJGlkZW50aXR5X2Nvb2tpZV9pZCI6IjE4MTViMDE3OTU0MmU1LTA4ODllMmE0N2M3NDA2OC0zNjdiNjcwNi0zNjg2NDAwLTE4MTViMDE3OTU1OTZlIn0%3D%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D%7D; cmtgsk=Kl0QZG_2k_9eNKWmK2nHrrSul5Op2-wWTLqrDQM7aLxx95KlmyKUOoc7D0Xtk4VjXEqHEl67lQ8GfRQrQmepEeBmv07lgD5gS-PkHualw7bkvyEZpHQwAXkdtF1uu0GXweXan3N8JjZzh6nBbVHnTKekjkAnwLxFFIg7GFWmimc'
     if (token) {
         config.headers.Authorization = token
     }
