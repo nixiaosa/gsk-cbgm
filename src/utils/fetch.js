@@ -5,8 +5,7 @@ import axios from 'axios'
 const Config = require('../common/config')
 const domin = process.env.BASE_API
 axios.interceptors.request.use(config => {
-    // const token = window.localStorage.getItem('yibai_token_c')
-    const token = window.localStorage.getItem('asasassa')
+    const token = window.localStorage.getItem('yibai_token_c')
     if (token) {
         config.headers.Authorization = token
     }
