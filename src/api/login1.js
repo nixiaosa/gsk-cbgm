@@ -19,6 +19,6 @@ export default {
   login: `${companyHost}company/user/login`, // 登录
   loginOut: `${companyHost}company/user/logout`, // 退出
   // getcompanyconf: `${djbcompanyHost}company/config/get`, // 得到租户信息
-  // getuserinfo: `${companyHost}company/user/`, // 得到后台用户信息
-  // updateinfo: `${companyHost}company/user/update` // 更新个人信息
+  getuserinfo: `${companyHost}company/user/`, // 得到后台用户信息
+  updateinfo: `${companyHost}company/user/update` // 更新个人信息
 }
