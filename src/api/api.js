@@ -1,15 +1,26 @@
 // let host = 'https://30.100api.cn/' // 开发API地址
 // let host = 'https://liveapi.cn/' // 测试API地址
-let host = 'https://api.cmalive.cn/' // 线上API地址
+// let host = 'https://api.cmalive.cn/' // 线上API地址
+// const href = window.location.href
+// if (href.indexOf('localhost') >= 0 || window.location.port === '9004') {
+//     host = '' // 本地调试走代理
+// } else if (href.indexOf('.test.') >= 0) {
+//     host = 'https://30.100api.cn/'
+// } else if (href.indexOf('.100live.') >= 0 || href.indexOf('saas-test.') >= 0) {
+//     host = 'https://liveapi.cn/'
+// } else if (href.indexOf('.100doc.') >= 0) {
+//     host = 'https://api.cmalive.cn/'
+// }
+
+
+let host = '';
 const href = window.location.href
-if (href.indexOf('localhost') >= 0 || window.location.port === '9004') {
-    host = '' // 本地调试走代理
-} else if (href.indexOf('.test.') >= 0) {
-    host = 'https://30.100api.cn/'
-} else if (href.indexOf('.100live.') >= 0 || href.indexOf('saas-test.') >= 0) {
-    host = 'https://liveapi.cn/'
-} else if (href.indexOf('.100doc.') >= 0) {
-    host = 'https://api.cmalive.cn/'
+  if (href.indexOf('localhost') >= 0 || (href.indexOf('.dev.')) >= 0) {
+      host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
+  } else if (href.indexOf('.test.') >= 0) {
+      host = 'https://gsk.test.100url.cn/'
+  } else {
+      //host = 'https://api.cmalive.cn/'
 }
 
 const companyHost = `${host}yb-company/`
@@ -26,7 +37,7 @@ const djbImHost = `${host}yb-im-api/`
 const djbCommentHost = `${host}yb-comment-api/`
 const djbCMSHost = `${host}yb-cms-api/`
 const djbSignHost = `${host}yb-sign-api/`
-const djbQaHost = `${host}yb-qa-api/`
+const djbQaHost = `${host}api/yb-qa-api/`
 const djbTask = `${host}yb-task-api/`
 const userHost = `${host}yb-user-api/`
 const djbStatistics = `${host}yb-statistics-api/`
