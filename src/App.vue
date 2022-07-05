@@ -21,7 +21,7 @@ export default {
   components: {
   },
   mounted() {
-    this.setThemeColor(this.themeColor || 'rgb(40, 157, 233)')
+    this.setThemeColor(this.themeColor || 'rgb(4, 190, 2)')
   },
   methods: {
     setThemeColor(themeColor) {
@@ -37,7 +37,7 @@ export default {
   watch: {
     'themeColor' (val) {
       // console.log('lc',val)
-      let themeColor = 'rgb(40, 157, 233)'
+      let themeColor = 'rgb(4, 190, 2)'
       if (val) {
         themeColor = val
       }
