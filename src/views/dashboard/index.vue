@@ -108,6 +108,9 @@ export default {
     }
   },
   mounted() {
+    this.$http.get('v5_0/forum/forum-index?page=18&typeid=0&fid=4&tabid=0&sortid=0' ).then(res => {
+      console.log(res);
+    })
     // this.getTrainList(0)
     this.getBusinessId()
   },

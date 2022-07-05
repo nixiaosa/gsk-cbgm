@@ -26,6 +26,7 @@ import "./assets/icon/iconfont.css"
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
+localStorage.setItem('yibai_token_c', 'noToken')
 prototypeAddFunction(Vue)
 Vue.use(VueQuillEditor, /* { default global options } */)
 Vue.use(ElementUI)

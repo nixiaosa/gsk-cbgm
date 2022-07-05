@@ -23,7 +23,7 @@ axios.interceptors.response.use(response => {
     return Promise.resolve(error.response)
 })
 
-function checkStatus(response) {
+function checkStatus(response, url) {
     // loading
     // 如果http状态码正常，则直接返回数据
     if (response && (response.status === 200 || response.status === 304 || response.status === 400)) {
@@ -33,6 +33,7 @@ function checkStatus(response) {
     // 异常状态下，把错误信息返回去
     return {
         data: {
+            url: url,
             code: -404,
             message: '网络异常'
         },
@@ -92,7 +93,7 @@ export default {
             }
         }).then(
             (response) => {
-                return checkStatus(response)
+                return checkStatus(response, url)
             }
         ).then(
             (res) => {
