@@ -270,9 +270,11 @@
         if(this.editForm.type == 2){
           if(!this.editForm.title){
             this.$message.error("文案标题不能为空");
+            return false
           }
           if(!this.editForm.content){
             this.$message.error("文案内容不能为空");
+            return false
           } 
         }
         var res = await http.post(api.gskSignSave,params);
