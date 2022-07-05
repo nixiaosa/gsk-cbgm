@@ -12,16 +12,16 @@
         <questionnaire-user-list
           :data="questionnaireData"
           @change="userListChange"
-          v-if="activeName === 'userList' && identity === 0"
+          v-if="activeName === 'userList'"
         />
-        <questionnaire-user-list-v2
+        <!-- <questionnaire-user-list-v2
           :data="questionnaireData"
           :titleId="titleId"
           :identityArr="identityArr"
           @change="userListChange"
           @identityClick="identityClick"
           v-if="activeName === 'userList' && identity === 1"
-        />
+        /> -->
       </el-tab-pane>
       <el-tab-pane label="统计分析" name="exportList">
         <questionnaire-export

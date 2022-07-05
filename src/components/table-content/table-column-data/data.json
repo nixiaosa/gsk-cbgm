@@ -505,22 +505,22 @@
           "prop": "START",
           "type": "info"
         },
-        {
-          "hidden": true,
-          "value": "导出证件信息",
-          "prop": "EXPORT",
-          "type": "info"
-        },
+        // {
+        //   "hidden": true,
+        //   "value": "导出证件信息",
+        //   "prop": "EXPORT",
+        //   "type": "info"
+        // },
         {
           "value": "导出问卷数据",
           "prop": "EXPORTDATA",
           "type": "info"
         },
-        {
-          "value": "申请管理",
-          "prop": "APPLYMANAGE",
-          "type": "info"
-        }
+        // {
+        //   "value": "申请管理",
+        //   "prop": "APPLYMANAGE",
+        //   "type": "info"
+        // }
       ],
       "type": "action"
     }

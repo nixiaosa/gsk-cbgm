@@ -28,20 +28,20 @@ const djbCompanyHost = `${host}yb-user-api/`
 
 
 // const vmsHost = `${host}yb-vms/`
-const vmsHost = `${host}yb-vms-api/`
-const djbHost = `${host}yb-question-api/`
-const userHostNTK = `${host}yb-user-api-ntk/`
-const BUSINESS_HOST = `${host}yb-business-api/`
-const djbResourceHost = `${host}yb-resource-api/`
-const djbImHost = `${host}yb-im-api/`
-const djbCommentHost = `${host}yb-comment-api/`
-const djbCMSHost = `${host}yb-cms-api/`
-const djbSignHost = `${host}yb-sign-api/`
+const vmsHost = `${host}api/yb-vms-api/`
+const djbHost = `${host}api/yb-question-api/`
+const userHostNTK = `${host}api/yb-user-api-ntk/`
+const BUSINESS_HOST = `${host}api/yb-business-api/`
+const djbResourceHost = `${host}api/yb-resource-api/`
+const djbImHost = `${host}api/yb-im-api/`
+const djbCommentHost = `${host}api/yb-comment-api/`
+const djbCMSHost = `${host}api/yb-cms-api/`
+const djbSignHost = `${host}api/yb-sign-api/`
 const djbQaHost = `${host}api/yb-qa-api/`
-const djbTask = `${host}yb-task-api/`
-const userHost = `${host}yb-user-api/`
-const djbStatistics = `${host}yb-statistics-api/`
-const djbstrategy = `${host}yb-strategy-api/`
+const djbTask = `${host}api/yb-task-api/`
+const userHost = `${host}api/yb-user-api/`
+const djbStatistics = `${host}api/yb-statistics-api/`
+const djbstrategy = `${host}api/yb-strategy-api/`
 export var Api = {
     // getCodeGenerate: `${userHost}user/code/generate`, // 获取衡石code
     getCodeGenerate: `${userHost}user/code/generate`, // 获取衡石code
