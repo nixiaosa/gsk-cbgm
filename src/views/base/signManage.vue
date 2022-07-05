@@ -8,7 +8,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="标题名称">
-        <el-input v-model="formInline.title" placeholder="请输入活动名称"></el-input>
+        <el-input v-model="formInline.title" placeholder="请输入标题名称"></el-input>
       </el-form-item>
       <el-form-item label="起止时间">
         <el-date-picker type="date" placeholder="选择开始时间" format="yyyy-MM-dd"  v-model="formInline.start" @change="startTimes" >
