@@ -267,6 +267,14 @@
         params = {
             ...this.editForm
         }
+        if(this.editForm.type == 1){
+          if(!this.editForm.title){
+            this.$message.error("文案标题不能为空");
+          }
+          if(!this.editForm.content){
+            this.$message.error("文案内容不能为空");
+          } 
+        }
         var res = await http.post(api.gskSignSave,params);
         if (res.data.code === 0) {
           this.$message.success("操作成功");
