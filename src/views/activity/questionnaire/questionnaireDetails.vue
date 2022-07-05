@@ -155,11 +155,12 @@ export default {
       // tab切换触发
       switch (this.activeName) {
         case "userList":
-          if(this.identity === 0){
-            this.questionnaireUserList();
-          }else if(this.identity === 1){
-            this.getIdentityList();
-          } 
+          // if(this.identity === 0){
+          //   this.questionnaireUserList();
+          // }else if(this.identity === 1){
+          //   this.getIdentityList();
+          // } 
+          this.questionnaireUserList();
           break;
         case "exportList":
           this.questionnaireExportList();
@@ -170,7 +171,45 @@ export default {
     },
     questionnaireUserExport() {
       // 用户列表导出
-      if(this.identity === 0){
+      // if(this.identity === 0){
+      //   http
+      //   .post(this.$api.questionnaireUserExportWithoutId, {
+      //     questionId: this.$route.params.id,
+      //     finishType: this.statesType
+      //   })
+      //   .then(res => {
+      //     let { code, data, message } = res.data;
+      //     if (code === 0) {
+      //       this.$message.success("申请成功");
+      //       this.questionnaireExportList();
+      //     } else {
+      //       this.$message.error(message);
+      //     }
+      //   })
+      //   .catch(err => {
+      //     this.$message.error(err.message);
+      //   });
+      // }else if(this.identity === 1){
+      //    http
+      //   .post(this.$api.questionnaireUserExport, {
+      //     questionId: this.$route.params.id,
+      //     finishType: this.statesType,
+      //     identityType: 1 // 身份导出，不传走老导出
+      //   })
+      //   .then(res => {
+      //     let { code, data, message } = res.data;
+      //     if (code === 0) {
+      //       this.$message.success("申请成功");
+      //       this.questionnaireExportList();
+      //     } else {
+      //       this.$message.error(message);
+      //     }
+      //   })
+      //   .catch(err => {
+      //     this.$message.error(err.message);
+      //   });
+      // }
+
         http
         .post(this.$api.questionnaireUserExportWithoutId, {
           questionId: this.$route.params.id,
@@ -188,27 +227,7 @@ export default {
         .catch(err => {
           this.$message.error(err.message);
         });
-      }else if(this.identity === 1){
-         http
-        .post(this.$api.questionnaireUserExport, {
-          questionId: this.$route.params.id,
-          finishType: this.statesType,
-          identityType: 1 // 身份导出，不传走老导出
-        })
-        .then(res => {
-          let { code, data, message } = res.data;
-          if (code === 0) {
-            this.$message.success("申请成功");
-            this.questionnaireExportList();
-          } else {
-            this.$message.error(message);
-          }
-        })
-        .catch(err => {
-          this.$message.error(err.message);
-        });
-      }
-
+      
 
 
       
