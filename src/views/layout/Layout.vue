@@ -12,7 +12,7 @@
     <!-- <div style="width: 1200px;margin: 0 auto;">
       <app-main v-if="isHidden"></app-main>
     </div> -->
-    <div style="width: 1200px;margin: 0 0;">
+    <div style="width: 100%;margin: 0 0;">
       <app-main v-if="isHidden"></app-main>
     </div>
   </div>
