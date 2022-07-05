@@ -8,8 +8,9 @@
 -->
 <template>
   <div>
-    <normalVote-v1 v-if="isOld === 0"/>
-    <normalVote-v2 v-if="isOld === 1"/>
+    <!-- <normalVote-v1 v-if="isOld === 0"/>
+    <normalVote-v2 v-if="isOld === 1"/> -->
+    <normalVote-v1 />
   </div>
 </template>
 <script>
