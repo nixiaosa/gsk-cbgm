@@ -8,8 +8,9 @@
 -->
 <template>
   <div>
-    <questionnaireManage-v1 v-if="isOld === 0"/>
-    <questionnaireManage-v2 v-if="isOld === 1"/>
+    <!-- <questionnaireManage-v1 v-if="isOld === 0"/> -->
+    <!-- <questionnaireManage-v2 v-if="isOld === 1"/> -->
+     <questionnaireManage-v1/>
   </div>
 </template>
 <script>
