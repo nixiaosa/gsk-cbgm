@@ -73,6 +73,10 @@ module.exports = {
                 target: accessOrigin,
                 changeOrigin: true
             },
+            '/yb-qa-api': {
+                target: accessOrigin,
+                changeOrigin: true
+            },
         }
     }
 };

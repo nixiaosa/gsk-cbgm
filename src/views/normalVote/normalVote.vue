@@ -31,7 +31,7 @@ export default {
     };
   },
   mounted() {
-    this.getVersion();
+    // this.getVersion();
   },
   methods: {
     getVersion: async function() {
