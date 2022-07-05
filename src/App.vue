@@ -21,7 +21,7 @@ export default {
   components: {
   },
   mounted() {
-    this.setThemeColor(this.themeColor || 'rgb(4, 190, 2)')
+    this.setThemeColor('rgb(4, 190, 2)')
   },
   methods: {
     setThemeColor(themeColor) {
