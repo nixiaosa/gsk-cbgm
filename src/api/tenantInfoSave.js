@@ -15,9 +15,9 @@
 const host = '';
 const href = window.location.href
   if (href.indexOf('localhost') >= 0 || (href.indexOf('.dev.')) >= 0) {
-      host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
+      host = 'https://gsk.dev.100url.cn/gsk-admin/' // 本地调试走代理
   } else if (href.indexOf('.test.') >= 0) {
-      host = 'https://gsk.test.100url.cn/'
+      host = 'https://gsk.test.100url.cn/gsk-admin/'
   } else {
       //host = 'https://api.cmalive.cn/'
 }
