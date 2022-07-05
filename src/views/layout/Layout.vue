@@ -9,7 +9,10 @@
       <navbar></navbar>
       <app-main></app-main>
     </div>
-    <div style="width: 1200px;margin: 0 auto;">
+    <!-- <div style="width: 1200px;margin: 0 auto;">
+      <app-main v-if="isHidden"></app-main>
+    </div> -->
+    <div style="width: 1200px;margin: 0 0;">
       <app-main v-if="isHidden"></app-main>
     </div>
   </div>
