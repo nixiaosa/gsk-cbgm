@@ -61,7 +61,7 @@
           <el-form-item label="有效日期:">
             <el-date-picker
               type="date"
-              placeholder="选择开始时间"
+              placeholder="选择有效时间"
               @change="times"
               format="yyyy-MM-dd"
               v-model="editForm.effectiveDate"
@@ -204,7 +204,7 @@
           { label: '全部' },
           { label: '小知识', states: 2 },
           { label: '文章', states: 1 },
-          { label: '直播回看', states: 3 }
+          // { label: '直播回看', states: 3 }
         ],
         formInline: {
           type: null,
@@ -267,7 +267,7 @@
         params = {
             ...this.editForm
         }
-        if(this.editForm.type == 1){
+        if(this.editForm.type == 2){
           if(!this.editForm.title){
             this.$message.error("文案标题不能为空");
           }
