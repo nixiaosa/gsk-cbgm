@@ -246,7 +246,7 @@
             this.editForm.content = '';
             this.articleId ='';
             this.videoId = '';
-            
+
             this.ends = true;
             this.editForm.id = res.data.data.id;
             this.editForm.type = String(res.data.data.type);
@@ -367,7 +367,7 @@
         }
       },
       onSubmit() {
-        this.getSignList(this.currentPage)
+        this.getSignList(1)
       },
       headerChange() {
         this.isDis = false;
