@@ -247,6 +247,11 @@
             this.editForm.type = String(res.data.data.type);
             this.editForm.effectiveDate = res.data.data.effectiveDate;
             this.editForm.sourceId = res.data.data.sourceId;
+
+            this.articleId = res.data.data.sourceId;
+            this.videoId = res.data.data.sourceId;
+             this.editForm.title = res.data.data.title;
+              this.editForm.content = res.data.data.content;
             if(this.editForm.type == 1) {
               this.articleId = res.data.data.sourceId;
             } else if(this.editForm.type == 3) {
