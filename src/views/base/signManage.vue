@@ -242,20 +242,19 @@
         }
         var res = await http.get(api.gskSignEdit + '/' + id);
         if (res.data.code === 0) {
+            this.editForm.title = '';
+            this.editForm.content = '';
+
             this.ends = true;
             this.editForm.id = res.data.data.id;
             this.editForm.type = String(res.data.data.type);
             this.editForm.effectiveDate = res.data.data.effectiveDate;
             this.editForm.sourceId = res.data.data.sourceId;
 
-            this.articleId = res.data.data.sourceId;
-            this.videoId = res.data.data.sourceId;
-             this.editForm.title = res.data.data.title;
-              this.editForm.content = res.data.data.content;
             if(this.editForm.type == 1) {
-              this.articleId = res.data.data.sourceId;
+              this.articleId = Number(res.data.data.sourceId);
             } else if(this.editForm.type == 3) {
-              this.videoId = res.data.data.sourceId;
+              this.videoId = Number(res.data.data.sourceId);
             } else {
               this.editForm.title = res.data.data.title;
               this.editForm.content = res.data.data.content;
