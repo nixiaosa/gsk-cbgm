@@ -244,7 +244,9 @@
         if (res.data.code === 0) {
             this.editForm.title = '';
             this.editForm.content = '';
-
+            this.articleId ='';
+            this.videoId = '';
+            
             this.ends = true;
             this.editForm.id = res.data.data.id;
             this.editForm.type = String(res.data.data.type);
