@@ -144,7 +144,7 @@
     async mounted() {
       await this.getMenuList();
       await this.gskVoteList();
-      // await this.onEdit();
+      await this.onEdit();
     },
     created() {},
     methods: {
