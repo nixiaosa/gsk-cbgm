@@ -108,6 +108,13 @@ export const asyncRouterMap = [
                 name: '签到管理',
                 // sign: 'basics_identity_manage'
             },
+            {
+                path: 'matchSet/manage',
+                component: _import('base/matchSet'),
+                icon: 'zonghe',
+                name: '大赛设置',
+                // sign: 'basics_identity_manage'
+            },
         ]
     },
     {

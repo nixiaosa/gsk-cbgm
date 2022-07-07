@@ -77,6 +77,10 @@ module.exports = {
                 target: accessOrigin,
                 changeOrigin: true
             },
+            '/gsk-science-api': {
+                target: accessOrigin,
+                changeOrigin: true
+            },
         }
     }
 };

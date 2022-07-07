@@ -12,15 +12,29 @@
 //   host = 'https://api.cmalive.cn/'
 // }
 
+// let host = '';
+// const href = window.location.href
+//   if (href.indexOf('.dev.') >= 0) {
+//       host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
+//   } else if (href.indexOf('.test.') >= 0) {
+//       host = 'https://gsk.test.100url.cn/'
+//   } else if (href.indexOf('localhost') >= 0 ){
+//       host = ''
+// }
+
 let host = '';
 const href = window.location.href
-  if (href.indexOf('localhost') >= 0 || (href.indexOf('.dev.')) >= 0) {
+  if (href.indexOf('.dev.') >= 0) {
       host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
   } else if (href.indexOf('.test.') >= 0) {
       host = 'https://gsk.test.100url.cn/'
+  } else if (href.indexOf('localhost') >= 0 ){
+      host = ''
+  } else if (href.indexOf('skyyh') >= 0 ){
+    host = 'https://skyyh.healthy-bone.com.cn/'
   } else {
-      //host = 'https://api.cmalive.cn/'
-}
+    host = 'https://healthy-bone.com.cn/'    
+  }
 
 const getSig = `${host}api/yb-resource-api-ntk/`
 const versionHost = `${host}api/yb-user-api/`
@@ -45,7 +59,7 @@ const djbLotteryHost = `${host}api/yb-lottery-api/`
 const djbVoteHost = `${host}api/yb-saas-vote-api/vote/`
 const djbDocumentHost = `${host}api/yb-document-api/`
 const djbUserNtkHost = `${host}api/djb/yb-user-api-ntk/`
-
+const djbGskMatch = `${host}api/gsk-science-api/`
 
 export default {
   company: {
@@ -577,6 +591,11 @@ export default {
     getsignature: `${vmsHost}vms/getsignature`,  // 上传视频 getsignature
     countadd: `${djbCompanyHost}dataSource/update/countadd`,
   },
+
+
+  gskVoteList: `${djbVote}vote/list`, // 投票列表
+  matchSetting: `${djbGskMatch}manage/setting`, // 大赛设置
+  matchGetSetting: `${djbGskMatch}manage/getSetting/1`, // 大赛设置
 
   //病例征集投票
   voteCaseApplyList: `${djbVote}company/vote/apply/list`, // 病例投票申请管理列表

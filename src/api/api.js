@@ -13,15 +13,29 @@
 // }
 
 
+// let host = '';
+// const href = window.location.href
+//   if (href.indexOf('localhost') >= 0 || (href.indexOf('.dev.')) >= 0) {
+//       host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
+//   } else if (href.indexOf('.test.') >= 0) {
+//       host = 'https://gsk.test.100url.cn/'
+//   } else {
+//       //host = 'https://api.cmalive.cn/'
+// }
+
 let host = '';
 const href = window.location.href
-  if (href.indexOf('localhost') >= 0 || (href.indexOf('.dev.')) >= 0) {
+  if (href.indexOf('.dev.') >= 0) {
       host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
   } else if (href.indexOf('.test.') >= 0) {
       host = 'https://gsk.test.100url.cn/'
+  } else if (href.indexOf('localhost') >= 0 ){
+      host = ''
+  } else if (href.indexOf('skyyh') >= 0 ){
+    host = 'https://skyyh.healthy-bone.com.cn/'
   } else {
-      //host = 'https://api.cmalive.cn/'
-}
+    host = 'https://healthy-bone.com.cn/'    
+  }
 
 const companyHost = `${host}yb-company/`
 const djbCompanyHost = `${host}yb-user-api/`
@@ -43,6 +57,7 @@ const userHost = `${host}api/yb-user-api/`
 const djbStatistics = `${host}api/yb-statistics-api/`
 const djbstrategy = `${host}api/yb-strategy-api/`
 export var Api = {
+    gskUploadImg: `yake.manage/api/file/upload`,
     // getCodeGenerate: `${userHost}user/code/generate`, // 获取衡石code
     getCodeGenerate: `${userHost}user/code/generate`, // 获取衡石code
     watch: { // 观看统计
