@@ -23,7 +23,7 @@
     </div>
     <div class="box-item">
       <span class="title">上传时间：</span>
-      <span class="des">{{ form.createTime }}</span>
+      <span class="des">{{ form.createTime | formatDates}}</span>
     </div>
     <div class="box-item">
       <span class="title">封面：</span>
