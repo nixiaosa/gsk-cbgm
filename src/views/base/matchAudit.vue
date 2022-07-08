@@ -143,7 +143,7 @@ export default {
     };
   },
   async mounted() {
-    await this.getAuditList();
+    await this.getAuditList(1);
   },
   created() {},
   methods: {
@@ -160,10 +160,10 @@ export default {
       this.form.userName = '';
       this.form.phone = '';
       this.form.audit = '';
-      this.getAuditList();
+      this.getAuditList(1);
     },
     search(){
-      this.getAuditList();
+      this.getAuditList(1);
     },
     getAuditList: async function(pageNum) {
       let params = {
