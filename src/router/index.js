@@ -115,6 +115,20 @@ export const asyncRouterMap = [
                 name: '大赛设置',
                 // sign: 'basics_identity_manage'
             },
+            {
+                path: 'match/audit',
+                component: _import('base/matchAudit'),
+                icon: 'zonghe',
+                name: '参赛作品审核',
+                // sign: 'basics_identity_manage'
+            },
+            {
+                path: 'match/auditDetail/:id',
+                component: _import('base/matchAuditDetail'),
+                icon: 'zonghe',
+                name: '报名审核',
+                // sign: 'basics_identity_manage'
+            },
         ]
     },
     {

@@ -84,7 +84,7 @@
   import HeaderContent from '@/components/header-content'
   import { mapGetters } from "vuex";
   export default {
-    name: "signManage",
+    name: "matchSet",
     components: {
       HeaderContent
     },

@@ -592,10 +592,14 @@ export default {
     countadd: `${djbCompanyHost}dataSource/update/countadd`,
   },
 
-
+  //科普大赛
   gskVoteList: `${djbVote}vote/list`, // 投票列表
   matchSetting: `${djbGskMatch}manage/setting`, // 大赛设置
   matchGetSetting: `${djbGskMatch}manage/getSetting/1`, // 大赛设置
+  matchAuditList: `${djbGskMatch}manage/audit/list`, // 用户审核列表
+  matchAudit: `${djbGskMatch}manage/audit`, // 用户审核
+  matchAuditDetail: `${djbGskMatch}manage/getAuditUser`, // 用户审核详情
+
 
   //病例征集投票
   voteCaseApplyList: `${djbVote}company/vote/apply/list`, // 病例投票申请管理列表
