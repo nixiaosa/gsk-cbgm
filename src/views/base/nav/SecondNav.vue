@@ -46,9 +46,9 @@
           >编辑</el-button>
           <el-button
             @click="navSwitch(scope.row)"
-            :type="scope.row.isdelete === 0 ? 'danger' : 'success'"
+            :type="scope.row.status === 0 ? 'danger' : 'success'"
             size="small"
-          >{{ scope.row.isdelete === 0 ? '停用' : '启用' }}</el-button>
+          >{{ scope.row.status === 0 ? '停用' : '启用' }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -127,20 +127,15 @@ export default {
       this.$emit("change", params);
     },
     navSwitch: async function(val) {
-      let isdelete = val.isdelete;
       let id = val.id;
-      var params = {
-        isdelete: isdelete === 0 ? 1 : 0,
-        id: id
-      };
-      // var res = await http.post(api.NavigationUpdate, params);
-      var res = await http.post(api.updateNavigation, params);
+      var res = await http.get(api.navigationForbidden + '/' + id);
       if (res.data.code === 0) {
-        if(isdelete == 0){
-          this.successTost("停用成功");
+        if(status == 0){
+          this.successTost("操作成功");
         }else{
-          this.successTost("启用成功");
+          this.successTost("操作成功");
         }
+        
         this.$emit("change", "secondNav");
       }else{
         this.errorTost(res.data.message);

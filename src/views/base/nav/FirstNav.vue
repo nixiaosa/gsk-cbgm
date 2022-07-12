@@ -121,18 +121,13 @@ export default {
       this.$emit("change", params);
     },
     navSwitch: async function(val) {
-      let status = val.status;
       let id = val.id;
-      var params = {
-        status: status === 0 ? 1 : 0,
-        id: id
-      };
-      var res = await http.post(api.navigationForbidden, params);
+      var res = await http.get(api.navigationForbidden + '/' + id);
       if (res.data.code === 0) {
         if(status == 0){
-          this.successTost("停用成功");
+          this.successTost("操作成功");
         }else{
-          this.successTost("启用成功");
+          this.successTost("操作成功");
         }
         
         this.$emit("change", "firstNav");

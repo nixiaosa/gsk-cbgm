@@ -650,7 +650,6 @@ export default {
   navigationForbidden: `${djbCompanyHost}navigation/sst`, // 启用停用
   getNavigationOne: `${djbCompanyHost}navigation/list/1`, // 获取一级栏目
   getChildFromChild: `${djbCompanyHost}navigation/parent/formanage`, // 通过父级栏目id获取子栏目
- 
 
   //内容管理
   updateNavigation: `${djbContent}contentManager/updateNavigation`, // 编辑内容
