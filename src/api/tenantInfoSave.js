@@ -643,6 +643,15 @@ export default {
   relateList: `${djbCMSHost}navigation/chooseParent`, // 关联的一级栏目
   getStyle: `${djbCMSHost}navigation/getStyle`, // 关联的一级栏目
 
+  //gsk导航
+  getNavigationList: `${djbCompanyHost}navigation/list/page`, // 导航列表
+  navigationSave: `${djbCompanyHost}navigation/save`, // 导航创建
+  getNavigationDetail: `${djbCompanyHost}navigation/detail`, // 编辑回显
+  navigationForbidden: `${djbCompanyHost}navigation/sst`, // 启用停用
+  getNavigationOne: `${djbCompanyHost}navigation/list/1`, // 获取一级栏目
+  getChildFromChild: `${djbCompanyHost}navigation/parent/formanage`, // 通过父级栏目id获取子栏目
+ 
+
   //内容管理
   updateNavigation: `${djbContent}contentManager/updateNavigation`, // 编辑内容
   addContent: `${djbContent}contentManager/addContent`, // 添加内容

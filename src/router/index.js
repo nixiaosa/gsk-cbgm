@@ -129,6 +129,34 @@ export const asyncRouterMap = [
                 name: '报名审核',
                 // sign: 'basics_identity_manage'
             },
+            {
+                path: 'nav/manage',
+                component: _import('base/navigationManage'),
+                icon: 'zonghe',
+                name: '栏目管理',
+                // sign: 'basics_identity_manage'
+            },
+            {
+                path: 'addFirstNav',
+                component: _import('base/addFirstNav'),
+                name: '添加一级栏目',
+                icon: 'zonghe',
+                hidden: true
+            },
+            {
+                path: 'addSecNav',
+                component: _import('base/addSecNav'),
+                name: '添加二级栏目',
+                icon: 'zonghe',
+                hidden: true
+            },
+            {
+                path: 'addThirdNav',
+                component: _import('base/addThirdNav'),
+                name: '添加三级栏目',
+                icon: 'zonghe',
+                hidden: true
+            },
         ]
     },
     {
