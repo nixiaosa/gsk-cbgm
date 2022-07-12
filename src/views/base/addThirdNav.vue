@@ -25,7 +25,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="关联二级栏目:">
-          <el-select v-model="value2" placeholder="请选择" @change="selectOne2">
+          <el-select v-model="value2" placeholder="请选择">
             <div v-for="item in existBusinessParent2" :key="item.id">
               <el-option :label="item.name" :value="item.id"></el-option>
             </div>
@@ -152,10 +152,6 @@ export default {
       //直接就拿到当前的这个对象了
       this.value2 = '';
       this.getChildFromChild(val);
-    },
-    selectOne2() {
-      //change 触发事件
-      //直接就拿到当前的这个对象了
     },
     getParentsEdit: async function(page) {
       //编辑页回显
