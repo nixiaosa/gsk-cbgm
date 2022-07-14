@@ -157,6 +157,13 @@ export const asyncRouterMap = [
                 icon: 'zonghe',
                 hidden: true
             },
+            {
+                path: 'pointManage',
+                component: _import('base/pointManage'),
+                name: '',
+                icon: 'zonghe',
+                hidden: true
+            },
         ]
     },
     {

@@ -651,6 +651,13 @@ export default {
   getNavigationOne: `${djbCompanyHost}navigation/list/1`, // 获取一级栏目
   getChildFromChild: `${djbCompanyHost}navigation/parent/formanage`, // 通过父级栏目id获取子栏目
 
+
+  //gsk积分规则
+  getGskPointList: `${djbCompanyHost}point/config/list`, // 积分列表
+  getGskPointDetail: `${djbCompanyHost}point/config/detail`, // 规则详情
+  gskPointUpdate: `${djbCompanyHost}point/config/update`, // 修改积分数量
+
+
   //内容管理
   updateNavigation: `${djbContent}contentManager/updateNavigation`, // 编辑内容
   addContent: `${djbContent}contentManager/addContent`, // 添加内容
