@@ -8,8 +8,9 @@
 -->
 <template>
   <div>
-    <class-v1 v-if="isOld === 0"/>
-    <class-v2 v-if="isOld === 1"/>
+    <!-- <class-v1 v-if="isOld === 0"/> -->
+    <!-- <class-v2 v-if="isOld === 1"/> -->
+    <class-v1 />
   </div>
 </template>
 <script>
@@ -30,7 +31,7 @@ export default {
     };
   },
   mounted() {
-    this.getVersion();
+    // this.getVersion();
   },
   methods: {
     getVersion: async function() {

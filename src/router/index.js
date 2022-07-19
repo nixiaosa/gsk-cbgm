@@ -160,9 +160,8 @@ export const asyncRouterMap = [
             {
                 path: 'pointManage',
                 component: _import('base/pointManage'),
-                name: '',
+                name: '积分规则',
                 icon: 'zonghe',
-                hidden: true
             },
         ]
     },

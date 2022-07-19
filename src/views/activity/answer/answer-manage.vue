@@ -8,8 +8,9 @@
 -->
 <template>
   <div>
-    <answerManage-v1 v-if="isOld === 0"/>
-    <answerManage-v2 v-if="isOld === 1"/>
+    <!-- <answerManage-v1 v-if="isOld === 0"/> -->
+    <!-- <answerManage-v2 v-if="isOld === 1"/> -->
+    <answerManage-v1 />
   </div>
 </template>
 <script>
@@ -30,7 +31,7 @@ export default {
     };
   },
   mounted() {
-    this.getVersion();
+    // this.getVersion();
   },
   methods: {
     getVersion: async function() {
