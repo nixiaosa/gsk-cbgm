@@ -32,9 +32,9 @@ const href = window.location.href
   } else if (href.indexOf('localhost') >= 0 ){
       host = ''
   } else if (href.indexOf('skyyh') >= 0 ){
-    host = 'https://skyyh.healthy-bone.com.cn/'
+    host = 'https://skyyh.healthy-bone.com.cn/' // gsk生产
   } else {
-    host = 'https://healthy-bone.com.cn/'    
+    host = 'https://healthy-bone.com.cn/'    // gsk测试
   }
 
 const companyHost = `${host}yb-company/`
