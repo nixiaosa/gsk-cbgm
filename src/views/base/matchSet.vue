@@ -290,6 +290,7 @@
   font-size: 14px;
 }
 .title{
+  display: inline-block;
   vertical-align: top;
   margin-right: 20px;
   margin-bottom: 20px;
