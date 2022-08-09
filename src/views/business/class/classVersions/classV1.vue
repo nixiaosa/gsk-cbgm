@@ -506,13 +506,16 @@
             v-model="auditObj.reason">
           </el-input>
         </el-form-item>
-        <el-form-item  label="增加观看人次:">
+        <!-- <el-form-item  label="增加观看人次:">
            <el-input-number v-model="formLabelAlign.viewCountAdd" :min="0" :max="99999"></el-input-number>
            <el-link class="marging_left" :underline="false" @click="getCountadd">确定</el-link>
+        </el-form-item> -->
+        <el-form-item  label="推流地址:">
+           <span v-if="formLabelAlign.pushUrl">{{ formLabelAlign.pushUrl }}</span>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="save">保 存</el-button>
+        <!-- <el-button type="primary" @click="save">保 存</el-button> -->
 				<el-button @click="centerDialogVisible = false"
         >关 闭</el-button
         >
@@ -684,7 +687,8 @@ export default {
         awardSwitch: "",
         answerSwitch: "",
         perfect: "",
-        formLabelAlign: 0
+        formLabelAlign: 0,
+        pushUrl: ""
       },
       audience: [],
       identityExist: "",
