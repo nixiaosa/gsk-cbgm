@@ -44,7 +44,7 @@
     host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
     yaKeHost = 'https://gsk.dev.100url.cn/yake.manage/api/'
   } else if (href.indexOf('.test.') > 0) {
-    host = 'https://gsk.dev.100url.cn/api/' // 开发
+    host = 'https://gsk.test.100url.cn/' // 开发
     yaKeHost = 'https://gsk.test.100url.cn/yake.manage/api/'
   }
 
