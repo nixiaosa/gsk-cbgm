@@ -71,7 +71,7 @@
           <el-form-item label="内容类型：" >
             <el-radio class="radio" v-model="editForm.type" label="1" :disabled="isDis">文章</el-radio>
             <el-radio class="radio" v-model="editForm.type" label="2" :disabled="isDis">小知识</el-radio>
-            <!-- <el-radio class="radio" v-model="editForm.type" label="3" :disabled="isDis">直播回看</el-radio> -->
+            <el-radio class="radio" v-model="editForm.type" label="3" :disabled="isDis">直播回看</el-radio>
           </el-form-item>
           <el-form-item label="关联文章:" v-if="editForm.type == 1">
             <el-select
@@ -204,7 +204,7 @@
           { label: '全部' },
           { label: '小知识', states: 2 },
           { label: '文章', states: 1 },
-          // { label: '直播回看', states: 3 }
+          { label: '直播回看', states: 3 }
         ],
         formInline: {
           type: null,
