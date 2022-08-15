@@ -48,6 +48,7 @@
     yaKeHost = 'https://gsk.test.100url.cn/yake.manage/api/'
   }
 
+
 const companyHost = `${host}yb-company/`
 const djbCompanyHost = `${host}yb-user-api/`
 
