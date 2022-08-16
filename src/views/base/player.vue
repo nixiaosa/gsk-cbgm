@@ -112,13 +112,13 @@
         if (res.data.code === 0) {
           for (var i = 0; i < res.data.data.length; i++) {
             if (res.data.data[i].deviceType === 'mp4') {
-              if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100010) {
+              if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100040) {
                 this.mp4_30 = res.data.data[i].playbackUrl
               }
               if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100030) {
                 this.mp4_20 = res.data.data[i].playbackUrl
               }
-              if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100040) {
+              if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100010) {
                 this.mp4_10 = res.data.data[i].playbackUrl
               }
               this.windPlayer()
