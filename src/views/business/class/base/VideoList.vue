@@ -23,12 +23,12 @@
       </el-table-column>
       <el-table-column v-if="businessId !== '9'" label="讲师" width="150">
         <template slot-scope="scope">
-          <span v-if="scope.row.launchName">{{ scope.row.launchName }}</span>
+          <span>{{ scope.row.launchName != null ? scope.row.launchName : '' }}</span>
         </template>
       </el-table-column>
       <el-table-column v-if="businessId === '9'" label="主持人" width="150">
         <template slot-scope="scope">
-          <span v-if="scope.row.launchName">{{ scope.row.launchName }}</span>
+          <span>{{ scope.row.launchName != null ? scope.row.launchName : '' }}</span>
         </template>
       </el-table-column>
       <el-table-column label="状态" width="100">
