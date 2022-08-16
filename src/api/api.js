@@ -370,7 +370,8 @@ export var Api = {
     playBckVideoList: `${companyHost}company/video/live/program/list`, // 回放视频列表
     updatePlayBackVideo: `${companyHost}company/video/live/program/update`, // 更新回放
     videoAddress: `${BUSINESS_HOST}video/play/back/get/`, // 获取视频地址
-    videoBusId: `${companyHost}company/video/source/get/`,
+    // videoBusId: `${companyHost}company/video/source/get/`,
+    videoBusId: `${BUSINESS_HOST}api/video/details/admin/`,
     videoList: `${companyHost}company/video/source/list`, // 老的业务管理列表
     adminVideoList: `${BUSINESS_HOST}video/admin/list`, // 新的业务管理列表
     adminVideoDetail: `${BUSINESS_HOST}video/details/admin/`, // 新版列表详情
