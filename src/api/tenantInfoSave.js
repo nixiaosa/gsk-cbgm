@@ -341,7 +341,8 @@ export default {
   playBckVideoOne: `${companyHost}company/video/live/program/get/`, // 回放列表获取
   playBckVideoList: `${companyHost}company/video/live/program/list`, // 回放视频列表
   updatePlayBackVideo: `${companyHost}company/video/live/program/update`, // 更新回放
-  videoAddress: `${companyHost}company/video/source/get/playback/`, // 获取视频地址
+  // videoAddress: `${companyHost}company/video/source/get/playback/`, // 获取视频地址
+  videoAddress: `${djbCompanyHost}video/play/back/get/`, // 获取视频地址
   // videoBusId: `${companyHost}company/video/source/get/`,
   videoBusId: `${djbCompanyHost}video/details/admin/`,
   videoList: `${companyHost}company/video/source/list`, // 老的业务管理列表
