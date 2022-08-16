@@ -620,30 +620,14 @@
       "label": "手机",
       "prop": "phone"
     },
-    // {
-    //   "label": "省份",
-    //   "prop": "province"
-    // },
     {
       "label": "城市",
       "prop": "city"
     },
-    // {
-    //   "label": "区县",
-    //   "prop": "county"
-    // },
     {
       "label": "医院",
       "prop": "hospital"
     },
-    // {
-    //   "label": "科室",
-    //   "prop": "office"
-    // },
-    // {
-    //   "label": "职称",
-    //   "prop": "title"
-    // },
     {
       "label": "完成时间",
       "prop": "compeleteTime",
