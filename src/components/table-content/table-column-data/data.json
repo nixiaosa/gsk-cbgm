@@ -609,7 +609,7 @@
   "//": "调研问卷详情用户统计",
   "QuestionnaireUserList": [
     {
-      "label": "姓名",
+      "label": "姓名1",
       "prop": "name"
     },
     {
