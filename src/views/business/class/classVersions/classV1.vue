@@ -1253,7 +1253,7 @@ export default {
         }
       }
       if (type === 2) {
-        const res = await http.get(api.videoAddress);
+        const res = await http.get(api.videoAddress + `${busId}/${id}`);
           this.downloadType = 2;
           this.details = true;
           this.urls = res.data.data[0];
