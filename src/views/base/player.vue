@@ -1,7 +1,7 @@
 <template>
   <div class="base-set">
     <audio v-if="videoInfo.programType" :src="videoInfo.audioUrl" controls/>
-    <video v-if="videoInfo.programType" :src="videoInfo.playbackUrl" controls/>    
+    <video v-show="show" :src="videoInfo.playbackUrl" controls/>
     <!-- <div class="videoBox" v-show="show">
       <div id="id_test_video" style="width:100%; height:auto;"></div>
     </div>
