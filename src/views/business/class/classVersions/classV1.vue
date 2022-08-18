@@ -544,7 +544,7 @@
         </el-form-item>
 
         <el-form-item
-            label="下载地址:"
+            label="下载地址1:"
             v-show="urls.playbackUrl && downloadType === 2 && key === 0"
         >
           <span class="big">{{ urls.playbackUrl }}</span>
