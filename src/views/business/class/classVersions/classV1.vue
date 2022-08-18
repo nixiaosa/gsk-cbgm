@@ -210,9 +210,9 @@
         <el-form-item label="业务类型：">
           <span>{{ formLabelAlign.businessId | businessName }}</span>
         </el-form-item>
-        <el-form-item label="栏目：">
+        <!-- <el-form-item label="栏目：">
           <span>{{ navigationName }}</span>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="形式:">
           <span>{{ isShow === true ? '直播' : '点播' }}</span>
         </el-form-item>
