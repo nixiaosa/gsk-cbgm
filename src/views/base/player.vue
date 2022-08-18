@@ -1,7 +1,7 @@
 <template>
   <div class="base-set">
     <audio v-if="videoInfo.programType" :src="videoInfo.audioUrl" controls/>
-    <video v-show="show" :src="videoInfo.playbackUrl" controls/>
+    <video v-show="show" width="100" :src="videoUrl" controls/>
     <!-- <div class="videoBox" v-show="show">
       <div id="id_test_video" style="width:100%; height:auto;"></div>
     </div>
@@ -37,7 +37,8 @@
         mp4_20: '',
         mp4_10: '',
         player: {},
-        videoId: this.$route.params.videoId
+        videoId: this.$route.params.videoId,
+        videoUrl: ''
       }
     },
     props: {
@@ -94,12 +95,15 @@
           for (var i = 0; i < res.data.data.length; i++) { // 获取点播播放地址
             if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10040) {
               this.mp4_30 = res.data.data[i].playbackUrl
+              this.videoUrl = res.data.data[i].playbackUrl
             }
             if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10030) {
               this.mp4_20 = res.data.data[i].playbackUrl
+              this.videoUrl = res.data.data[i].playbackUrl
             }
             if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10010) {
               this.mp4_10 = res.data.data[i].playbackUrl
+              this.videoUrl = res.data.data[i].playbackUrl
             }
           }
           this.windPlayer()
@@ -115,24 +119,30 @@
             if (res.data.data[i].deviceType === 'mp4') {
               if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100040) {
                 this.mp4_30 = res.data.data[i].playbackUrl
+                this.videoUrl = res.data.data[i].playbackUrl
               }
               if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100030) {
                 this.mp4_20 = res.data.data[i].playbackUrl
+                this.videoUrl = res.data.data[i].playbackUrl
               }
               if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100010) {
                 this.mp4_10 = res.data.data[i].playbackUrl
+                this.videoUrl = res.data.data[i].playbackUrl
               }
               this.windPlayer()
               return false
             } else {
               if( res.data.data[i].deviceType === 'hls' && res.data.data[i].definition === 100210) {
                 this.m3u8Url = res.data.data[i].playbackUrl
+                this.videoUrl = res.data.data[i].playbackUrl
               }
               if( res.data.data[i].deviceType === 'hls' && res.data.data[i].definition === 100230) {
                 this.m3u8_hd = res.data.data[i].playbackUrl
+                this.videoUrl = res.data.data[i].playbackUrl
               }
               if( res.data.data[i].deviceType === 'hls' && res.data.data[i].definition === 100240) {
                 this.m3u8_sd = res.data.data[i].playbackUrl
+                this.videoUrl = res.data.data[i].playbackUrl
               }
               this.windPlayer()
             }
