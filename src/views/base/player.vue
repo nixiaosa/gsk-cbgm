@@ -113,9 +113,11 @@
       },
       getVideoplayback: async function(index) { // 获取回放播放地址
         let url = api.videoAddress + this.$route.params.id + '/' + this.programs[index].id
+        console.log(url)
         const res = await http.get(url)
+        console.log(res)
         if (res.data.code === 0) {
-          console.log(res)
+          // console.log(res)
           // for (var i = 0; i < res.data.data.length; i++) {
           //   if (res.data.data[i].deviceType === 'mp4') {
           //     if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100040) {
