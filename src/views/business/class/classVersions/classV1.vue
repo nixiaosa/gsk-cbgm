@@ -1249,15 +1249,20 @@ export default {
         if (res.data.code === 0) {
           this.downloadType = 1;
           this.details = true;
-          this.urls = res.data.data.data[0];
+          // this.urls = res.data.data.data[0];
+           setTimeout(() => {
+            this.urls = res.data.data.data[0];
+           }, 300)
         }
       }
       if (type === 2) {
         http.get(api.videoAddress + `${busId}/${id}`).then(res => {
           this.downloadType = 2;
           this.details = true;
-          this.urls = res.data.data[0];
-          console.log("haha",this.urls)
+          // this.urls = res.data.data[0];
+           setTimeout(() => {
+            this.urls = res.data.data.data[0];
+           }, 300)
         });
       }
     },
