@@ -545,7 +545,7 @@
 
         <el-form-item
             label="下载地址123:"
-            v-show="urls.playbackUrl && downloadType === 2 && key === 0"
+            
         >
           <span class="big">{{ urls.playbackUrl }}</span>
           <el-button type="info" @click="opens(urls.playbackUrl)"
@@ -1249,6 +1249,7 @@ export default {
         if (res.data.code === 0) {
           this.downloadType = 1;
           this.details = true;
+          // this.urls = res.data.data.data[0];
           this.urls = res.data.data.data[0];
         }
       }
