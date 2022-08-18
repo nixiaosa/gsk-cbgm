@@ -1256,7 +1256,10 @@ export default {
         const res = await http.get(api.videoAddress + `${busId}/${id}`);
           this.downloadType = 2;
           this.details = true;
-          this.urls = res.data.data[0];
+          // this.urls = res.data.data[0];
+          this.$nextTick(() => {
+            this.urls = res.data.data[0];
+          })
         // http.get(api.videoAddress + `${busId}/${id}`).then(res => {
         //   this.downloadType = 2;
         //   this.details = true;
