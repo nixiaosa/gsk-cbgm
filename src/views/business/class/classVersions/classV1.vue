@@ -1249,21 +1249,19 @@ export default {
         if (res.data.code === 0) {
           this.downloadType = 1;
           this.details = true;
-          // this.urls = res.data.data.data[0];
-           setTimeout(() => {
-            this.urls = res.data.data.data[0];
-           }, 300)
+          this.urls = res.data.data.data[0];
         }
       }
       if (type === 2) {
-        http.get(api.videoAddress + `${busId}/${id}`).then(res => {
+        const res = await http.get(api.videoAddress);
           this.downloadType = 2;
           this.details = true;
-          // this.urls = res.data.data[0];
-           setTimeout(() => {
-            this.urls = res.data.data[0];
-           }, 300)
-        });
+          this.urls = res.data.data[0];
+        // http.get(api.videoAddress + `${busId}/${id}`).then(res => {
+        //   this.downloadType = 2;
+        //   this.details = true;
+        //   this.urls = res.data.data[0];
+        // });
       }
     },
     opens(url) {
