@@ -115,7 +115,7 @@
         let url = api.videoAddress + this.$route.params.id + '/' + this.programs[index].id
         const res = await http.get(url)
         if (res.data.code === 0) {
-          console.log(res.data.data)
+          console.log(res)
           // for (var i = 0; i < res.data.data.length; i++) {
           //   if (res.data.data[i].deviceType === 'mp4') {
           //     if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100040) {
