@@ -1257,6 +1257,8 @@ export default {
           this.downloadType = 2;
           this.details = true;
           this.urls = res.data.data[0];
+
+          console.log(this.urls)
         });
       }
     },
