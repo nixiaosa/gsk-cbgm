@@ -533,12 +533,10 @@
         </el-form-item>
         <el-form-item
             label="下载地址:"
-            v-for="(item, key) in urls"
-            :key="key"
         >
-          <div v-if="item.playbackUrl && downloadType === 1">
-            <span class="big">{{ item.playbackUrl }}</span>
-            <el-button type="info" @click="opens(item.playbackUrl)"
+          <div v-if="urls.playbackUrl && downloadType === 1">
+            <span class="big">{{ urls.playbackUrl }}</span>
+            <el-button type="info" @click="opens(urls.playbackUrl)"
             >下载
             </el-button
             >
@@ -547,12 +545,10 @@
 
         <el-form-item
             label="下载地址:"
-            v-for="(item, key) in urls"
-            :key="key"
-            v-show="item.playbackUrl && downloadType === 2 && key === 0"
+            v-show="urls.playbackUrl && downloadType === 2 && key === 0"
         >
-          <span class="big">{{ item.playbackUrl }}</span>
-          <el-button type="info" @click="opens(item.playbackUrl)"
+          <span class="big">{{ urls.playbackUrl }}</span>
+          <el-button type="info" @click="opens(urls.playbackUrl)"
           >下载
           </el-button
           >
@@ -1253,14 +1249,14 @@ export default {
         if (res.data.code === 0) {
           this.downloadType = 1;
           this.details = true;
-          this.urls = res.data.data.data;
+          this.urls = res.data.data.data[0];
         }
       }
       if (type === 2) {
         http.get(api.videoAddress + `${busId}/${id}`).then(res => {
           this.downloadType = 2;
           this.details = true;
-          this.urls = res.data.data;
+          this.urls = res.data.data[0];
         });
       }
     },
