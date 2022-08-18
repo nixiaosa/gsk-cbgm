@@ -66,23 +66,23 @@
       this.getVideoplayback(0)
     },
     watch: {
-      // videoInfo(old) {
-      //   var that = this
-      //   if (old.type === 2) {
-      //     if (!this.videoInfo.programType) {
-      //       this.getVideoUrl()
-      //     }
+      videoInfo(old) {
+        var that = this
+        if (old.type === 2) {
+          if (!this.videoInfo.programType) {
+            this.getVideoUrl()
+          }
 
-      //   }
-      //   this.programs = old.programList
-      //   if (this.programs && this.programs.length > 1) {
-      //     this.listShow = true
-      //   }
-      //   if (old.status === 9) {
-      //     this.getVideoplayback(0)
+        }
+        this.programs = old.programList
+        if (this.programs && this.programs.length > 1) {
+          this.listShow = true
+        }
+        if (old.status === 9) {
+          this.getVideoplayback(0)
          
-      //   }
-      // }
+        }
+      }
     },
     methods: {
       getVideoUrl: async function() {
