@@ -90,21 +90,22 @@
         const res = await http.get(url)
         if (res.data.code === 0) {
            console.log(res.data.data[0].playbackUrl)
-          for (var i = 0; i < res.data.data.length; i++) { // 获取点播播放地址
-            if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10040) {
-              this.mp4_30 = res.data.data[i].playbackUrl
-              this.videoUrl = res.data.data[0].playbackUrl
-            }
-            if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10030) {
-              this.mp4_20 = res.data.data[i].playbackUrl
-              this.videoUrl = res.data.data[0].playbackUrl
-            }
-            if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10010) {
-              this.mp4_10 = res.data.data[i].playbackUrl
-              this.videoUrl = res.data.data[0].playbackUrl
-            }
-          }
-          this.windPlayer()
+           this.videoUrl = res.data.data[0].playbackUrl
+          // for (var i = 0; i < res.data.data.length; i++) { // 获取点播播放地址
+          //   if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10040) {
+          //     this.mp4_30 = res.data.data[i].playbackUrl
+          //     this.videoUrl = res.data.data[0].playbackUrl
+          //   }
+          //   if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10030) {
+          //     this.mp4_20 = res.data.data[i].playbackUrl
+          //     this.videoUrl = res.data.data[0].playbackUrl
+          //   }
+          //   if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10010) {
+          //     this.mp4_10 = res.data.data[i].playbackUrl
+          //     this.videoUrl = res.data.data[0].playbackUrl
+          //   }
+          // }
+          // this.windPlayer()
         } else {
           this.$message.error(res.data.message)
         }
