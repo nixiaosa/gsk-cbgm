@@ -547,7 +547,7 @@
             label="下载地址:"
             v-show="urls.playbackUrl && downloadType === 2 && key === 0"
         >
-          <span class="big">{{ urls.playbackUrl }}</span>
+          <span class="big">{{ urls }}</span>
           <el-button type="info" @click="opens(urls.playbackUrl)"
           >下载
           </el-button
@@ -1257,12 +1257,7 @@ export default {
           this.downloadType = 2;
           this.details = true;
           // console.log(res.data.data[0].playbackUrl)
-          // this.urls = res.data.data[0];
-          setTimeout(()=>{
-            this.urls = "";
-            this.urls = res.data.data[0];
-          },200)
-
+          this.urls = res.data.data[0];
         // http.get(api.videoAddress + `${busId}/${id}`).then(res => {
         //   this.downloadType = 2;
         //   this.details = true;
