@@ -1261,7 +1261,7 @@ export default {
           this.details = true;
           // this.urls = res.data.data[0];
            setTimeout(() => {
-            this.urls = res.data.data.data[0];
+            this.urls = res.data.data[0];
            }, 300)
         });
       }
