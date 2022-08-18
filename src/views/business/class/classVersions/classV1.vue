@@ -1249,9 +1249,7 @@ export default {
         if (res.data.code === 0) {
           this.downloadType = 1;
           this.details = true;
-          // this.urls = res.data.data.data[0];
-          this.urls = res.data.data[0];
-           console.log(this.urls)
+          this.urls = res.data.data.data[0];
         }
       }
       if (type === 2) {
@@ -1259,6 +1257,7 @@ export default {
           this.downloadType = 2;
           this.details = true;
           this.urls = res.data.data[0];
+          console.log("haha",this.urls)
         });
       }
     },
