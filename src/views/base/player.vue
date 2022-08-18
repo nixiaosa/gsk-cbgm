@@ -48,7 +48,7 @@
       }
     },
     beforeDestroy() {
-      this.player.destroy()
+      // this.player.destroy()
     },
     computed: {
       ...mapGetters([
@@ -65,27 +65,23 @@
     mounted() {
     },
     watch: {
-      videoInfo(old) {
-        var that = this
-        if (old.type === 2) {
-          if (!this.videoInfo.programType) {
-            this.getVideoUrl()
-          }
-          // setTimeout(function () {
-          //   that.windPlayer()
-          // }, 400)
-        }
-        this.programs = old.programList
-        if (this.programs && this.programs.length > 1) {
-          this.listShow = true
-        }
-        if (old.status === 9) {
-          this.getVideoplayback(0)
-          // setTimeout(function () {
-          //   that.windPlayer()
-          // }, 400)
-        }
-      }
+      // videoInfo(old) {
+      //   var that = this
+      //   if (old.type === 2) {
+      //     if (!this.videoInfo.programType) {
+      //       this.getVideoUrl()
+      //     }
+
+      //   }
+      //   this.programs = old.programList
+      //   if (this.programs && this.programs.length > 1) {
+      //     this.listShow = true
+      //   }
+      //   if (old.status === 9) {
+      //     this.getVideoplayback(0)
+         
+      //   }
+      // }
     },
     methods: {
       getVideoUrl: async function() {
