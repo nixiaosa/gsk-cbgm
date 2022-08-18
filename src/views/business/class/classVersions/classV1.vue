@@ -532,7 +532,7 @@
           <span>{{ formLabelAlign.name }}</span>
         </el-form-item>
         <el-form-item
-            label="下载地址:"
+            label="下载地址234:"
         >
           <div v-if="urls.playbackUrl && downloadType === 1">
             <span class="big">{{ urls.playbackUrl }}</span>
@@ -544,10 +544,10 @@
         </el-form-item>
 
         <el-form-item
-            label="下载地址:"
+            label="下载地址123:"
             v-show="urls.playbackUrl && downloadType === 2 && key === 0"
         >
-          <span class="big">{{ urls }}</span>
+          <span class="big">{{ urls.playbackUrl }}</span>
           <el-button type="info" @click="opens(urls.playbackUrl)"
           >下载
           </el-button
