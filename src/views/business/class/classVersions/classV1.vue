@@ -533,12 +533,10 @@
         </el-form-item>
         <el-form-item
             label="下载地址:"
-            v-for="(item, key) in urls"
-            :key="key"
         >
-          <div v-if="item.playbackUrl && downloadType === 1">
-            <span class="big">{{ item.playbackUrl }}</span>
-            <el-button type="info" @click="opens(item.playbackUrl)"
+          <div v-if="urls[0].playbackUrl && downloadType === 1">
+            <span class="big">{{ urls[0].playbackUrl }}</span>
+            <el-button type="info" @click="opens(urls[0].playbackUrl)"
             >下载
             </el-button
             >
@@ -547,12 +545,10 @@
 
         <el-form-item
             label="下载地址:"
-            v-for="(item, key) in urls"
-            :key="key"
-            v-show="item.playbackUrl && downloadType === 2 && key === 0"
+            v-show="urls[0].playbackUrl && downloadType === 2 && key === 0"
         >
-          <span class="big">{{ item.playbackUrl }}</span>
-          <el-button type="info" @click="opens(item.playbackUrl)"
+          <span class="big">{{ urls[0].playbackUrl }}</span>
+          <el-button type="info" @click="opens(urls[0].playbackUrl)"
           >下载
           </el-button
           >
