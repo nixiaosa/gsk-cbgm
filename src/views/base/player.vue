@@ -63,6 +63,7 @@
       }
     },
     mounted() {
+      this.getVideoplayback(0)
     },
     watch: {
       // videoInfo(old) {
