@@ -89,7 +89,7 @@
         let url = api.videoAddress + this.$route.params.id + '/' + this.videoId
         const res = await http.get(url)
         if (res.data.code === 0) {
-           console.log(res)
+           console.log(res.data.data[0].playbackUrl)
           for (var i = 0; i < res.data.data.length; i++) { // 获取点播播放地址
             if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10040) {
               this.mp4_30 = res.data.data[i].playbackUrl
