@@ -362,7 +362,7 @@ export default {
   meetingBusId: `${companyHost}company/meeting/get/`, // 获取大会
   meetingStart: `${companyHost}company/meeting/switch/`, // 大会启停
   // endVideolist: `${companyHost}company/video/push/`, // 结束直播
-  endVideolist: `${djbCompanyHost}company/video/live/push/`, // 结束直播
+  endVideolist: `${djbCompanyHost}video/live/push/`, // 结束直播
   audiencelist: `${companyHost}company/video/source/enroll/list`, // 邀请观众列表
   audienceListExport: `${djbCompanyHost}enroll/export/`, // 导出观众列表
   launchlist: `${companyHost}company/video/source/launch/list`, // 讲师观众列表
