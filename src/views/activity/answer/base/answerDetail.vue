@@ -28,10 +28,10 @@
         <span>{{ answerData.useTime }}次</span>
       </div>
 
-      <div class="wrap">
+      <!-- <div class="wrap">
         <span class="titles">完善信息:</span>
         <span>{{ answerData.improvingStatus | improvingStatus }}</span>
-      </div>
+      </div> -->
 
       <div class="wrap">
         <span class="titles">已答题人数:</span>
