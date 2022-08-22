@@ -13,10 +13,10 @@
       <div class="wrap p-img">
         <span class="titles">活动封面:</span>
         <div>
-          <p class="p-img-box">
+          <!-- <p class="p-img-box">
             <img data-v-3a563518="" :src="coverUrlPc" alt="">
             <strong>PC封面</strong>
-          </p>
+          </p> -->
           <p class="p-img-box">
             <img data-v-3a563518="" :src="coverUrlMobile" alt="">
             <strong>移动端封面</strong>
@@ -50,16 +50,16 @@
         <span class="titles">投票规则:</span>
         <span>{{ voteRule | voteRule }}</span>
       </div>
-      <div class="wrap">
+      <!-- <div class="wrap">
         <span class="titles">参与条件:</span>
         <span>{{ publicStatus | publicStatus }}</span>
         <span class="p-info">登录成功需提交申请信息后参与</span>
-      </div>
-      <div class="wrap">
+      </div> -->
+      <!-- <div class="wrap">
         <span class="titles">自动审核:</span>
         <span>{{ auditStatus | auditStatus}}</span>
-        <span class="p-info">观众申请，系统不发送短信通知，需登录进入“个人中心--->申请管理”栏目查看</span>
-      </div>
+        <span class="p-info">观众申请，系统不发送短信通知，需登录进入“个人中心>申请管理”栏目查看</span>
+      </div> -->
       <div class="wrap">
         <span class="titles">访问量:</span>
         <span>{{ visitsStatus | visitsStatus }}</span>
