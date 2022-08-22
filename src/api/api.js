@@ -386,7 +386,8 @@ export var Api = {
     meetingList: `${companyHost}company/meeting/list`, // 学术大会列表
     meetingBusId: `${companyHost}company/meeting/get/`, // 获取大会
     meetingStart: `${companyHost}company/meeting/switch/`, // 大会启停
-    endVideolist: `${companyHost}company/video/push/`, // 结束直播
+    // endVideolist: `${companyHost}company/video/push/`, // 结束直播
+    endVideolist: `${BUSINESS_HOST}company/video/live/push/`, // 结束直播
     audiencelist: `${BUSINESS_HOST}enroll/import/get`, // 邀请观众列表
     audienceListExport: `${BUSINESS_HOST}enroll/export/`, // 导出观众列表
     launchlist: `${BUSINESS_HOST}launch/get/`, // 讲师观众列表
