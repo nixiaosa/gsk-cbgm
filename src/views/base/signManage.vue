@@ -341,6 +341,7 @@
         const res = await http.get(api.getGskVideoList)
         if (res.data.code === 0) {
           this.videoOptions = res.data.data
+          console.log('lc',this.videoOptions)
         } else {
           this.$message.error(res.data.message)
         }
