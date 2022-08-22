@@ -8,7 +8,7 @@
             :model="formInline"
             class="demo-form-inline"
         >
-          <el-form-item label="栏目：">
+          <!-- <el-form-item label="栏目：">
             <el-select
                 v-model="value"
                 placeholder="请选择培训分类"
@@ -22,7 +22,7 @@
                   :value="item.value"
               ></el-option>
             </el-select>
-          </el-form-item>
+          </el-form-item> -->
 
           <el-form-item label="状态：">
             <el-select
