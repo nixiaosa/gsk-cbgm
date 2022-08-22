@@ -256,7 +256,8 @@
             if(this.editForm.type == 1) {
               this.articleId = Number(res.data.data.sourceId);
             } else if(this.editForm.type == 3) {
-              this.videoId = Number(res.data.data.sourceId);
+              // this.videoId = Number(res.data.data.sourceId);
+              this.videoId = res.data.data.sourceId;
             } else {
               this.editForm.title = res.data.data.title;
               this.editForm.content = res.data.data.content;
