@@ -466,7 +466,7 @@
             </p>
           </el-form-item>
         </div>
-        <el-form-item
+        <!-- <el-form-item
             label="简介:"
             v-if="formLabelAlign.description !== ''"
         >
@@ -474,7 +474,7 @@
               class="test-area intro-content ql-editor test-area-editor"
               v-html="formLabelAlign.description"
           ></div>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item
             label="视频审核:"
             v-if="videoAudit"
