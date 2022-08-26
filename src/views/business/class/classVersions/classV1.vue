@@ -24,13 +24,26 @@
             </el-select>
           </el-form-item> -->
 
-          <el-form-item label="状态：">
+          <el-form-item label="状态："  v-if="activeName === 'live'">
             <el-select
                 v-model="formInline.status"
                 placeholder="请选择类型"
             >
               <el-option
                   v-for="(item, index) in videoStatus"
+                  :key="index"
+                  :label="item.title"
+                  :value="item.status"
+              ></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="状态："  v-if="activeName === 'video'">
+            <el-select
+                v-model="formInline.status"
+                placeholder="请选择类型"
+            >
+              <el-option
+                  v-for="(item, index) in videoStatus2"
                   :key="index"
                   :label="item.title"
                   :value="item.status"
@@ -52,7 +65,7 @@
           </el-form-item>
           <el-form-item
               label="预设开始时间："
-              v-if="this.activeName === 'live'"
+              v-if="activeName === 'live'"
           >
             <el-date-picker
                 style="width: 250px"
@@ -66,7 +79,7 @@
           </el-form-item>
           <el-form-item
               label="直播开始时间："
-              v-if="this.activeName === 'live'"
+              v-if="activeName === 'live'"
           >
             <el-date-picker
                 style="width: 250px"
@@ -80,7 +93,7 @@
           </el-form-item>
           <el-form-item
               label="创建日期："
-              v-if="this.activeName === 'video'"
+              v-if="activeName === 'video'"
           >
             <el-date-picker
                 style="width: 250px"
@@ -761,6 +774,24 @@ export default {
         {
           status: 9,
           title: "回放"
+        }
+      ],
+      videoStatus2: [
+        {
+          status: "",
+          title: "全部"
+        },
+        {
+          status: 5,
+          title: "正在转码"
+        },
+        {
+          status: 7,
+          title: "未发布"
+        },
+        {
+          status: 8,
+          title: "已发布"
         }
       ],
       videoType: [
