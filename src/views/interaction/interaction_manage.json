@@ -22,9 +22,7 @@
     { "label": "评论人", "prop": "fromNickname" },
     { "label": "城市", "prop": "city" },
     { "label": "医院", "prop": "hospital", "minWidth": 200 },
-    { "label": "科室", "prop": "office", "minWidth": 200 },
     { "label": "评论内容", "prop": "content", "minWidth": 200 },
-    { "label": "被评论人", "prop": "toNickname", "minWidth": 100 },
     {
       "label": "评论时间",
       "prop": "createtime",
