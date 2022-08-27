@@ -3,12 +3,8 @@
     { "label": "姓名", "prop": "userName" },
     { "label": "性别", "prop": "sex", "type": "sex" },
     { "label": "手机号", "prop": "phone" },
-    { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
-    { "label": "区县", "prop": "county" },
     { "label": "医院", "prop": "hospital" },
-    { "label": "科室", "prop": "office" },
-    { "label": "职称", "prop": "title" },
     { "label": "答题完成时间", "prop": "createTime", "type": "createTime" },
     { "label": "答题用时", "prop": "useTime", "type": "useTime" },
     { "label": "得分", "prop": "score" }

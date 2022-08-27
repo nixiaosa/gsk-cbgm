@@ -42,7 +42,7 @@
           <span>{{ scope.row.limitTime }}分钟</span>
         </template>
       </el-table-column>
-      <el-table-column label="已答题数">
+      <el-table-column label="已答题人数">
         <template slot-scope="scope">
           <span style="color: rgb(204,0,153)">{{ scope.row.finishiNum }}</span>
         </template>
