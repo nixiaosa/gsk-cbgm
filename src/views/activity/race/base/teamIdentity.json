@@ -1,7 +1,6 @@
 {
   "doctorConfig": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "城市", "prop": "city" },
     { "label": "医院", "prop": "hospital" },
@@ -11,7 +10,6 @@
   ],
   "drugStoreConfig": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
@@ -24,7 +22,6 @@
   ],
   "companyConfig": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
@@ -37,7 +34,6 @@
   ],
   "patientConfig": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex"},
     { "label": "手机号", "prop": "phone" },
     { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
@@ -48,7 +44,6 @@
   ],
   "visitorConfig": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "团队总答对数", "prop": "totalRight" },
     { "label": "团队总答题数", "prop": "totalExam" },
@@ -56,7 +51,6 @@
   ],
   "doctorConfig2": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
@@ -70,7 +64,6 @@
   ],
   "doctorConfig3": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
@@ -84,7 +77,6 @@
   ],
   "doctorConfig4": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "省份", "prop": "province" },
     { "label": "城市", "prop": "city" },
