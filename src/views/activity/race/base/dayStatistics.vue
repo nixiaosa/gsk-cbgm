@@ -22,37 +22,37 @@
           <span>{{ scope.row.userName }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="性别">
+      <!-- <el-table-column label="性别">
         <template slot-scope="scope">
           <span>{{ scope.row.sex }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="手机号">
         <template slot-scope="scope">
           <span>{{ scope.row.phone }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="省份">
+      <!-- <el-table-column label="省份">
         <template slot-scope="scope">
           <span>{{ scope.row.province }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="城市">
         <template slot-scope="scope">
           <span>{{ scope.row.city }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="区县">
+      <!-- <el-table-column label="区县">
         <template slot-scope="scope">
           <span>{{ scope.row.county }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="医院">
         <template slot-scope="scope">
           <span>{{ scope.row.hospital }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="科室">
+      <!-- <el-table-column label="科室">
         <template slot-scope="scope">
           <span>{{ scope.row.office}}</span>
         </template>
@@ -61,7 +61,7 @@
         <template slot-scope="scope">
           <span>{{ scope.row.title }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="答题完成时间">
         <template slot-scope="scope">
           <span>{{ scope.row.createTime | formatDate }}</span>
