@@ -1,7 +1,6 @@
 {
   "doctorConfig": [
     { "label": "姓名", "prop": "userName" },
-    { "label": "性别", "prop": "sex", "type": "sex" },
     { "label": "手机号", "prop": "phone" },
     { "label": "城市", "prop": "city" },
     { "label": "医院", "prop": "hospital" },
