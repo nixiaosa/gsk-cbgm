@@ -44,7 +44,7 @@ export default {
       states: '',
       statusList: [
           { label: '已完成用户', states: 0 },
-          { label: '未完成用户', states: 1 },
+          // { label: '未完成用户', states: 1 },
         ],
     }
   },
