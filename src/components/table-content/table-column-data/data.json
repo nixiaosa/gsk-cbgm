@@ -613,10 +613,6 @@
       "prop": "name"
     },
     {
-      "label": "性别",
-      "prop": "sex"
-    },
-    {
       "label": "手机",
       "prop": "phone"
     },
