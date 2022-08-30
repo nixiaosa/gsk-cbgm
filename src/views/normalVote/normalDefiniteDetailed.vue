@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-01 16:27:58
- * @LastEditTime: 2020-10-16 17:28:31
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-08-30 13:57:59
+ * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
  * @FilePath: /CBGM/src/views/caseVote/makeChartdetail.vue
 -->
@@ -51,27 +51,19 @@ export default {
       voteType: this.$route.query.voteType,
       newpage: 1,
       tableConfig: [
-        { label: "姓名", prop: "nikename" },
+        { label: "姓名", prop: "nickname" },
         { label: "手机号", prop: "phone" },
-        { label: "省份", prop: "province" },
         { label: "城市", prop: "city" },
-        { label: "区县", prop: "county" },
         { label: "医院", prop: "hospital" },
-        { label: "职称", prop: "title" },
-        { label: "科室", prop: "office" },
         { label: "投票数", prop: "voteNum" },
         { label: "投票时间", prop: "createTime" },
         { label: "备注", prop: "mark" }
       ],
       tableConfigScore: [
-        { label: "姓名", prop: "nikename" },
+        { label: "姓名", prop: "nickname" },
         { label: "手机号", prop: "phone" },
-        { label: "省份", prop: "province" },
         { label: "城市", prop: "city" },
-        { label: "区县", prop: "county" },
         { label: "医院", prop: "hospital" },
-        { label: "职称", prop: "title" },
-        { label: "科室", prop: "office" },
         { label: "评分数", prop: "voteScore" },
         { label: "评分时间", prop: "createTime" },
         { label: "备注", prop: "mark" }
