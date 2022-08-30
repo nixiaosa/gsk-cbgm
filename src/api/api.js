@@ -378,7 +378,8 @@ export var Api = {
     adminWatchList: `${BUSINESS_HOST}video/watch/list`, // 新版数据统计
     adminWatchListExport: `${BUSINESS_HOST}video/watch/list/export/`, // 新统计信息导出
     adminLivePush: `${BUSINESS_HOST}video/live/push/`, // 新版结束
-    updateVideo: `${companyHost}company/video/source/update`,
+    // updateVideo: `${companyHost}company/video/source/update`,
+    updateVideo: `${BUSINESS_HOST}video/update`,
     watchList: `${companyHost}company/video/source/watch/list`, // 老版数据
     watch2List: `${companyHost}company/video/source/watch2/list`, // 新版数据
     stopOrStartVideo: `${companyHost}company/video/source/switch/`, // 老版课程停用

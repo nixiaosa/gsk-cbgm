@@ -352,7 +352,8 @@ export default {
   adminWatchListExport: `${djbCompanyHost}video/watch/list/export`, // 新统计信息导出
   adminLivePush: `${djbCompanyHost}video/live/push/`, // 新版结束
   adminLivePause: `${djbCompanyHost}video/pause/`, // 直播暂停
-  updateVideo: `${companyHost}company/video/source/update`,
+  // updateVideo: `${companyHost}company/video/source/update`,
+  updateVideo: `${djbCompanyHost}video/update`,
   watchList: `${companyHost}company/video/source/watch/list`, // 老版数据
   watch2List: `${companyHost}company/video/source/watch2/list`, // 新版数据
   watch3List: `${companyHost}company/video/source/watch3/list`, // 学术会议新版数据
