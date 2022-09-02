@@ -67,7 +67,6 @@
     },
     watch: {
       videoInfo(old) {
-        console.log('lc',old)
         var that = this
         if (old.type === 2) {
           if (!this.videoInfo.programType) {
@@ -86,7 +85,6 @@
     },
     methods: {
       getVideoUrl: async function() {
-        console.log(111)
         let url = api.videoAddress + this.$route.params.id + '/' + this.videoId
         const res = await http.get(url)
         if (res.data.code === 0) {
@@ -97,12 +95,11 @@
         }
       },
       getVideoplayback: async function(index) { // 获取回放播放地址
-      console.log(222)
         let url = api.videoAddress + this.$route.params.id + '/' + this.programs[index].id
         const res = await http.get(url)
        
         if (res.data.code === 0) {
-           this.videoUrl = res.data.data[index].playbackUrl
+           this.videoUrl = res.data.data[0].playbackUrl
         } else {
           this.$message.error(res.data.message)
         }
