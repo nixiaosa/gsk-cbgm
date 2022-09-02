@@ -4,7 +4,7 @@
     <video v-if="!videoInfo.programType" v-show="show" :src="videoUrl" controls></video>
     <!-- <div class="videoBox" v-show="show">
       <div id="id_test_video" style="width:100%; height:auto;"></div>
-    </div>
+    </div> -->
     <div v-show="listShow" style="margin-top: 30px">回放列表</div>
     <ul v-show="listShow" class="videoList">
       <li v-for="(list,index) in programs" :key="list.id">
@@ -12,7 +12,7 @@
         <span>{{list.name}}</span>
         <el-button type="info" style="float: right" @click="goPlay(index)">播放</el-button>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </template>
 <script>
@@ -63,26 +63,26 @@
       }
     },
     mounted() {
-      this.getVideoUrl()
+      // this.getVideoUrl()
     },
     watch: {
-      // videoInfo(old) {
-      //   var that = this
-      //   if (old.type === 2) {
-      //     if (!this.videoInfo.programType) {
-      //       this.getVideoUrl()
-      //     }
+      videoInfo(old) {
+        var that = this
+        if (old.type === 2) {
+          if (!this.videoInfo.programType) {
+            this.getVideoUrl()
+          }
 
-      //   }
-      //   this.programs = old.programList
-      //   if (this.programs && this.programs.length > 1) {
-      //     this.listShow = true
-      //   }
-      //   if (old.status === 9) {
-      //     this.getVideoplayback(0)
+        }
+        this.programs = old.programList
+        if (this.programs && this.programs.length > 1) {
+          this.listShow = true
+        }
+        if (old.status === 9) {
+          this.getVideoplayback(0)
          
-      //   }
-      // }
+        }
+      }
     },
     methods: {
       getVideoUrl: async function() {
@@ -91,21 +91,6 @@
         if (res.data.code === 0) {
            console.log(res.data.data[0].playbackUrl)
            this.videoUrl = res.data.data[0].playbackUrl
-          // for (var i = 0; i < res.data.data.length; i++) { // 获取点播播放地址
-          //   if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10040) {
-          //     this.mp4_30 = res.data.data[i].playbackUrl
-          //     this.videoUrl = res.data.data[0].playbackUrl
-          //   }
-          //   if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10030) {
-          //     this.mp4_20 = res.data.data[i].playbackUrl
-          //     this.videoUrl = res.data.data[0].playbackUrl
-          //   }
-          //   if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 10010) {
-          //     this.mp4_10 = res.data.data[i].playbackUrl
-          //     this.videoUrl = res.data.data[0].playbackUrl
-          //   }
-          // }
-          // this.windPlayer()
         } else {
           this.$message.error(res.data.message)
         }
@@ -115,45 +100,7 @@
         const res = await http.get(url)
        
         if (res.data.code === 0) {
-          // console.log(res)
-          // for (var i = 0; i < res.data.data.length; i++) {
-          //   if (res.data.data[i].deviceType === 'mp4') {
-          //     if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100040) {
-          //       this.mp4_30 = res.data.data[i].playbackUrl
-          //       this.videoUrl = res.data.data[0].playbackUrl
-          //       console.log(this.videoUrl)
-          //     }
-          //     if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100030) {
-          //       this.mp4_20 = res.data.data[i].playbackUrl
-          //       this.videoUrl = res.data.data[0].playbackUrl
-          //       console.log(this.videoUrl)
-          //     }
-          //     if( res.data.data[i].deviceType === 'mp4' && res.data.data[i].definition === 100010) {
-          //       this.mp4_10 = res.data.data[i].playbackUrl
-          //       this.videoUrl = res.data.data[0].playbackUrl
-          //       console.log(this.videoUrl)
-          //     }
-          //     this.windPlayer()
-          //     return false
-          //   } else {
-          //     if( res.data.data[i].deviceType === 'hls' && res.data.data[i].definition === 100210) {
-          //       this.m3u8Url = res.data.data[i].playbackUrl
-          //       this.videoUrl = res.data.data[0].playbackUrl
-          //       console.log(this.videoUrl)
-          //     }
-          //     if( res.data.data[i].deviceType === 'hls' && res.data.data[i].definition === 100230) {
-          //       this.m3u8_hd = res.data.data[i].playbackUrl
-          //       this.videoUrl = res.data.data[0].playbackUrl
-          //       console.log(this.videoUrl)
-          //     }
-          //     if( res.data.data[i].deviceType === 'hls' && res.data.data[i].definition === 100240) {
-          //       this.m3u8_sd = res.data.data[i].playbackUrl
-          //       this.videoUrl = res.data.data[0].playbackUrl
-          //       console.log(this.videoUrl)
-          //     }
-          //     this.windPlayer()
-          //   }
-          // }
+           this.videoUrl = res.data.data[index].playbackUrl
         } else {
           this.$message.error(res.data.message)
         }
