@@ -124,7 +124,7 @@
       },
       goPlay(index) {
         var that = this
-        that.player.destroy()
+        // that.player.destroy()
         // that.windPlayer()
         that.show = true
         this.getVideoplayback(index)
