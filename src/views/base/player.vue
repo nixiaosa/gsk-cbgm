@@ -67,6 +67,7 @@
     },
     watch: {
       videoInfo(old) {
+        console.log('lc',old)
         var that = this
         if (old.type === 2) {
           if (!this.videoInfo.programType) {
