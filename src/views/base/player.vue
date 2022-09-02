@@ -72,7 +72,6 @@
           if (!this.videoInfo.programType) {
             this.getVideoUrl()
           }
-
         }
         this.programs = old.programList
         if (this.programs && this.programs.length > 1) {
@@ -86,6 +85,7 @@
     },
     methods: {
       getVideoUrl: async function() {
+        console.log(111)
         let url = api.videoAddress + this.$route.params.id + '/' + this.videoId
         const res = await http.get(url)
         if (res.data.code === 0) {
@@ -96,6 +96,7 @@
         }
       },
       getVideoplayback: async function(index) { // 获取回放播放地址
+      console.log(222)
         let url = api.videoAddress + this.$route.params.id + '/' + this.programs[index].id
         const res = await http.get(url)
        
