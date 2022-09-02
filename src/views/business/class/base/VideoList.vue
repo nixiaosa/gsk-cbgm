@@ -123,12 +123,12 @@
               </el-button>
             </el-row>
 
-            <el-row v-if="scope.row.businessId===3">
+            <!-- <el-row v-if="scope.row.businessId===3">
               <el-button type="info" size="small"
                          @click="inform('userManage', scope.row)">
                 人员管理
               </el-button>
-            </el-row>
+            </el-row> -->
 
             <!-- <el-row v-if="scope.row.dataSource.isUploadIdentification">
               <el-button type="info" size="small" @click="inform('credentialsExport', scope.row)"
