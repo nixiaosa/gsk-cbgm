@@ -152,7 +152,7 @@ export var Api = {
     questionnaireItem: `${djbQaHost}qa/questionnaire/query/static/`, // 获取问卷 问题统计
     questionnaireUserList: `${djbQaHost}qa/static/query/users/submit`, // 获取用户列表
     questionnaireUserExport: `${djbQaHost}qa/export/exp/user/submit`, // 调研问卷 用户列表导出
-    questionnaireUserExportWithoutId: `${djbQaHost}qa/export/exp/user/submit/withoutId`, // 调研问卷 用户列表导出 未开通多身份调用
+    questionnaireUserExportWithoutId: `${djbQaHost}qa/export/exp/user/submit`, // 调研问卷 用户列表导出 未开通多身份调用
     questionnaireExportList: `${djbQaHost}qa/export/exp/task/list/`, // 调研问卷导出记录
 
     handle: `${companyHost}company/config/update`, // 保存租户信息
