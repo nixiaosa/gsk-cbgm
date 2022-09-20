@@ -30,7 +30,7 @@
           ></el-input>
         </template>
       </el-table-column>
-      <el-table-column fixed="right" label="操作" width="150">
+      <!-- <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
           <el-button
             @click="handleClick(scope.row.name,scope.row.showOrder,scope.row.id, scope.row.businessId)"
@@ -44,7 +44,7 @@
             size="small"
           >{{ scope.row.status === 0 ? '停用' : '启用' }}</el-button>
         </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
   </div>
 </template>

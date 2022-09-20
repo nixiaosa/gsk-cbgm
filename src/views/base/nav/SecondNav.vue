@@ -39,12 +39,14 @@
       <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
           <el-button
+            v-if="scope.row.id != 100023"
             @click="handleClick(scope.row.name,scope.row.showOrder,scope.row.id, scope.row.businessId)"
             type="info"
             size="small"
             style="margin-right:10px"
           >编辑</el-button>
           <el-button
+            v-if="scope.row.id != 100023"
             @click="navSwitch(scope.row)"
             :type="scope.row.status === 0 ? 'danger' : 'success'"
             size="small"
