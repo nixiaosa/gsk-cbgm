@@ -37,16 +37,16 @@
 //     host = 'https://healthy-bone.com.cn/'    // gsk测试
 //   }
 
-  let host = '';
-  let yaKeHost = 'https://healthy-bone.com.cn'
-  const href = window.location.href
-  if (href.indexOf('.dev.') >= 0) {
-    host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
-    yaKeHost = 'https://gsk.dev.100url.cn/yake.manage/api/'
-  } else if (href.indexOf('.test.') > 0) {
-    host = 'https://gsk.test.100url.cn/' // 开发
-    yaKeHost = 'https://gsk.test.100url.cn/yake.manage/api/'
-  }
+let host = 'https://gsk-k8s.100url.cn';
+//   let yaKeHost = 'https://healthy-bone.com.cn'
+//   const href = window.location.href
+//   if (href.indexOf('.dev.') >= 0) {
+//     host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
+//     yaKeHost = 'https://gsk.dev.100url.cn/yake.manage/api/'
+//   } else if (href.indexOf('.test.') > 0) {
+//     host = 'https://gsk.test.100url.cn/' // 开发
+//     yaKeHost = 'https://gsk.test.100url.cn/yake.manage/api/'
+//   }
 
 
 const companyHost = `${host}yb-company/`

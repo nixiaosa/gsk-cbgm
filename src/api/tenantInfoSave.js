@@ -22,19 +22,19 @@
 //       host = ''
 // }
 
-let host = '';
-const href = window.location.href
-  if (href.indexOf('.dev.') >= 0) {
-      host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
-  } else if (href.indexOf('.test.') >= 0) {
-      host = 'https://gsk.test.100url.cn/'
-  } else if (href.indexOf('localhost') >= 0 ){
-      host = ''
-  } else if (href.indexOf('skyyh') >= 0 ){
-    host = 'https://skyyh.healthy-bone.com.cn/'
-  } else {
-    host = 'https://healthy-bone.com.cn/'    
-  }
+let host = 'https://gsk-k8s.100url.cn';
+// const href = window.location.href
+//   if (href.indexOf('.dev.') >= 0) {
+//       host = 'https://gsk.dev.100url.cn/' // 本地调试走代理
+//   } else if (href.indexOf('.test.') >= 0) {
+//       host = 'https://gsk.test.100url.cn/'
+//   } else if (href.indexOf('localhost') >= 0 ){
+//       host = ''
+//   } else if (href.indexOf('skyyh') >= 0 ){
+//     host = 'https://skyyh.healthy-bone.com.cn/'
+//   } else {
+//     host = 'https://healthy-bone.com.cn/'    
+//   }
 
 const getSig = `${host}api/yb-resource-api-ntk/`
 const versionHost = `${host}api/yb-user-api/`
