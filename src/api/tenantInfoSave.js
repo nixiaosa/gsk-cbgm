@@ -22,7 +22,7 @@
 //       host = ''
 // }
 
-let host = 'https://gsk-k8s.100url.cn';
+let host = 'https://gsk-k8s.100url.cn/';
 // const href = window.location.href
 //   if (href.indexOf('.dev.') >= 0) {
 //       host = 'https://gsk.dev.100url.cn/' // 本地调试走代理

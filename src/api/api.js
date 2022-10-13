@@ -37,7 +37,7 @@
 //     host = 'https://healthy-bone.com.cn/'    // gsk测试
 //   }
 
-let host = 'https://gsk-k8s.100url.cn';
+let host = 'https://gsk-k8s.100url.cn/';
 //   let yaKeHost = 'https://healthy-bone.com.cn'
 //   const href = window.location.href
 //   if (href.indexOf('.dev.') >= 0) {
