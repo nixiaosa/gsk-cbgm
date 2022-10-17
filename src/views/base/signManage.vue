@@ -46,6 +46,52 @@
           <span>{{ scope.row.createTime | formatDates}}</span>
         </template>
       </el-table-column>
+      <el-table-column label="可见类型">
+        <template slot-scope="scope">
+          <span>{{ scope.row.visibilityType | hcpType }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="首页-签到点击数量(UV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.homePageSignUv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="首页-签到点击数量(PV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.homePageSignPv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="首页-详情查看数量(UV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.homeDetailUv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="首页-详情查看数量(PV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.homeDetailPv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="我的-签到点击数量(UV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.mySignUv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="我的-签到点击数量(PV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.mySignPv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="我的-详情查看数量(UV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.myDetailUv }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="我的-详情查看数量(PV)">
+        <template slot-scope="scope">
+          <span>{{ scope.row.myDetailPv }}</span>
+        </template>
+      </el-table-column>
+
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row.id)">编辑</el-button>
@@ -67,6 +113,10 @@
               v-model="editForm.effectiveDate"
               :disabled="isDis"
             ></el-date-picker>
+          </el-form-item>
+          <el-form-item label="可见类型：" >
+            <el-radio class="radio" v-model="editForm.visibilityType" label="HCP">仅HCP可见</el-radio>
+            <el-radio class="radio" v-model="editForm.visibilityType" label="ALL">全部可见</el-radio>
           </el-form-item>
           <el-form-item label="内容类型：" >
             <el-radio class="radio" v-model="editForm.type" label="1" :disabled="isDis">文章</el-radio>
@@ -184,7 +234,15 @@
           case 3:
             return '直播回看'
         }
-      }
+      },
+      hcpType(val) {
+        switch (val) {
+          case 'HCP':
+            return '仅HCP可见'
+          case 'ALL':
+            return '全部可见'
+        }
+      },
     },
     data() {
       return {
@@ -219,6 +277,7 @@
           content: '',
           effectiveDate: null,
           sourceId: null,
+          visibilityType: "HCP"
         }
       }
     },
@@ -252,6 +311,7 @@
             this.editForm.type = String(res.data.data.type);
             this.editForm.effectiveDate = res.data.data.effectiveDate;
             this.editForm.sourceId = res.data.data.sourceId;
+            this.editForm.visibilityType = res.data.data.visibilityType;
 
             if(this.editForm.type == 1) {
               this.articleId = Number(res.data.data.sourceId);
@@ -376,6 +436,7 @@
         this.ends = true
         this.editForm.id = null;
         this.editForm.type = '1';
+        this.editForm.visibilityType = 'HCP';
         this.editForm.title = '';
         this.editForm.content = '';
         this.editForm.effectiveDate = null;
