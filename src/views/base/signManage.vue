@@ -46,47 +46,47 @@
           <span>{{ scope.row.createTime | formatDates}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="可见类型" width="280px">
+      <el-table-column label="可见类型">
         <template slot-scope="scope">
           <span>{{ scope.row.visibilityType | hcpType }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="首页-签到点击数量(UV)" width="280px">
+      <el-table-column label="首页-签到点击数量(UV)">
         <template slot-scope="scope">
           <span>{{ scope.row.homePageSignUv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="首页-签到点击数量(PV)" width="280px">
+      <el-table-column label="首页-签到点击数量(PV)">
         <template slot-scope="scope">
           <span>{{ scope.row.homePageSignPv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="首页-详情查看数量(UV)" width="280px">
+      <el-table-column label="首页-详情查看数量(UV)">
         <template slot-scope="scope">
           <span>{{ scope.row.homeDetailUv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="首页-详情查看数量(PV)" width="280px">
+      <el-table-column label="首页-详情查看数量(PV)">
         <template slot-scope="scope">
           <span>{{ scope.row.homeDetailPv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="我的-签到点击数量(UV)" width="280px">
+      <el-table-column label="我的-签到点击数量(UV)">
         <template slot-scope="scope">
           <span>{{ scope.row.mySignUv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="我的-签到点击数量(PV)" width="280px">
+      <el-table-column label="我的-签到点击数量(PV)">
         <template slot-scope="scope">
           <span>{{ scope.row.mySignPv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="我的-详情查看数量(UV)" width="280px">
+      <el-table-column label="我的-详情查看数量(UV)">
         <template slot-scope="scope">
           <span>{{ scope.row.myDetailUv }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="我的-详情查看数量(PV)" width="280px">
+      <el-table-column label="我的-详情查看数量(PV)">
         <template slot-scope="scope">
           <span>{{ scope.row.myDetailPv }}</span>
         </template>
