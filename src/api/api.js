@@ -38,6 +38,7 @@
 //   }
 
 let host = 'https://gsk-k8s.100url.cn/';
+let yaKeHost = 'https://gsk-k8s.100url.cn/yake.manage/api/';
 //   let yaKeHost = 'https://healthy-bone.com.cn'
 //   const href = window.location.href
 //   if (href.indexOf('.dev.') >= 0) {
