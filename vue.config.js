@@ -7,6 +7,9 @@ module.exports = {
     // webpack配置节点
     configureWebpack: {
         plugins: [
+            new webpack.optimize.LimitChunkCountPlugin({
+                maxChunks: 5
+            }),
             new webpack.ProvidePlugin({
                 'window.Quill': 'quill/dist/quill.js',
                 'Quill': 'quill/dist/quill.js'
@@ -18,7 +21,7 @@ module.exports = {
         port: 9009,
         public: 'http://0.0.0.0:9009',
         proxy: {
-            '/yb-company' : {
+            '/yb-company': {
                 target: accessOrigin,
                 changeOrigin: true
             },
@@ -26,38 +29,38 @@ module.exports = {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/yibai-web' : {
+            '/yibai-web': {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/yb-vms' : {
+            '/yb-vms': {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/djb_company' : {
+            '/djb_company': {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/loc' : {
+            '/loc': {
                 target: accessOrigin,
                 changeOrigin: true,
                 pathRewrite: {
                     '^/loc': ''
                 }
             },
-            '/djb' : {
+            '/djb': {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/yb-user-api' : {
+            '/yb-user-api': {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/yb-comment-api' : {
+            '/yb-comment-api': {
                 target: accessOrigin,
                 changeOrigin: true
             },
-            '/yb-im-api' : {
+            '/yb-im-api': {
                 target: accessOrigin,
                 changeOrigin: true
             },
