@@ -46,13 +46,14 @@
       :visible.sync="dialogVideo"
       title="视频"
       width="30%"
+      :before-close="dialogVideoClose"
     >
       <div class="dialog-content">
         <video id="videoId" controls="controls" controlslist="nodownload" :src="form.videoUrl"></video>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dialogVideo = false">确定</el-button>
-        <el-button @click="dialogVideo = false">取消</el-button>
+        <el-button type="primary" @click="dialogVideoClose">确定</el-button>
+        <el-button @click="dialogVideoClose">取消</el-button>
       </span>
     </el-dialog>
     <el-dialog
@@ -149,6 +150,10 @@ export default {
   },
   created() {},
   methods: {
+    dialogVideoClose(){
+      this.dialogVideo = false;
+      this.form.videoUrl = "";
+    },
     auditHandle: async function(val){
       let params = {
         id: this.$route.params.id,
