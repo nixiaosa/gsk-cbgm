@@ -43,37 +43,37 @@
           <span v-else>{{ scope.row.nickname }}</span>
         </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         label="性别">
         <template slot-scope="scope">
           <span>{{ scope.row.sex | sex}}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         label="手机号">
         <template slot-scope="scope">
           <span>{{ scope.row.phone }}</span>
         </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         label="省份">
         <template slot-scope="scope">
           <span>{{ scope.row.province }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         label="城市">
         <template slot-scope="scope">
           <span>{{ scope.row.city }}</span>
         </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         label="区县">
         <template slot-scope="scope">
           <span v-if="scope.row.area">{{ scope.row.area }}</span>
           <span v-else>{{ scope.row.county }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         v-if="serviceId !== 1"
         label="医院名称">
@@ -93,7 +93,7 @@
 
       <el-table-column
         v-if="serviceId!==1"
-        label="职称">
+        label="从业情况">
         <template slot-scope="scope">
           <span>{{ scope.row.title }}</span>
         </template>

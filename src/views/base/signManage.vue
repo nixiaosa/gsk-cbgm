@@ -115,8 +115,8 @@
             ></el-date-picker>
           </el-form-item>
           <el-form-item label="可见类型：" >
-            <el-radio class="radio" v-model="editForm.visibilityType" label="HCP">仅HCP可见</el-radio>
-            <el-radio class="radio" v-model="editForm.visibilityType" label="ALL">全部可见</el-radio>
+            <el-radio class="radio" v-model="editForm.visibilityType" label="HCP" :disabled="isDis">仅HCP可见</el-radio>
+            <el-radio class="radio" v-model="editForm.visibilityType" label="ALL" :disabled="isDis">全部可见</el-radio>
           </el-form-item>
           <el-form-item label="内容类型：" >
             <el-radio class="radio" v-model="editForm.type" label="1" :disabled="isDis">文章</el-radio>
