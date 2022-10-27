@@ -1,7 +1,7 @@
 <!--
  * @Author: chance Lau
  * @Date: 2020-10-26 10:57:15
- * @LastEditTime: 2022-07-12 09:49:00
+ * @LastEditTime: 2022-10-27 13:50:14
  * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
  * @FilePath: /CBGM/src/views/navigationManageNew/base/SecondNav.vue
@@ -48,9 +48,9 @@
           <el-button
             v-if="scope.row.id != 100023"
             @click="navSwitch(scope.row)"
-            :type="scope.row.status === 0 ? 'danger' : 'success'"
+            :type="scope.row.status === 1 ? 'danger' : 'success'"
             size="small"
-          >{{ scope.row.status === 0 ? '停用' : '启用' }}</el-button>
+          >{{ scope.row.status === 1 ? '停用' : '启用' }}</el-button><!-- status:1启用0停用-->
         </template>
       </el-table-column>
     </el-table>
