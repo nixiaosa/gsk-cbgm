@@ -32,7 +32,7 @@
     </div>
     <div class="box-item">
       <span class="title">视频：</span>
-      <span class="des">{{ form.videoUrl }}</span>
+      <span class="des">{{ videoUrl }}</span>
       <el-button @click="dialogVideo = true" type="primary" size="small" style="margin-left:10px">查看</el-button>
     </div>
     <div class="box-item">
@@ -141,6 +141,7 @@ export default {
         videoImg: "",
         videoUrl: ""
       },
+      videoUrl: "",
       dialogVideo: false,
       dialogImg: false,
     };
@@ -178,6 +179,7 @@ export default {
       );
       if (res.data.code === 0) {
         this.form = res.data.data;
+        this.videoUrl = res.data.data.videoUrl;
       } else {
         this.$message.error(res.data.message);
       }
