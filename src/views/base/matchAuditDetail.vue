@@ -33,7 +33,7 @@
     <div class="box-item">
       <span class="title">视频：</span>
       <span class="des">{{ videoUrl }}</span>
-      <el-button @click="dialogVideo = true" type="primary" size="small" style="margin-left:10px">查看</el-button>
+      <el-button @click="dialogVideoOpen" type="primary" size="small" style="margin-left:10px">查看</el-button>
     </div>
     <div class="box-item">
       <span class="title">审核：</span>
@@ -151,6 +151,10 @@ export default {
   },
   created() {},
   methods: {
+    dialogVideoOpen() {
+      this.dialogVideo = true;
+      this.form.videoUrl = this.videoUrl;
+    },
     dialogVideoClose(){
       this.dialogVideo = false;
       this.form.videoUrl = "";
