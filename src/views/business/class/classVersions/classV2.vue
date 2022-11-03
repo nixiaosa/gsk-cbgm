@@ -77,7 +77,7 @@
             <el-input clearable v-model="formInline.createUserName" placeholder="请输入创建人"></el-input>
           </el-form-item>
 
-           <el-form-item
+           <!-- <el-form-item
             label="讲师:"
              v-if="bidValue !== '9'"
           >
@@ -89,7 +89,7 @@
             label="主持人:"
           >
             <el-input clearable v-model="formInline.launchName" placeholder="请输入主持人"></el-input>
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item class="searchStyle">
             <el-button type="primary" @click="search">查询</el-button>
           </el-form-item>

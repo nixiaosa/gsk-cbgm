@@ -26,7 +26,7 @@
           <span v-if="scope.row.userInfo">{{ scope.row.userInfo.nickname }}</span>
         </template>
       </el-table-column>
-      <el-table-column v-if="businessId !== '9'" label="讲师" width="150">
+      <!-- <el-table-column v-if="businessId !== '9'" label="讲师" width="150">
         <template slot-scope="scope">
           <span v-if="scope.row.launchName">{{ scope.row.launchName }}</span>
         </template>
@@ -35,7 +35,7 @@
         <template slot-scope="scope">
           <span>{{ scope.row.launchName }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="状态" width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.status | sureType }}</span>
