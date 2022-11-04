@@ -184,11 +184,11 @@
           <span>{{ formLabelAlign.endTime | formatDate }}</span>
         </el-form-item>
         <!--讲师嘉宾-->
-        <el-form-item :label="$options.filters.launchName(formLabelAlign.businessId)">
+        <!-- <el-form-item :label="$options.filters.launchName(formLabelAlign.businessId)">
           <p style="margin:0">
             <span v-for="item in formLabelAlign.launchList" :key="item.id">{{ item.name }}</span>
           </p>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="会议号:" v-if="bidValue==='9' && isShow">
           <p style="margin:0">
             <span>{{ formLabelAlign.zoomMettingNumber }}</span>

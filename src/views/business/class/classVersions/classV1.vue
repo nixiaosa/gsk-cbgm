@@ -523,7 +523,7 @@
            <el-input-number v-model="formLabelAlign.viewCountAdd" :min="0" :max="99999"></el-input-number>
            <el-link class="marging_left" :underline="false" @click="getCountadd">确定</el-link>
         </el-form-item> -->
-        <el-form-item  label="推流地址:">
+        <el-form-item  label="推流地址:" v-if="activeName === 'live'">
            <span v-if="formLabelAlign.pushUrl">{{ formLabelAlign.pushUrl }}</span>
         </el-form-item>
       </el-form>

@@ -184,15 +184,15 @@
         <el-form-item v-show="isShow" label="结束时间：">
           <span>{{formLabelAlign.endTime | formatDate}}</span>
         </el-form-item>
-        <el-form-item v-show="isShow" label="讲师：" v-if="bidValue!=='5'">
+        <!-- <el-form-item v-show="isShow" label="讲师：" v-if="bidValue!=='5'">
           <p style="margin:0"><span>{{formLabelAlign.launchName}}</span></p>
-        </el-form-item>
-        <el-form-item label="主播:" v-if="bidValue==='5'" v-show="isShow">
+        </el-form-item> -->
+        <!-- <el-form-item label="主播:" v-if="bidValue==='5'" v-show="isShow">
           <p style="margin:0"><span>{{formLabelAlign.launchListName}}</span></p>
-        </el-form-item>
-        <el-form-item  v-if="bidValue==='5'" label="嘉宾:" v-show="isShow">
+        </el-form-item> -->
+        <!-- <el-form-item  v-if="bidValue==='5'" label="嘉宾:" v-show="isShow">
           <p style="margin:0"><span v-for="item in formLabelAlign.guestListName">{{item.name}}&nbsp;&nbsp;</span></p>
-        </el-form-item>
+        </el-form-item> -->
         <div class="info-block block3">
           <span class="info-self">日程：</span>
           <div class="info-selfs">
