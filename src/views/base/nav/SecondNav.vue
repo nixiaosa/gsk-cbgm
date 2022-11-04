@@ -1,7 +1,7 @@
 <!--
  * @Author: chance Lau
  * @Date: 2020-10-26 10:57:15
- * @LastEditTime: 2022-10-27 13:50:14
+ * @LastEditTime: 2022-11-04 11:38:25
  * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
  * @FilePath: /CBGM/src/views/navigationManageNew/base/SecondNav.vue
@@ -39,14 +39,14 @@
       <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
           <el-button
-            v-if="scope.row.id != 100023"
+            v-if="scope.row.origin != 1"
             @click="handleClick(scope.row.name,scope.row.showOrder,scope.row.id, scope.row.businessId)"
             type="info"
             size="small"
             style="margin-right:10px"
           >编辑</el-button>
           <el-button
-            v-if="scope.row.id != 100023"
+            v-if="scope.row.origin != 1"
             @click="navSwitch(scope.row)"
             :type="scope.row.status === 1 ? 'danger' : 'success'"
             size="small"
