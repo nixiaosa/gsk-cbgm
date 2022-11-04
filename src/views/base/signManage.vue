@@ -26,7 +26,7 @@
       :data="tableDatas"
       border
     >
-      <el-table-column label="内容类型" width="300px">
+      <el-table-column label="内容类型" width="200px">
         <template slot-scope="scope">
           <span>{{ scope.row.type | getState }}</span>
         </template>
@@ -92,7 +92,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="操作">
+      <el-table-column label="操作" width="200px">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row.id)">编辑</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id,1)">详情</el-button>
