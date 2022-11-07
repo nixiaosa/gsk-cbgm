@@ -131,8 +131,8 @@
         <template slot-scope="scope">
           <el-button  @click="examine(scope.row.busId,scope.row.type,scope.row.status)" type="info" size="small">查看详情</el-button>
           <el-button @click="handleClick(scope.row.busId,scope.row.type,scope.row.status)"  type="info" size="small" v-if="scope.row.status!==0">统计信息</el-button>
-          <el-button v-if="scope.row.status !== -1 && scope.row.status !== 0 && scope.row.status !== 2 && scope.row.status !== 1" @click="playClick(scope.row.busId,scope.row.type,scope.row.status,scope.row.id)" type="info" size="small">播放</el-button>
-          <el-button v-if="scope.row.status === -1 || scope.row.status === 0 || scope.row.status === 2 || scope.row.status === 1" type="info" disabled size="small">播放</el-button>
+          <!-- <el-button v-if="scope.row.status !== -1 && scope.row.status !== 0 && scope.row.status !== 2 && scope.row.status !== 1" @click="playClick(scope.row.busId,scope.row.type,scope.row.status,scope.row.id)" type="info" size="small">播放</el-button> -->
+          <!-- <el-button v-if="scope.row.status === -1 || scope.row.status === 0 || scope.row.status === 2 || scope.row.status === 1" type="info" disabled size="small">播放</el-button> -->
           <el-button type="danger" size="small" @click="stopVideo(scope.row.id)" v-if="scope.row.isDeleted===0">停用</el-button>
           <el-button type="success" size="small" @click="enableVideo(scope.row.id)"  v-if="scope.row.isDeleted===1">启用</el-button>
           <el-button v-if="scope.row.status === 9 && (bidValue==='3'||bidValue==='4'||bidValue==='5')"   type="info" size="small" @click="downLoad(scope.row.name,scope.row.id)" style="position: absolute">下载</el-button>

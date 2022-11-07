@@ -103,12 +103,12 @@
               </el-button>
             </el-row>
 
-            <el-row
+            <!-- <el-row
                 v-if="scope.row.status !== -1 && scope.row.status !== 0 && scope.row.status !== 2 && scope.row.status !== 1 && scope.row.status !== 3 && scope.row.isDeleted !== 1">
               <el-button
                   @click="inform('playClick', scope.row)" type="info" size="small">播放
               </el-button>
-            </el-row>
+            </el-row> -->
 
             <el-row v-if="(scope.row.type === 2 || scope.row.status === 9)">
               <el-button type="info" size="small"
