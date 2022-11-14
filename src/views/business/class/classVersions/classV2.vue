@@ -1494,19 +1494,24 @@ export default {
     downLoad: async function (name, id, type, busId) {
       this.formLabelAlign.name = name;
       if (type === 1) {
-        var params = {
-          pageNum: 1,
-          pageSize: 100,
-          params: {
-            liveId: id
-          }
-        };
-        const res = await http.post(api.playBckVideoList, params);
-        if (res.data.code === 0) {
+        // var params = {
+        //   pageNum: 1,
+        //   pageSize: 100,
+        //   params: {
+        //     liveId: id
+        //   }
+        // };
+        // const res = await http.post(api.playBckVideoList, params);
+        // if (res.data.code === 0) {
+        //   this.downloadType = 1;
+        //   this.details = true;
+        //   this.urls = res.data.data.data;
+        // }
+         http.get(api.videoAddress + `${busId}/${id}`).then(res => {
           this.downloadType = 1;
           this.details = true;
-          this.urls = res.data.data.data;
-        }
+          this.urls = res.data.data;
+        });
       }
       if (type === 2) {
         http.get(api.videoAddress + `${busId}/${id}`).then(res => {

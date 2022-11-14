@@ -1270,20 +1270,25 @@ export default {
     downLoad: async function (name, id, type, busId) {
       this.formLabelAlign.name = name;
       if (type === 1) {
-        let params = {
-          pageNum: 1,
-          pageSize: 100,
-          params: {
-            liveId: id
-          }
-        };
-        const res = await http.post(api.playBckVideoList, params);
-        if (res.data.code === 0) {
+        // let params = {
+        //   pageNum: 1,
+        //   pageSize: 100,
+        //   params: {
+        //     liveId: id
+        //   }
+        // };
+        // const res = await http.post(api.playBckVideoList, params);
+        // if (res.data.code === 0) {
+        //   this.downloadType = 1;
+        //   this.details = true;
+        //   // this.urls = res.data.data.data[0];
+        //   this.urls = res.data.data.data[0];
+        // }
+        const res = await http.get(api.videoAddress + `${busId}/${id}`);
           this.downloadType = 1;
           this.details = true;
-          // this.urls = res.data.data.data[0];
-          this.urls = res.data.data.data[0];
-        }
+          // console.log(res.data.data[0].playbackUrl)
+          this.urls = res.data.data[0];
       }
       if (type === 2) {
         const res = await http.get(api.videoAddress + `${busId}/${id}`);
