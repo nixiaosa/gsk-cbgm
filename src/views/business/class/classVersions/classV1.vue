@@ -119,15 +119,15 @@
           >
             <el-input clearable v-model="formInline.createUserName" placeholder="请输入创建人"></el-input>
           </el-form-item>
-<!-- 
-           <el-form-item
+
+           <!-- <el-form-item
             label="讲师:"
              v-if="bidValue !== '9'"
           >
             <el-input clearable v-model="formInline.launchName" placeholder="请输入讲师"></el-input>
-          </el-form-item>
+          </el-form-item> -->
 
-          <el-form-item
+          <!-- <el-form-item
             v-if="bidValue === '9' && isShow"
             label="主持人:"
           >
@@ -274,7 +274,7 @@
           <span>{{ formLabelAlign.endTime | formatDate }}</span>
         </el-form-item>
         <!--讲师嘉宾-->
-        <el-form-item :label="$options.filters.launchName(formLabelAlign.businessId)">
+        <!-- <el-form-item :label="$options.filters.launchName(formLabelAlign.businessId)">
           <p style="margin:0">
 						<span
                 v-for="item in formLabelAlign.launchList"
@@ -282,7 +282,7 @@
             >{{ item.name }}</span
             >
           </p>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="会议号:" v-if="bidValue === '9' && isShow">
           <p style="margin:0">
             <span>{{ formLabelAlign.zoomMettingNumber }}</span>
@@ -519,6 +519,10 @@
             v-model="auditObj.reason">
           </el-input>
         </el-form-item>
+        <el-form-item label="分享链接:">
+          <span>{{ lc}}</span>
+          <el-link class="marging_left" @click="onCopy()">复制</el-link>
+        </el-form-item>
         <!-- <el-form-item  label="增加观看人次:">
            <el-input-number v-model="formLabelAlign.viewCountAdd" :min="0" :max="99999"></el-input-number>
            <el-link class="marging_left" :underline="false" @click="getCountadd">确定</el-link>
@@ -593,6 +597,7 @@ export default {
   },
   data() {
     return {
+      lc: '',
       textAreaShow: 0,
       reasonOptionsValue: '',
       reasonOptions:[{
@@ -980,7 +985,7 @@ export default {
       let params = item.params;
       switch (item.affair) {
         case "examine":
-          this.examine(params.busId, params.type);
+          this.examine(params.busId, params.type, params);
           break;
         case "stopVideo":
           this.stopVideo(params.id);
@@ -1270,20 +1275,25 @@ export default {
     downLoad: async function (name, id, type, busId) {
       this.formLabelAlign.name = name;
       if (type === 1) {
-        let params = {
-          pageNum: 1,
-          pageSize: 100,
-          params: {
-            liveId: id
-          }
-        };
-        const res = await http.post(api.playBckVideoList, params);
-        if (res.data.code === 0) {
+        // let params = {
+        //   pageNum: 1,
+        //   pageSize: 100,
+        //   params: {
+        //     liveId: id
+        //   }
+        // };
+        // const res = await http.post(api.playBckVideoList, params);
+        // if (res.data.code === 0) {
+        //   this.downloadType = 1;
+        //   this.details = true;
+        //   // this.urls = res.data.data.data[0];
+        //   this.urls = res.data.data.data[0];
+        // }
+        const res = await http.get(api.videoAddress + `${busId}/${id}`);
           this.downloadType = 1;
           this.details = true;
-          // this.urls = res.data.data.data[0];
-          this.urls = res.data.data.data[0];
-        }
+          // console.log(res.data.data[0].playbackUrl)
+          this.urls = res.data.data[0];
       }
       if (type === 2) {
         const res = await http.get(api.videoAddress + `${busId}/${id}`);
@@ -1333,11 +1343,29 @@ export default {
           return 9;
       }
     },
+    onCopy(e){
+      let url = this.lc;
+      let oInput = document.createElement("input");
+      oInput.value = url;
+      document.body.appendChild(oInput);
+      oInput.select(); // 选择对象;
+      console.log(oInput.value);
+      document.execCommand("Copy"); // 执行浏览器复制命令
+      this.$message({
+        showClose: true,
+        message: "复制成功",
+        type: "success"
+      });
+      oInput.remove();
+    },
     // 获取列表详情
-    examine: async function (id, type) {
+    examine: async function (id, type, params) {
       this.busId = id;
       let apiurl = api.adminVideoDetail
       if (type === 1) {
+        this.lc = `pages/code-permission/code-permission?navId=${params.dataSource.navigationId}&businessId=${params.businessId}&busId=${params.busId}` 
+        console.log(this.lc)
+
         this.isShow = true;
         const res = await http.get(apiurl + id);
         for (let item of this.options) {
@@ -1367,6 +1395,9 @@ export default {
         this.Audience(this.formLabelAlign.tags);
         this.centerDialogVisible = true;
       } else if (type === 2) {
+        this.lc = `pages/code-permission/code-permission?navId=${params.dataSource.navigationId}&businessId=${params.businessId}&busId=${params.busId}` 
+        console.log(this.lc)
+
         this.isShow = false;
         const res = await http.get(apiurl + id);
         for (let optionsItem of this.options) {
