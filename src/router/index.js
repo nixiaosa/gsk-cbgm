@@ -163,6 +163,13 @@ export const asyncRouterMap = [
                 name: '积分规则',
                 icon: 'zonghe',
             },
+            {
+                path: 'gskCreatIndex',
+                component: _import('base/gskCreatIndex'),
+                name: '创建首页设置',
+                icon: 'zonghe',
+                hidden: true
+            },
         ]
     },
     {
