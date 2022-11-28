@@ -2,24 +2,22 @@
   <div class="case">
     <header-content :title="headerTitle"></header-content>
     <el-form :model="form" ref="ruleForm" label-position="left" label-width="120px">
-      <el-form-item label="设置:" prop="coverUrl">
-          <span class="title">轮播图设置:</span>
-          <div v-for="(item,index) in form.carousel" :key="index">
+      <el-form-item label="轮播图设置:" prop="coverUrl">
+          <div>
             <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="(file, data) => handleAvatarSuccess(file, data, index)" :before-upload="beforeAvatarUpload">
-                <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">
+                <img v-if="form.imgUrl" :src="form.imgUrl" class="avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
             <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB，建议尺寸为3:1</p>
             <div>
             <span class="title">排序:</span>
-            <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
+            <el-input type="number" v-model="form.seqNumber" min="0" style="width:80px;"></el-input> 
             <div>&nbsp;</div>
             <span class="title">链接地址:</span>                      
-            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
+            <el-input type="" v-model="form.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
             </div>
           </div>
-          <div class="fenge-line"></div>
-          <span class="title">Banner设置:</span>
+          <!-- <span class="title">Banner设置:</span>
           <div v-for="(item,index) in form.banner" :key="index">
             <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="(file, data) => handleAvatarSuccess2(file, data, index)" :before-upload="beforeAvatarUpload">
                 <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">
@@ -33,11 +31,9 @@
             <span class="title">链接地址:</span>          
             <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
             </div>
-          </div>
+          </div> -->
           <div>
-            <el-button type="primary" @click="toNext(3)">下一步</el-button>
-            <el-button @click="addSelect" :disabled="addDisabled" type="primary">添加广告图</el-button>
-            <el-button @click="reduceSelect" :disabled="reduceDisabled" type="primary">删除广告图</el-button>
+            <el-button type="primary">保存</el-button>
           </div>
       </el-form-item>
     </el-form>
@@ -90,7 +86,7 @@
           sourceId: null,
         },
         fileList: [],
-        form: {
+        form2: {
           carousel: [
             {
               type: 1, // 1轮播2banner
@@ -104,25 +100,15 @@
             {
               type: 2, // 1轮播2banner
               imgUrl: '',
-              linkUrl: '',
-              seqNumber: 1,
-              isDel: 0,
-            },
-            {
-              type: 2, // 1轮播2banner
-              imgUrl: '',
-              linkUrl: '',
-              seqNumber: 1,
-              isDel: 0,
-            },
-            {
-              type: 2, // 1轮播2banner
-              imgUrl: '',
-              linkUrl: '',
-              seqNumber: 1,
-              isDel: 0,
             }
           ],
+        },
+        form: {
+          type: 1, // 1轮播2banner
+          imgUrl: '',
+          linkUrl: '',
+          seqNumber: 1,
+          isDel: 0,
         },
         upimgurl: this.$api.gskUploadImg,
         token: { Authorization: localStorage.getItem('yibai_token_s'), 'Remote-Host': window.localStorage.getItem('locationHost')},
@@ -152,7 +138,7 @@
         this.form.voteId = val;
       },
       handleAvatarSuccess(res, file) {
-        this.form.carousel[index].imgUrl = res.data;        
+        this.form.imgUrl = res.data;
       },
       handleAvatarSuccess2(res, file, index) {
         this.form.banner[index].imgUrl = res.data;
