@@ -76,7 +76,7 @@ export default {
       }
     },
     getParentList: async function() {
-      var res = await http.post(api.homePageConfigManageList + 1);
+      var res = await http.get(api.homePageConfigManageList + 1);
       if (res.data.code === 0) {
         this.tableDataFirst = res.data.data;
       } else {
@@ -84,7 +84,7 @@ export default {
       }
     },
     getChildList: async function() {
-      var res = await http.post(api.homePageConfigManageList + 2);      
+      var res = await http.get(api.homePageConfigManageList + 2);      
       if (res.data.code === 0) {
         this.tableDataSecond = res.data.data;  
       } else {
