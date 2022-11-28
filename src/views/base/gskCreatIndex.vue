@@ -1,342 +1,296 @@
 <template>
-  <div class="modelist">
-    <header-content
-      :title="headerTitle"
-      :opertions="opertions"
-      @header-btn-click="headerClick"
-      v-if="!$route.query.id"
-    ></header-content>
-    <header-content
-      :title="headerTitleEdit"
-      :opertions="opertions"
-      @header-btn-click="headerClick"
-      v-if="$route.query.id"
-    ></header-content>
-    <div>
-      <el-form :model="form">
-        <el-form-item label="一级栏目名称:">
-          <el-input v-model="form.name" auto-complete="off" style="width:200px;"></el-input>
-        </el-form-item>
-        <el-form-item label="栏目排序:">
-          <el-input type="number" v-model="form.showOrder" min="0" style="width:80px;"></el-input>
-        </el-form-item>
-        <el-form-item label="是否添加二级栏目：">
-          <el-radio-group v-model="form.hasChild" :disabled="isDisabled">
-            <el-radio :label="1">是</el-radio>
-            <el-radio :label="0">否</el-radio>
-          </el-radio-group>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="cancel">取 消</el-button>
-        <el-button type="primary" v-if="!$route.query.id" @click="createMenu()">保存</el-button>
-        <el-button type="primary" v-if="$route.query.id" @click="createMenu()">编辑</el-button>
-      </div>
-    </div>
+  <div class="case">
+    <header-content :title="headerTitle"></header-content>
+    <el-form :model="form" ref="ruleForm" label-position="left" label-width="120px">
+      <el-form-item label="设置:" prop="coverUrl">
+          <span class="title">轮播图:</span>
+          <div v-for="(item,index) in form.carousel" :key="index">
+            <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="(file, data) => handleAvatarSuccess(file, data, index)" :before-upload="beforeAvatarUpload">
+                <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+            <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB，建议尺寸为3:1</p>
+            <div>
+            <span class="title">排序:</span>
+            <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
+            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" clearable></el-input>  
+            </div>
+          </div>
+          <span class="title">Banner:</span>
+          <div v-for="(item,index) in form.banner" :key="index">
+            <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="(file, data) => handleAvatarSuccess2(file, data, index)" :before-upload="beforeAvatarUpload">
+                <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+            <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB，建议尺寸为3:1</p>
+            <div>
+            <span class="title">排序:</span>
+            <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
+            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" clearable></el-input>  
+            </div>
+          </div>
+          <div>
+            <el-button type="primary" @click="toNext(3)">下一步</el-button>
+            <el-button @click="addSelect" :disabled="addDisabled" type="primary">添加广告图</el-button>
+            <el-button @click="reduceSelect" :disabled="reduceDisabled" type="primary">删除广告图</el-button>
+          </div>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 <script>
-import http from "@/utils/tenant";
-import api from "@/api/tenantInfoSave";
-import { mapGetters } from "vuex";
-import { formatDate } from "@/common/data";
-import HeaderContent from "@/components/header-content";
-import FirstNav from "./nav/FirstNav";
-import SecondNav from "./nav/SecondNav";
-import { parse } from 'querystring';
-export default {
-  name: "firstNav",
-  components: {
-    HeaderContent,
-    FirstNav,
-    SecondNav
-  },
-  data() {
-    return {
-      imgSrc:"",
-      imgDec:"",
-      activeName: "firstNav",
-      auditStatus: 1,
-      value: "",
-      tableData: [],
-      total: 1,
-      currentPage: 1,
-      dialogFormAddOne: false,
-      hasChild: 1,
-      form: {
-        name: "",
-        showOrder: "",
-        hasChild: 1
+  import http from '@/utils/tenant'
+  import api from '@/api/tenantInfoSave'
+  import { formatDate } from '@/common/data'
+  import HeaderContent from '@/components/header-content'
+  import { mapGetters } from "vuex";
+  export default {
+    name: "matchSet",
+    components: {
+      HeaderContent
+    },
+    computed: {},
+    filters:{
+      formatDate(time) {
+        var date = new Date(time)
+        return formatDate(date,'yyyy-MM-dd')
       },
-      existBusiness: [],
-      liArr: [],
-      id: "",
-      opertions: ["返回"],
-      headerTitle: "添加一级栏目",
-      headerTitleEdit: "编辑一级栏目",
-      isShow: true,
-      visibility: false,
-      isDisabled: true,
-    };
-  },
-  computed: {
-    ...mapGetters(["userAuths", "companyid"])
-  },
-  filters: {
-    formatDate(time) {
-      var date = new Date(time);
-      return formatDate(date, "yyyy-MM-dd hh:mm");
-    },
-    getType(id) {
-      switch (id) {
-        case 1:
-          return "网站首页";
-        case 2:
-          return "开放视频类型";
-        case 3:
-          return "封闭视频类型";
-        case 4:
-          return "文章类型";
-        case 5:
-          return "活动类型";
-        case 6:
-          return "商城类型";
-        case 7:
-          return "组合类型";
-        case 8:
-          return "外链类型";
-        case 9:
-          return "资料类型";
-        default:
-          return "";
-      }
-    }
-  },
-  mounted() {
-    this.getParentList(1);
-    // this.getType();
-    if (this.$route.query.id) {
-      this.getParentsEdit(); //回显
-      this.styleIsShow = 1;
-      this.isDisabled = true;
-    }else{
-      this.isDisabled = false;
-    }
-  },
-  methods: {
-    liClick(a) {
-      this.stylePre = a + 1;
-      this.dialogFormAddOne = true;
-      this.imgSrc = this.liArr[a].imageUrl;
-      this.imgDec = this.liArr[a].description;
-    },
-    getParentsEdit: async function(page) {
-      //一级栏目编辑页回显
-      var res = await http.get(api.getNavigationDetail + "/" + this.$route.query.id);
-      if (res.data.code === 0) {
-        this.form.name = res.data.data.name;
-        this.form.showOrder = res.data.data.showOrder;
-        this.form.hasChild = res.data.data.hasChild;
-        this.hasChild = res.data.data.hasChild;
-        this.value = res.data.data.type;
-      }
-    },
-    getParentList: async function(page) {
-      //获取一级栏目
-      var params = {
-        pageNum: page,
-        pageSize: 10,
-        navigationLevel: 1
-      };
-      var res = await http.post(api.getNavigationList, params);
-      if (res.data.code === 0) {
-        this.tableDataFirst = res.data.data.list;
-      } else {
-        this.$message.error(res.data.message);
-      }
-    },
-    getType: async function() {
-      var res = await http.get(api.getType);
-      if (res.data.code === 0) {
-        this.existBusiness = res.data.data;
-      } else {
-        this.$message.error(res.data.message);
-      }
-    },
-    headerClick() {
-      this.$router.back();
-    },
-    cancel() {
-      this.$router.back();
-    },
-    createMenu: async function() {
-      if (!this.form.name) {
-          this.errorTost("请添加一级栏目名称");
-          return false;
-        }
-      if (!this.form.name.trim()) {
-        this.errorTost("一级栏目名称不能为空");
-        return false;
-      }
-      if (this.form.name.trim().indexOf(" ") !== -1) {
-        this.errorTost("一级栏目名称不能有空格");
-        return false;
-      }
-      if (this.form.showOrder === "") {
-        this.errorTost("请选择栏目排序");
-        return false;
-      }
-
-      var params = {
-        name: this.form.name,
-        showOrder: this.form.showOrder,
-        hasChild: this.form.hasChild,
-        navigationLevel: 1,
-      };
-
-      if (!this.$route.query.id) {
-        var res = await http.post(api.navigationSave, params);
-        if (res.data.code === 0) {
-          this.form = {
-            name: "",
-            showOrder: "",
-            hasChild: 1
-          };
-          this.value = "";
-          this.successTost("保存成功");
-        }else{
-          this.errorTost(res.data.message);
-        }
-      } else {
-        params.id = this.$route.query.id;
-        var res = await http.post(api.navigationSave, params);
-        if (res.data.code === 0) {
-          this.successTost("编辑成功");
-          this.$router.back();
+      formatDates(time) {
+        var date = new Date(time)
+        if(time){
+          return formatDate(date,'yyyy-MM-dd hh:mm')
         } else {
-          this.errorTost(res.data.message);
+          ""
         }
+      },
+    },
+    data() {
+      return {
+        activeName: 'first',
+        headerTitle: '创建',
+        id: '',
+        voteId: '',
+        articleId: '',
+        articleOptions: [],
+        voteOptions: [],
+        allowSubmit: '',
+        addDisabled: false,
+        reduceDisabled: false,
+        editForm: {
+          id: null,
+          type: '1',
+          title: '',
+          content: '',
+          effectiveDate: null,
+          sourceId: null,
+        },
+        fileList: [],
+        form: {
+          carousel: [
+            {
+              type: 1, // 1轮播2banner
+              imgUrl: '',
+              linkUrl: '',
+              seqNumber: 1,
+              isDel: 0,
+            }
+          ],
+          banner: [
+            {
+              type: 2, // 1轮播2banner
+              imgUrl: '',
+              linkUrl: '',
+              seqNumber: 1,
+              isDel: 0,
+            }
+          ],
+        },
+        upimgurl: this.$api.gskUploadImg,
+        token: { Authorization: localStorage.getItem('yibai_token_s'), 'Remote-Host': window.localStorage.getItem('locationHost')},
       }
     },
+    async mounted() {
+      await this.getMenuList();
+      await this.gskVoteList();
+      await this.onEdit();
+      if (this.form.banners.length < 2) {
+        this.reduceDisabled = true;
+      }
+    },
+    created() {},
+    methods: {
+      toNext(step){
+        if(step == 2){
+          this.activeName = 'second'
+        } else if (step == 3) {
+          this.activeName = 'third'
+        }
+      },
+      selectArticle(val,index){
+        this.form.banners[index].columnId = val;
+      },
+      selectVote(val){
+        this.form.voteId = val;
+      },
+      handleAvatarSuccess(res, file) {
+        this.form.carousel[index].imgUrl = res.data;        
+      },
+      handleAvatarSuccess2(res, file, index) {
+        this.form.banner[index].imgUrl = res.data;
+      },
+      // handleAvatarSuccess3(res, file) {
+      //   this.form.contactImg = res.data
+      // },
+      beforeAvatarUpload(file) {
+        const isJPG =
+          file.type === 'image/jpeg' ||
+          file.type === 'image/png' ||
+          file.type === 'image/gif'
+        const isLt5M = file.size / 1024 / 1024 < 5
+        if (!isJPG) {
+          this.$message.error('上传图片只能是jpg、png、gif格式!')
+        }
+        if (!isLt5M) {
+          this.$message.error('上传图片大小不能超过 5MB!')
+        }
+        return isJPG && isLt5M
+      },
+      getMenuList: async function() {
+        let params = {}
+        const res = await http.post(api.getMenuList,params)
+        if (res.data.code === 0) {
+          this.articleOptions = res.data.data[0].navigationList;
+        } else {
+          this.$message.error(res.data.message)
+        }
+      },
+      gskVoteList: async function() {
+        let params = {
+          pageSize:1000,
+          pageNum:1,
+          type:"0",
+          voteName:null
+        }
+        const res = await http.post(api.gskVoteList,params)
+        if (res.data.code === 0) {
+          this.voteOptions = res.data.data.list;
+        } else {
+          this.$message.error(res.data.message)
+        }
+      },
+      onSubmit: async function() {
+        if(!this.form.introduceImg){
+            this.$message.error("请上传大赛介绍图片");
+            return false;
+        }
+        if(!this.form.voteId){
+            this.$message.error("请选择投票");
+            return false;
+        }
+        if(!this.form.contactImg){
+            this.$message.error("请上传联系我们图片");
+            return false;
+        }
 
-    getNavList: async function(page) {
-      var params = {
-        pageNum: page,
-        pageSize: 10
-      };
-      var res = await http.post(this.$api.navigation.list, params);
-      if (res.data.code === 0) {
-        this.tableData = res.data.data.list;
-        this.total = res.data.data.total;
-      }
-    },
-    errorTost(val) {
-      // 错误提示
-      this.$message({
-        showClose: true,
-        message: val,
-        type: "error"
-      });
-    },
-    successTost(val) {
-      // 成功提示
-      this.$message({
-        showClose: true,
-        message: val,
-        type: "success"
-      });
+        this.form.banners.map(item=>{
+          if( item.bannerUrl == '' || item.columnId == '' ){
+            this.$message.error("大赛背景图或栏目不能为空");
+            this.allowSubmit = 0;
+          } else {
+            this.allowSubmit = 1;
+          }
+        });
+        
+        if(this.allowSubmit == 1){
+          let params = {
+            ...this.form
+          }
+          const res = await http.post(api.matchSetting,params)
+          if (res.data.code === 0) {
+            this.$message.success("操作成功")
+          } else {
+            this.$message.error(res.data.message)
+          }
+        }
+        
+      },
+      onEdit: async function() {
+        const res = await http.get(api.matchGetSetting)
+        if (res.data.code === 0) {
+          if(res.data.data.id != null){
+            this.form = res.data.data;
+            this.form.banners = JSON.parse(res.data.data.banners);
+            this.voteId = res.data.data.voteId;
+          }
+        } else {
+          this.$message.error(res.data.message)
+        }
+      },
+      addSelect() {
+        if (this.form.banners.length >= 7) {
+            this.addDisabled = true;
+        }
+        if (this.form.banners.length <= 2) {
+            this.reduceDisabled = false;
+        }
+        this.form.banners.push({
+          bannerUrl: '',
+          columnName: '',
+          columnId: ''
+        });
+      },
+      reduceSelect() {
+          if (this.form.banners.length <= 2) {
+              this.reduceDisabled = true;
+          }
+          if (this.form.banners.length <= 8) {
+              this.addDisabled = false;
+          }
+          this.form.banners.splice(this.form.banners.length - 1);
+      },
     }
   }
-};
 </script>
-<style rel="stylesheet/scss" lang="scss" scoped>
-.background {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 100px;
-  height: 80px;
-}
-/* ::v-deep .el-form-item{
-  width: 500px;
-}
-::v-deep .el-form-item__content {
-  width: 200px;
-}
-::v-deep .el-form-item__content .el-input__inner {
-  width: 200px;
-} */
-::v-deep .el-form-item__label {
-  width: 140px;
-  text-align: right;
-}
-.nav-style {
-  list-style: none;
-  width: 680px;
-  margin-left: 143px;
-  padding: 0;
-}
-.nav-style li {
-  position: relative;
-  float: left;
-  width: 150px;
-  height: 150px;
-  margin: 0 20px 10px 0;
-  background-color: #ccc;
-}
-.nav-style li img{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 150px;
-  height: 150px;
-}
-.img1{
-  z-index: 1;
-}
-.img2{
-  z-index: 2;
-  visibility: hidden;
-}
-.nav-style li:hover {
-  // background: url(https://yibaifiles-1252497236.file.myqcloud.com/CBGM/icon/magnifier-bg.png) top center;
-  background-size: 100% 100%;
-  .img2{
-    visibility:inherit;
-  }
-}
-.nav-style li span {
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  float: left;
-  width: 150px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  font-weight: bold;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 3;
-}
-.fn-clear:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-.fn-clear {
-  zoom: 1; /* for IE6 IE7 */
-}
-.clickNow {
-  box-shadow: 0 1px 8px #000000;
-}
-.textinfo {
+
+<style scoped>
+.upload-info{
+  color: #999;
   font-size: 14px;
-  padding: 20px 0;
-  line-height: 1.5;
 }
+.title{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-uploader .el-upload:hover {
+    border-color: #20a0ff;
+  }
+
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+    border: 1px dashed #ccc;
+  }
+
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+  .ql-editor{
+    min-height:500px;
+  }
 </style>
