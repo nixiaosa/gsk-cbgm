@@ -1,8 +1,14 @@
 <template>
   <div class="modelist">
     <header-content
+      v-if="activeName == firstNav"
       :title="headerTitle"
       :opertions="opertionsFirst"
+      @header-btn-click="headerClick"
+    ></header-content>
+    <header-content
+      v-if="activeName == secondNav"
+      :title="headerTitle"
       @header-btn-click="headerClick"
     ></header-content>
     <div>
