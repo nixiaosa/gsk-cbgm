@@ -107,6 +107,20 @@
               linkUrl: '',
               seqNumber: 1,
               isDel: 0,
+            },
+            {
+              type: 2, // 1轮播2banner
+              imgUrl: '',
+              linkUrl: '',
+              seqNumber: 1,
+              isDel: 0,
+            },
+            {
+              type: 2, // 1轮播2banner
+              imgUrl: '',
+              linkUrl: '',
+              seqNumber: 1,
+              isDel: 0,
             }
           ],
         },
