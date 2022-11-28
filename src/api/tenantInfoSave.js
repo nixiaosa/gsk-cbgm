@@ -189,7 +189,8 @@ export default {
   gskSignExport: `${djbCompanyHost}sign/in/config/export`, // 签到内容导出
 
   homePageConfigManageSet: `${djbCompanyHost}homePageConfig/manage/set`, // gsk首页设置-轮播图创建
-
+  homePageConfigManageEdit: `${djbCompanyHost}homePageConfig/manage/manage/detail/`, // gsk首页设置-编辑回显
+  homePageConfigManageList: `${djbCompanyHost}homePageConfig/manage/list/`, // gsk首页设置-列表
 
 
 

@@ -8,10 +8,10 @@
     <div>
       <el-tabs v-model="activeName" @tab-click="tabClick">
         <el-tab-pane label="轮播图设置" name="firstNav">
-          <first-nav :table-data="tableDataFirst" @change="navChange"/>
+          <first-nav :table-data="tableDataFirst"/>
         </el-tab-pane>
         <el-tab-pane label="Banner设置" name="secondNav">
-          <second-nav :table-data="tableDataSecond" @change="navChange"/>
+          <second-nav :table-data="tableDataSecond"/>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -65,79 +65,30 @@ export default {
     }
   },
   mounted() {
-    this.getParentList(1);
+    this.getParentList();
   },
   methods: {
     tabClick() {
-      // console.log(this.activeName)
       if (this.activeName == "firstNav") {
-        this.currentPage = 1;
-        this.getParentList(1);
-        // console.log(this.activeName)
+        this.getParentList();
       } else if (this.activeName == "secondNav") {
-        this.currentPage = 1;
-        this.getChildList(1);
-        // console.log(this.activeName)
-      } else {
-        this.currentPage = 1;
-        this.getThirdList(1);
+        this.getChildList();
       }
     },
-    getParentList: async function(page) {
-      //获取一级栏目
-      var params = {
-        pageNum: page,
-        pageSize: 10,
-        navigationLevel: 1
-      };
-      var res = await http.post(api.getNavigationList, params);
+    getParentList: async function() {
+      var res = await http.post(api.homePageConfigManageList + 1);
       if (res.data.code === 0) {
-        this.tableDataFirst = res.data.data.list;
-        this.total = res.data.data.total;
-        
+        this.tableDataFirst = res.data.data;
       } else {
         this.$message.error(res.data.message);
       }
     },
-    getChildList: async function(page) {
-      //获取二级栏目
-      var params = {
-        pageNum: page,
-        pageSize: 10,
-        navigationLevel: 2
-      };
-      var res = await http.post(api.getNavigationList, params);
+    getChildList: async function() {
+      var res = await http.post(api.homePageConfigManageList + 2);      
       if (res.data.code === 0) {
-        this.tableDataSecond = res.data.data.list;
-        this.total = res.data.data.total;
-        
+        this.tableDataSecond = res.data.data;  
       } else {
         this.$message.error(res.data.message);
-      }
-    },
-    getThirdList: async function(page) {
-      //获取二级栏目
-      var params = {
-        pageNum: page,
-        pageSize: 10,
-        navigationLevel: 3
-      };
-      var res = await http.post(api.getNavigationList, params);
-      if (res.data.code === 0) {
-        this.tableDataThird = res.data.data.list;
-        this.total = res.data.data.total;
-        
-      } else {
-        this.$message.error(res.data.message);
-      }
-    },
-    handleCurrentChange(val) {
-      if (this.activeName == "firstNav") {
-        this.getParentList(val);
-      } else if (this.activeName == "secondNav") {
-        this.getChildList(val);
-      } else {
-        this.getThirdList(val);
       }
     },
     
@@ -145,13 +96,6 @@ export default {
       this.$router.push({
         path: "/basedata/gskCreatIndex"
       });
-    },
-    navChange(v) {
-      if (v == "firstNav") {
-        this.getParentList(this.currentPage);
-      } else if (v == "secondNav") {
-        this.getChildList(this.currentPage);
-      }
     },
     errorTost(val) {
       // 错误提示

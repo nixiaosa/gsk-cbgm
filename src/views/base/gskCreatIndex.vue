@@ -94,6 +94,7 @@
               linkUrl: '',
               seqNumber: 1,
               isDel: 0,
+              proUuid: null
             }
           ],
           banner: [
@@ -109,12 +110,17 @@
           linkUrl: '',
           seqNumber: 1,
           isDel: 0,
+          proUuid: null
         },
         upimgurl: this.$api.gskUploadImg,
         token: { Authorization: localStorage.getItem('yibai_token_s'), 'Remote-Host': window.localStorage.getItem('locationHost')},
       }
     },
     async mounted() {
+      if (this.$route.query.id) {
+        this.getEdit(); //回显
+      }
+
       // await this.getMenuList();
       // await this.gskVoteList();
       // await this.onEdit();
@@ -124,18 +130,13 @@
     },
     created() {},
     methods: {
-      toNext(step){
-        if(step == 2){
-          this.activeName = 'second'
-        } else if (step == 3) {
-          this.activeName = 'third'
+      getEdit: async function() {
+        const res = await http.get(api.homePageConfigManageEdit + this.$route.id)
+        if (res.data.code === 0) {
+          this.form = res.data.data;
+        } else {
+          this.$message.error(res.data.message)
         }
-      },
-      selectArticle(val,index){
-        this.form.banners[index].columnId = val;
-      },
-      selectVote(val){
-        this.form.voteId = val;
       },
       handleAvatarSuccess(res, file) {
         this.form.imgUrl = res.data;
@@ -143,9 +144,6 @@
       handleAvatarSuccess2(res, file, index) {
         this.form.banner[index].imgUrl = res.data;
       },
-      // handleAvatarSuccess3(res, file) {
-      //   this.form.contactImg = res.data
-      // },
       beforeAvatarUpload(file) {
         const isJPG =
           file.type === 'image/jpeg' ||
@@ -163,6 +161,9 @@
       save: async function() {
         let params = {
           ...this.form
+        }
+        if (this.$route.query.id) {
+          this.form.id = this.$route.query.id
         }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
