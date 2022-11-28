@@ -3,7 +3,7 @@
     <header-content :title="headerTitle"></header-content>
     <el-form :model="form" ref="ruleForm" label-position="left" label-width="120px">
       <el-form-item label="设置:" prop="coverUrl">
-          <span class="title">轮播图:</span>
+          <span class="title">轮播图设置:</span>
           <div v-for="(item,index) in form.carousel" :key="index">
             <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="(file, data) => handleAvatarSuccess(file, data, index)" :before-upload="beforeAvatarUpload">
                 <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">
@@ -13,10 +13,12 @@
             <div>
             <span class="title">排序:</span>
             <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
-            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" clearable></el-input>  
+            <span class="title">链接地址:</span>                      
+            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
             </div>
           </div>
-          <span class="title">Banner:</span>
+          <div class="fenge-line"></div>
+          <span class="title">Banner设置:</span>
           <div v-for="(item,index) in form.banner" :key="index">
             <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="(file, data) => handleAvatarSuccess2(file, data, index)" :before-upload="beforeAvatarUpload">
                 <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">
@@ -26,7 +28,8 @@
             <div>
             <span class="title">排序:</span>
             <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
-            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" clearable></el-input>  
+            <span class="title">链接地址:</span>          
+            <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
             </div>
           </div>
           <div>
@@ -292,5 +295,10 @@
   }
   .ql-editor{
     min-height:500px;
+  }
+  .fenge-line{
+    border: 1px solid #000;
+    width: 100%;
+    margin: 50px 0;
   }
 </style>
