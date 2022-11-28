@@ -110,12 +110,12 @@
       }
     },
     async mounted() {
-      await this.getMenuList();
-      await this.gskVoteList();
-      await this.onEdit();
-      if (this.form.banners.length < 2) {
-        this.reduceDisabled = true;
-      }
+      // await this.getMenuList();
+      // await this.gskVoteList();
+      // await this.onEdit();
+      // if (this.form.banners.length < 2) {
+      //   this.reduceDisabled = true;
+      // }
     },
     created() {},
     methods: {
