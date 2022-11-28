@@ -164,6 +164,13 @@ export const asyncRouterMap = [
                 icon: 'zonghe',
             },
             {
+                path: 'gsk/indexManage',
+                component: _import('base/gsk-index-manage'),
+                icon: 'zonghe',
+                name: '首页设置',
+                // sign: 'basics_identity_manage'
+            },
+            {
                 path: 'gskCreatIndex',
                 component: _import('base/gskCreatIndex'),
                 name: '创建首页设置',
