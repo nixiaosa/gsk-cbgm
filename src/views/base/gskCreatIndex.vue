@@ -13,6 +13,7 @@
             <div>
             <span class="title">排序:</span>
             <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
+            <div>&nbsp;</div>
             <span class="title">链接地址:</span>                      
             <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
             </div>
@@ -28,6 +29,7 @@
             <div>
             <span class="title">排序:</span>
             <el-input type="number" v-model="item.seqNumber" min="0" style="width:80px;"></el-input> 
+            <div>&nbsp;</div>
             <span class="title">链接地址:</span>          
             <el-input type="" v-model="item.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
             </div>
@@ -297,7 +299,7 @@
     min-height:500px;
   }
   .fenge-line{
-    border: 1px solid #000;
+    border-top: 1px solid #ccc;
     width: 100%;
     margin: 50px 0;
   }
