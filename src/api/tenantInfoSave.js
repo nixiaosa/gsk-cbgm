@@ -188,6 +188,9 @@ export default {
   gskSignEdit: `${djbCompanyHost}sign/in/config/get`, // 获取签到内容
   gskSignExport: `${djbCompanyHost}sign/in/config/export`, // 签到内容导出
 
+  homePageConfigManageSet: `${djbCompanyHost}homePageConfig/manage/set`, // gsk首页设置-轮播图创建
+
+
 
 
   getVideoList: [`${companyHost}company/`, 'video/list'], // 获得视频直播类信息列表

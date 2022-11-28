@@ -11,7 +11,7 @@
             <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB，建议尺寸为3:1</p>
             <div>
             <span class="title">排序:</span>
-            <el-input type="number" v-model="form.seqNumber" min="0" style="width:80px;"></el-input> 
+            <el-input type="number" v-model="form.seqNumber" min="1" style="width:80px;"></el-input> 
             <div>&nbsp;</div>
             <span class="title">链接地址:</span>                      
             <el-input type="" v-model="form.linkUrl" placeholder="请输入链接地址" style="width:300px;" clearable></el-input>  
@@ -33,7 +33,7 @@
             </div>
           </div> -->
           <div>
-            <el-button type="primary">保存</el-button>
+            <el-button @click="save"  type="primary">保存</el-button>
           </div>
       </el-form-item>
     </el-form>
@@ -159,6 +159,17 @@
           this.$message.error('上传图片大小不能超过 5MB!')
         }
         return isJPG && isLt5M
+      },
+      save: async function() {
+        let params = {
+          ...this.form
+        }
+        const res = await http.post(api.homePageConfigManageSet,params)
+        if (res.data.code === 0) {
+          this.$message.success("操作成功")
+        } else {
+          this.$message.error(res.data.message)
+        }
       },
       getMenuList: async function() {
         let params = {}
