@@ -111,7 +111,6 @@
           imgUrl: '',
           linkUrl: '',
           seqNumber: 1,
-          isDel: 0,
           proUuid: this.$route.query.proUuid ? this.$route.query.proUuid : null
         },
         opertionsFirst: ["返回"],
@@ -167,12 +166,11 @@
         return isJPG && isLt5M
       },
       save: async function() {
-        if (this.$route.query.id) {
-          this.form.id = this.$route.query.id
-          this.form.isDel = undefined
-        }
         let params = {
           ...this.form
+        }
+        if (this.$route.query.id) {
+          this.form.id = this.$route.query.id
         }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
