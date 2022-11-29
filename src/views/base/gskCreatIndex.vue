@@ -8,8 +8,8 @@
                 <img v-if="form.imgUrl" :src="form.imgUrl" class="avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
-            <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB，建议尺寸为3:1</p>
-            <div>
+            <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB</p>
+            <div v-if="$route.type != 2">
             <span class="title">排序:</span>
             <el-input type="number" v-model="form.seqNumber" min="1" style="width:80px;"></el-input> 
             <div>&nbsp;</div>
@@ -105,12 +105,12 @@
           ],
         },
         form: {
-          type: 1, // 1轮播2banner
+          type: this.$route.type, // 1轮播2banner
           imgUrl: '',
           linkUrl: '',
           seqNumber: 1,
           isDel: 0,
-          proUuid: null
+          proUuid: this.$route.proUuid ? this.$route.proUuid : null
         },
         upimgurl: this.$api.gskUploadImg,
         token: { Authorization: localStorage.getItem('yibai_token_s'), 'Remote-Host': window.localStorage.getItem('locationHost')},

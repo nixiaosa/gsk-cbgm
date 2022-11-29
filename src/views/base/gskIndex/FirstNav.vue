@@ -1,7 +1,7 @@
 <!--
  * @Author: chance Lau
  * @Date: 2020-10-26 10:56:57
- * @LastEditTime: 2021-12-28 13:52:39
+ * @LastEditTime: 2022-11-29 07:59:38
  * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
  * @FilePath: /CBGM/src/views/navigationManageNew/base/FirstNav.vue
@@ -38,16 +38,16 @@
       <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
           <el-button
-            @click="handleClick(scope.row.name,scope.row.showOrder,scope.row.id, scope.row.businessId)"
+            @click="handleClick(scope.row)"
             type="info"
             size="small"
             style="margin-right:10px"
           >编辑</el-button>
           <el-button
             @click="navSwitch(scope.row)"
-            :type="scope.row.status === 0 ? 'danger' : 'success'"
+            :type="scope.row.isDel == 0 ? 'success' : 'danger'"
             size="small"
-          >{{ scope.row.status === 0 ? '停用' : '启用' }}</el-button>
+          >{{ scope.row.isDel == 0 ? '停用' : '启用' }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -72,7 +72,15 @@ export default {
     return {
       classDetail: false,
       classStatic: false,
-      classStop: false
+      classStop: false,
+      form: {
+          type: 1, // 1轮播2banner
+          imgUrl: '',
+          linkUrl: '',
+          seqNumber: 1,
+          isDel: 0,
+          proUuid: this.$route.proUuid ? this.$route.proUuid : null
+        },
     };
   },
   computed: {
@@ -132,26 +140,30 @@ export default {
       };
       this.$emit("change", params);
     },
-    navSwitch: async function(val) {
-      let id = val.id;
-      var res = await http.get(api.navigationForbidden + '/' + id);
-      if (res.data.code === 0) {
-        if(status == 0){
-          this.successTost("操作成功");
-        }else{
-          this.successTost("操作成功");
+    navSwitch: async function(row) {
+        let params = {
+          ...this.form
         }
-        
-        this.$emit("change", "firstNav");
-      }else{
-        this.errorTost(res.data.message);
-      }
+        if(row.isDel == 0){
+          this.form.isDel == 1
+        } else {
+          this.form.isDel == 0
+        }
+        this.form.id = row.id
+        const res = await http.post(api.homePageConfigManageSet,params)
+        if (res.data.code === 0) {
+          this.$message.success("操作成功")
+        } else {
+          this.$message.error(res.data.message)
+        }
     },
-    handleClick(name, showOrder, id, businessId) {
+    handleClick(rows) {
       this.$router.push({
-        path: "/basedata/addFirstNav",
+        path: "/base/gskCreatIndex",
         query: {
-          id: id
+          id: rows.id,
+          type: rows.type,
+          proUuid: rows.proUuid
         }
       });
     },
