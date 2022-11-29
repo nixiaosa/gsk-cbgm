@@ -159,7 +159,7 @@ export default {
     },
     handleClick(rows) {
       this.$router.push({
-        path: "/base/gskCreatIndex",
+        path: "/basedata/base/gskCreatIndex",
         query: {
           id: rows.id,
           type: rows.type,
