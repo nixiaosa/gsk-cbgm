@@ -102,34 +102,6 @@ export default {
       var date = new Date(time);
       return formatDate(date, "yyyy-MM-dd hh:mm");
     },
-    getType(num) {
-      if (num === 1) {
-        return "网站首页";
-      } else if (num === 2) {
-        return "开放视频类型";
-      } else if (num === 3) {
-        return "封闭视频类型";
-      } else if (num === 4) {
-        return "文章类型";
-      } else if (num === 5) {
-        return "活动类型";
-      } else if (num === 6) {
-        return "商城类型";
-      } else if (num === 7) {
-        return "组合类型";
-      } else if (num === 8) {
-        return "外链类型";
-      } else if (num === 8) {
-        return "资料类型";
-      }
-    },
-    hasChild(num) {
-      if (num === 0) {
-        return "否";
-      } else if (num === 1) {
-        return "是";
-      }
-    },
     isDel(num){
       if (num === 0) {
         return "已启用";

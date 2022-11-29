@@ -1,7 +1,7 @@
 <template>
   <div class="case">
-    <header-content v-if="!$route.query.id" :title="headerTitle" @header-btn-click="headerClick"></header-content>
-    <header-content v-if="$route.query.id" :title="headerTitle2" @header-btn-click="headerClick"></header-content>
+    <header-content v-if="!$route.query.id" :title="headerTitle" :opertions="opertionsFirst" @header-btn-click="headerClick"></header-content>
+    <header-content v-if="$route.query.id" :title="headerTitle2" :opertions="opertionsFirst" @header-btn-click="headerClick"></header-content>
     <el-form :model="form" ref="ruleForm" label-position="left" label-width="120px">
       <el-form-item label="轮播图设置:" prop="coverUrl">
           <div>
@@ -114,6 +114,7 @@
           isDel: 0,
           proUuid: this.$route.query.proUuid ? this.$route.query.proUuid : null
         },
+        opertionsFirst: ["返回"],
         upimgurl: this.$api.gskUploadImg,
         token: { Authorization: localStorage.getItem('yibai_token_s'), 'Remote-Host': window.localStorage.getItem('locationHost')},
       }
