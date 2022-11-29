@@ -141,15 +141,15 @@ export default {
       this.$emit("change", params);
     },
     navSwitch: async function(row) {
-        let params = {
-          ...this.form
-        }
         if(row.isDel == 0){
           this.form.isDel == 1
         } else {
           this.form.isDel == 0
         }
         this.form.id = row.id
+        let params = {
+          ...this.form
+        }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
           this.$message.success("操作成功")
