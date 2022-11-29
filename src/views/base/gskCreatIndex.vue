@@ -167,12 +167,12 @@
         return isJPG && isLt5M
       },
       save: async function() {
-        let params = {
-          ...this.form
-        }
         if (this.$route.query.id) {
           this.form.id = this.$route.query.id
-          this.form.isDel =undefined
+          this.form.isDel = undefined
+        }
+        let params = {
+          ...this.form
         }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
