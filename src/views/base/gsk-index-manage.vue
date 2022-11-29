@@ -75,7 +75,10 @@ export default {
   },
   methods: {
     tabActiveChange(item) {
-      console.log('haha',item)
+      // console.log('haha',item)
+      if(item == 'lc'){
+        this.getParentList();
+      }
     },
     tabClick() {
       if (this.activeName == "firstNav") {
