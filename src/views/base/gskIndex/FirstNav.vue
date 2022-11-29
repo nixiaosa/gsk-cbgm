@@ -1,7 +1,7 @@
 <!--
  * @Author: chance Lau
  * @Date: 2020-10-26 10:56:57
- * @LastEditTime: 2022-11-29 07:59:38
+ * @LastEditTime: 2022-11-29 19:48:33
  * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
  * @FilePath: /CBGM/src/views/navigationManageNew/base/FirstNav.vue
@@ -46,13 +46,13 @@
           <el-button
             v-if="scope.row.isDel == 1"
             @click="navSwitchUp(scope.row)"
-            :type="success"
+            type="success"
             size="small"
           >{{ '启用' }}</el-button>
           <el-button
-             v-if="scope.row.isDel == 0"
+            v-if="scope.row.isDel == 0"
             @click="navSwitchDown(scope.row)"
-            :type="danger"
+            type="danger"
             size="small"
           >{{ '停用' }}</el-button>
         </template>
