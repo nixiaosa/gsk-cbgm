@@ -1,6 +1,7 @@
 <template>
   <div class="case">
-    <header-content :title="headerTitle"></header-content>
+    <header-content v-if="!$route.query.id" :title="headerTitle" @header-btn-click="headerClick"></header-content>
+    <header-content v-if="$route.query.id" :title="headerTitle2" @header-btn-click="headerClick"></header-content>
     <el-form :model="form" ref="ruleForm" label-position="left" label-width="120px">
       <el-form-item label="轮播图设置:" prop="coverUrl">
           <div>
@@ -69,6 +70,7 @@
       return {
         activeName: 'first',
         headerTitle: '创建',
+        headerTitle2: '编辑',
         id: '',
         voteId: '',
         articleId: '',
@@ -130,6 +132,11 @@
     },
     created() {},
     methods: {
+      headerClick() {
+        this.$router.push({
+          path: "/basedata/gsk/indexManage"
+        });
+      },
       getEdit: async function() {
         const res = await http.get(api.homePageConfigManageEdit + this.$route.query.id)
         if (res.data.code === 0) {
