@@ -79,7 +79,7 @@ export default {
           linkUrl: '',
           seqNumber: 1,
           isDel: 0,
-          proUuid: this.$route.proUuid ? this.$route.proUuid : null
+          proUuid: this.$route.query.proUuid ? this.$route.query.proUuid : null
         },
     };
   },

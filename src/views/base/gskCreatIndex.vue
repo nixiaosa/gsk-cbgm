@@ -9,7 +9,7 @@
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
             <p class="upload-info">图片格式为jpg、jpeg、gif、png，大小限制为5MB</p>
-            <div v-if="$route.type != 2">
+            <div v-if="$route.query.type != 2">
             <span class="title">排序:</span>
             <el-input type="number" v-model="form.seqNumber" min="1" style="width:80px;"></el-input> 
             <div>&nbsp;</div>
@@ -105,12 +105,12 @@
           ],
         },
         form: {
-          type: this.$route.type, // 1轮播2banner
+          type: this.$route.query.type, // 1轮播2banner
           imgUrl: '',
           linkUrl: '',
           seqNumber: 1,
           isDel: 0,
-          proUuid: this.$route.proUuid ? this.$route.proUuid : null
+          proUuid: this.$route.query.proUuid ? this.$route.query.proUuid : null
         },
         upimgurl: this.$api.gskUploadImg,
         token: { Authorization: localStorage.getItem('yibai_token_s'), 'Remote-Host': window.localStorage.getItem('locationHost')},
@@ -173,6 +173,8 @@
           this.$router.push('/basedata/gsk/indexManage')
         } else {
           this.$message.error(res.data.message)
+          window.scrollTo(0, 0)
+          $("html,body",window.parent.document).animate({scrollTop:0},1000)
         }
       },
       getMenuList: async function() {
@@ -183,90 +185,6 @@
         } else {
           this.$message.error(res.data.message)
         }
-      },
-      gskVoteList: async function() {
-        let params = {
-          pageSize:1000,
-          pageNum:1,
-          type:"0",
-          voteName:null
-        }
-        const res = await http.post(api.gskVoteList,params)
-        if (res.data.code === 0) {
-          this.voteOptions = res.data.data.list;
-        } else {
-          this.$message.error(res.data.message)
-        }
-      },
-      onSubmit: async function() {
-        if(!this.form.introduceImg){
-            this.$message.error("请上传大赛介绍图片");
-            return false;
-        }
-        if(!this.form.voteId){
-            this.$message.error("请选择投票");
-            return false;
-        }
-        if(!this.form.contactImg){
-            this.$message.error("请上传联系我们图片");
-            return false;
-        }
-
-        this.form.banners.map(item=>{
-          if( item.bannerUrl == '' || item.columnId == '' ){
-            this.$message.error("大赛背景图或栏目不能为空");
-            this.allowSubmit = 0;
-          } else {
-            this.allowSubmit = 1;
-          }
-        });
-        
-        if(this.allowSubmit == 1){
-          let params = {
-            ...this.form
-          }
-          const res = await http.post(api.matchSetting,params)
-          if (res.data.code === 0) {
-            this.$message.success("操作成功")
-          } else {
-            this.$message.error(res.data.message)
-          }
-        }
-        
-      },
-      onEdit: async function() {
-        const res = await http.get(api.matchGetSetting)
-        if (res.data.code === 0) {
-          if(res.data.data.id != null){
-            this.form = res.data.data;
-            this.form.banners = JSON.parse(res.data.data.banners);
-            this.voteId = res.data.data.voteId;
-          }
-        } else {
-          this.$message.error(res.data.message)
-        }
-      },
-      addSelect() {
-        if (this.form.banners.length >= 7) {
-            this.addDisabled = true;
-        }
-        if (this.form.banners.length <= 2) {
-            this.reduceDisabled = false;
-        }
-        this.form.banners.push({
-          bannerUrl: '',
-          columnName: '',
-          columnId: ''
-        });
-      },
-      reduceSelect() {
-          if (this.form.banners.length <= 2) {
-              this.reduceDisabled = true;
-          }
-          if (this.form.banners.length <= 8) {
-              this.addDisabled = false;
-          }
-          this.form.banners.splice(this.form.banners.length - 1);
       },
     }
   }
