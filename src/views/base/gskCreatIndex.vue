@@ -105,7 +105,7 @@
           ],
         },
         form: {
-          type: this.$route.query.type, // 1轮播2banner
+          type: this.$route.query.type ? this.$route.query.type : 1, // 1轮播2banner
           imgUrl: '',
           linkUrl: '',
           seqNumber: 1,
