@@ -172,6 +172,7 @@
         }
         if (this.$route.query.id) {
           this.form.id = this.$route.query.id
+          this.form.isDel =undefined
         }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
