@@ -111,6 +111,7 @@
           imgUrl: '',
           linkUrl: '',
           seqNumber: 1,
+          isDel: 0,
           proUuid: this.$route.query.proUuid ? this.$route.query.proUuid : null
         },
         opertionsFirst: ["返回"],
@@ -171,6 +172,7 @@
         }
         if (this.$route.query.id) {
           this.form.id = this.$route.query.id
+          this.form.isDel = undefined
         }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
