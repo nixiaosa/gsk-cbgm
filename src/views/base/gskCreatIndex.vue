@@ -131,7 +131,7 @@
     created() {},
     methods: {
       getEdit: async function() {
-        const res = await http.get(api.homePageConfigManageEdit + this.$route.id)
+        const res = await http.get(api.homePageConfigManageEdit + this.$route.query.id)
         if (res.data.code === 0) {
           this.form = res.data.data;
         } else {

@@ -44,11 +44,13 @@
             style="margin-right:10px"
           >编辑</el-button>
           <el-button
+            v-if="scope.row.isDel == 1"
             @click="navSwitchUp(scope.row)"
             :type="success"
             size="small"
           >{{ '启用' }}</el-button>
           <el-button
+             v-if="scope.row.isDel == 0"
             @click="navSwitchDown(scope.row)"
             :type="danger"
             size="small"
