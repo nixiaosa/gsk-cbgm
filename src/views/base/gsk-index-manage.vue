@@ -14,10 +14,10 @@
     <div>
       <el-tabs v-model="activeName" @tab-click="tabClick">
         <el-tab-pane label="轮播图设置" name="firstNav">
-          <first-nav :table-data="tableDataFirst"/>
+          <first-nav :table-data="tableDataFirst"  @change="tabActiveChange"/>
         </el-tab-pane>
         <el-tab-pane label="Banner设置" name="secondNav">
-          <second-nav :table-data="tableDataSecond"/>
+          <second-nav :table-data="tableDataSecond"  @change="tabActiveChange"/>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -74,6 +74,9 @@ export default {
     this.getParentList();
   },
   methods: {
+    tabActiveChange(item) {
+      console.log('haha',item)
+    },
     tabClick() {
       if (this.activeName == "firstNav") {
         this.getParentList();

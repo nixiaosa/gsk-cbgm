@@ -156,6 +156,7 @@ export default {
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
           this.$message.success("操作成功")
+          this.$emit('change', 'lc')
         } else {
           this.$message.error(res.data.message)
         }
