@@ -44,10 +44,15 @@
             style="margin-right:10px"
           >编辑</el-button>
           <el-button
-            @click="navSwitch(scope.row)"
-            :type="scope.row.isDel == 0 ? 'success' : 'danger'"
+            @click="navSwitchUp(scope.row)"
+            :type="success"
             size="small"
-          >{{ scope.row.isDel == 0 ? '停用' : '启用' }}</el-button>
+          >{{ '启用' }}</el-button>
+          <el-button
+            @click="navSwitchDown(scope.row)"
+            :type="danger"
+            size="small"
+          >{{ '停用' }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -140,15 +145,24 @@ export default {
       };
       this.$emit("change", params);
     },
-    navSwitch: async function(row) {
-        if(row.isDel == 0){
-          this.form.isDel == 1
-        } else {
-          this.form.isDel == 0
-        }
-        this.form.id = row.id
+    navSwitchUp: async function(row) {
         let params = {
-          ...this.form
+          type: 1, // 1轮播2banner
+          isDel: 0,
+          id: row.id,
+        }
+        const res = await http.post(api.homePageConfigManageSet,params)
+        if (res.data.code === 0) {
+          this.$message.success("操作成功")
+        } else {
+          this.$message.error(res.data.message)
+        }
+    },
+     navSwitchDown: async function(row) {
+        let params = {
+          type: 1, // 1轮播2banner
+          isDel: 1,
+          id: row.id,
         }
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {

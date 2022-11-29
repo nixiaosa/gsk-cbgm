@@ -43,11 +43,11 @@
             size="small"
             style="margin-right:10px"
           >编辑</el-button>
-          <el-button
+          <!-- <el-button
             @click="navSwitch(scope.row)"
             :type="scope.row.isDel == 0 ? 'success' : 'danger'"
             size="small"
-          >{{ scope.row.isDel == 0 ? '停用' : '启用' }}</el-button>
+          >{{ scope.row.isDel == 0 ? '停用' : '启用' }}</el-button> -->
         </template>
       </el-table-column>
     </el-table>
