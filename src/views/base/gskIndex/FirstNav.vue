@@ -169,6 +169,8 @@ export default {
         const res = await http.post(api.homePageConfigManageSet,params)
         if (res.data.code === 0) {
           this.$message.success("操作成功")
+          window.scrollTo(0, 0)
+          $("html,body",window.parent.document).animate({scrollTop:0},1000)
         } else {
           this.$message.error(res.data.message)
         }
