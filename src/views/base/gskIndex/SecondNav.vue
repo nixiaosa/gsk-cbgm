@@ -11,7 +11,7 @@
     <el-table :data="tableData" border>
       <el-table-column label="Banner图">
         <template slot-scope="scope">
-          <img :src="scope.row.imgUrl" style="width:350;height:150px" />
+          <img :src="scope.row.imgUrl" style="width:350px;height:150px" />
         </template>
       </el-table-column>
       <el-table-column label="标题">
