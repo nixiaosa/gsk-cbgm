@@ -117,6 +117,7 @@ export default {
       };
       const res = await http.post(api.gskConfidenceImport, params);
       if (res.data.code === 0) {
+        this.getList(1)
         this.$message.success("操作成功");
       } else {
         this.$message.error(res.data.message);
