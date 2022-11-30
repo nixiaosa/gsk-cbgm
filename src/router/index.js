@@ -1208,6 +1208,13 @@ export const asyncRouterMap = [
                 sign: 'activity_ questionnaire_manage',
             },
             {
+                path: 'questionnaireConfidence',
+                component: _import('activity/questionnaire/questionnaireConfidence'),
+                name: '开业信心指数',
+                icon: 'zonghe',
+                hidden: true
+            },
+            {
                 path: 'questionnaireManage/applylist/:id',
                 component: _import('activity/questionnaire/applyList'),
                 name: '申请管理',

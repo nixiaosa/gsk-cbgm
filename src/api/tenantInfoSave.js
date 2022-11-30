@@ -86,6 +86,13 @@ export default {
   questionnaireApplyList: `${djbQaHost}qa/user/apply/company/list`, // 调研问卷申请管理列表
   questionnaireApplyAudit: `${djbQaHost}qa/user/apply/company/audit`, // 调研问卷申请管理审核
 
+  gskConfidenceImport: `${djbQaHost}qa/question/gsk/import`, // 开业信心指数导入
+  gskConfidenceList: `${djbQaHost}qa/question/gsk/list`, // 开业信心指数列表
+  gskConfidenceExport: `${djbQaHost}qa/question/gsk/export`, // 开业信心指数导出
+
+
+
+
 
   handle: `${companyHost}company/config/update`, // 保存租户信息
   companyGet: `${companyHost}company/config/`, // 获取信息
