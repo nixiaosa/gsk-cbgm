@@ -4,11 +4,11 @@
     <el-form :inline="true" :model="form" class="demo-form-inline">
       <el-form-item>
         <el-upload :action="upimgurl" :headers="token" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-          <el-button type="primary"  style="margin-left:20px; float:left">导入</el-button>                
+          <el-button type="primary">导入</el-button>                
         </el-upload>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary"  style="margin-left:20px; float:left" @click="fileExport">导出</el-button>         
+        <el-button type="primary"  style="margin-left:20px;" @click="fileExport">导出</el-button>         
       </el-form-item>
     </el-form>
      <div class="title">开业信心指数问卷参与用户</div>
