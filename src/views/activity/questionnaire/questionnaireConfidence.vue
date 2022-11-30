@@ -8,12 +8,12 @@
         </el-upload>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary"  style="margin-left:20px;" @click="fileExport">导出</el-button>         
+        <el-button type="primary"  style="margin-left:10px;" @click="fileExport">导出</el-button>         
       </el-form-item>
     </el-form>
      <div class="title">开业信心指数问卷参与用户</div>
      <el-table :data="tableData" border>
-      <el-table-column label="名称">
+      <el-table-column label="昵称">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
         </template>
