@@ -3,9 +3,10 @@
     <header-content :title="headerTitle"/>
     <el-form :inline="true" :model="form" class="demo-form-inline">
       <el-form-item>
-        <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+        <el-upload :action="upimgurl" :headers="token" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
             <el-button type="primary"  style="margin-left:20px">导入</el-button>                
         </el-upload>
+        <el-button type="primary"  style="margin-left:20px" @click="fileExport">导出</el-button> 
       </el-form-item>
     </el-form>
      <el-table :data="tableData" border>
@@ -41,13 +42,13 @@
       </el-table-column>
     </el-table>
     <div style="margin:20px"></div>
-    <el-pagination
+    <!-- <el-pagination
       background
       layout="total, prev, pager, next"
       :current-page.sync="currentPage"
       @current-change="handleCurrentChange"
       :total="total"
-    ></el-pagination>
+    ></el-pagination> -->
   </div>
 </template>
 
@@ -95,35 +96,52 @@ export default {
     handleAvatarSuccess(res, file) {
         this.url = res.data
         console.log( this.url)
+        this.fileImport()
     },
     beforeAvatarUpload(file) {
-        let passType =
-        "doc、docx、ppt、pptx、xls、xlsx、pdf、zip、rar、txt、jpg、jpeg、png";
-          let fileType = file.name.split(".");
-          fileType = fileType[fileType.length - 1];
-          const isPassType = passType.indexOf(fileType) !== -1;
-          const isLt2M = file.size / 1024 / 1024 < 20;
-          if (!isPassType) {
-            this.$message.error("暂不支持该格式上传");
-          }
-          if (!isLt2M) {
-            this.$message.error("文件大小不能超过 20MB!");
-          }
-          return isPassType && isLt2M;
-      },
+      let passType =
+      "doc、docx、ppt、pptx、xls、xlsx、pdf、zip、rar、txt";
+        let fileType = file.name.split(".");
+        fileType = fileType[fileType.length - 1];
+        const isPassType = passType.indexOf(fileType) !== -1;
+        const isLt2M = file.size / 1024 / 1024 < 50;
+        if (!isPassType) {
+          this.$message.error("暂不支持该格式上传");
+        }
+        if (!isLt2M) {
+          this.$message.error("文件大小不能超过 50MB!");
+        }
+        return isPassType && isLt2M;
+    },
+    fileImport: async function(pageNum){
+      let params = {
+        url: this.url
+      };
+      const res = await http.post(api.gskConfidenceImport, params);
+      if (res.data.code === 0) {
+        this.$message.success("操作成功");
+      } else {
+        this.$message.error(res.data.message);
+      }
+   },
+   fileExport: async function(pageNum){
+      let params = {};
+      const res = await http.post(api.gskConfidenceExport, params);
+      if (res.data.code === 0) {
+        this.$message.success("导出成功");
+      } else {
+        this.$message.error(res.data.message);
+      }
+   },
    getList: async function(pageNum){
       let params = {
         pageNum: pageNum,
         pageSize: 10,
-        params: {
-          ...this.formInline,
-          sourceId: this.$route.params.id
-        }
       };
       const res = await http.post(api.gskConfidenceList, params);
       if (res.data.code === 0) {
-        this.tableData = res.data.data.list;
-        this.total = res.data.data.total
+        this.tableData = res.data.data;
+        // this.total = res.data.data.total
       } else {
         this.$message.error(res.data.message);
       }
