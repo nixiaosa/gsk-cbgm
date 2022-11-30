@@ -4,7 +4,7 @@
     <el-form :inline="true" :model="form" class="demo-form-inline">
       <el-form-item>
         <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-            <el-button type="primary" @click="confidenceImport()" style="margin-left:20px">{{导入}}</el-button>                
+            <el-button type="primary"  style="margin-left:20px">导入</el-button>                
         </el-upload>
       </el-form-item>
     </el-form>
@@ -77,6 +77,7 @@ export default {
   },
   data() {
     return {
+      url: '',
       tableData: [],
       currentPage: 1,
       total: 1,
@@ -92,10 +93,10 @@ export default {
   },
   methods: {
     confidenceImport() {
-      
+
     },
     handleAvatarSuccess(res, file) {
-        // this.form.introduceImg = res.data
+        this.url = res.data
     },
     beforeAvatarUpload(file) {
         let passType =
