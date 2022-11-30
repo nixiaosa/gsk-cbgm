@@ -92,11 +92,9 @@ export default {
     this.getList(1)
   },
   methods: {
-    confidenceImport() {
-
-    },
     handleAvatarSuccess(res, file) {
         this.url = res.data
+        console.log( this.url)
     },
     beforeAvatarUpload(file) {
         let passType =
