@@ -128,6 +128,7 @@ export default {
       let params = {};
       const res = await http.post(api.gskConfidenceExport, params);
       if (res.data.code === 0) {
+        window.open(res.data.data);
         this.$message.success("导出成功");
       } else {
         this.$message.error(res.data.message);
