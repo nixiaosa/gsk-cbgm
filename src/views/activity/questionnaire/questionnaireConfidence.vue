@@ -1,11 +1,10 @@
 <template>
   <div>
     <header-content :title="headerTitle"/>
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <el-form :inline="true" :model="form" class="demo-form-inline">
       <el-form-item>
         <el-upload class="avatar-uploader" :action="upimgurl" :headers="token" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-                <img v-if="form.introduceImg" :src="form.introduceImg" class="avatar">
-                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            <el-button type="primary" @click="confidenceImport()" style="margin-left:20px">{{导入}}</el-button>                
         </el-upload>
       </el-form-item>
     </el-form>
@@ -92,6 +91,9 @@ export default {
     this.getList(1)
   },
   methods: {
+    confidenceImport() {
+      
+    },
     handleAvatarSuccess(res, file) {
         // this.form.introduceImg = res.data
     },
