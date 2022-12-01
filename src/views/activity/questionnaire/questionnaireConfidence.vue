@@ -12,7 +12,7 @@
       </el-form-item>
     </el-form>
      <div class="title">开业信心指数问卷参与用户</div>
-     <el-table :data="tableData" border height="500">
+     <el-table :data="tableData" border height="510">
       <el-table-column label="昵称">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
