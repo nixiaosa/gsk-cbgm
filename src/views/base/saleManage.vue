@@ -13,9 +13,9 @@
       :data="tableDatas"
       border
     >
-      <el-table-column label="序号">
+      <el-table-column label="序号" width="100px">
         <template slot-scope="scope">
-          <span>{{ scope.row.type }}</span>
+          <span>{{ ((currentPage - 1)*10) + scope.$index + 1 }}</span>
         </template>
       </el-table-column>
       <el-table-column label="用户ID" width="280px">
@@ -34,7 +34,7 @@
         </template>
       </el-table-column>
       
-      <el-table-column label="操作" width="200px">
+      <el-table-column label="操作" width="500px">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row.id)">编辑</el-button>
           <el-button type="info" size="small">销售二维码</el-button>
