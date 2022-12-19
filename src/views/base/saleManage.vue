@@ -58,8 +58,8 @@
         </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="ends = false">取 消</el-button>
-        <el-button type="primary" @click="gskSaleSave()">保 存</el-button>
-        <el-button type="primary" @click="gskSaleEdit()">编 辑</el-button>
+        <el-button v-if="isEdit == false" type="primary" @click="gskSaleSave()">保 存</el-button>
+        <el-button v-if="isEdit == true" type="primary" @click="gskSaleEdit()">编 辑</el-button>
       </span>
     </el-dialog>
     <div style="margin:20px"></div>
@@ -135,7 +135,7 @@
     },
     methods: {
       deleteSales: async function(id) {
-        var res = await http.delete(api.saleManageSave + '/' + id);
+        var res = await http.delete(api.saleManageDelete + '/' + id);
         if (res.data.code === 0) {
           this.$message.success("操作成功");          
         } else {
@@ -143,7 +143,7 @@
         }
       },
       getQrcode: async function(id) {
-        var res = await http.get(api.saleManageSave + '/' + id);
+        var res = await http.get(api.saleGetQrcode + '/' + id);
         if (res.data.code === 0) {
             this.qrcode = res.data.data;     
         } else {
@@ -151,8 +151,6 @@
         }
       },
       gskSaleEdit: async function() {
-        this.isEdit = true
-        this.ends = true
         let params = {}
         params = {
             promoterName: this.editForm.name,
