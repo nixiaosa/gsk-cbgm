@@ -192,7 +192,7 @@
         params = {
             pageNum: pageNum,
             pageSize: 10,
-            promoterName: this.formInline.name
+            promoterName: this.name
         }
         const res = await http.post(api.saleManageList,params)
         if (res.data.code === 0) {
