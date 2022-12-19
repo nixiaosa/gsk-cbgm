@@ -175,6 +175,7 @@
         }
         var res = await http.post(api.saleManageSave,params);
         if (res.data.code === 0) {
+            this.getSaleList(this.currentPage);
             this.editForm.name = '';
             this.editForm.id = '';
             this.ends = false; 
