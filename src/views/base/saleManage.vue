@@ -40,7 +40,7 @@
           <el-button type="info" size="small" @click="edit(scope.row)">编辑</el-button>
           <el-button type="info" size="small" @click="handleDownload(scope.row)">销售二维码</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
-          <el-button type="info" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
+          <el-button type="danger" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
