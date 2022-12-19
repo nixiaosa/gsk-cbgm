@@ -38,7 +38,7 @@
       <el-table-column label="操作" width="500px">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row)">编辑</el-button>
-          <el-button type="info" size="small" @click="handleDownload()">销售二维码</el-button>
+          <el-button type="info" size="small" @click="handleDownload(scope.row)">销售二维码</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
           <el-button type="info" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
         </template>
@@ -135,7 +135,8 @@
       }
     },
     methods: {
-      handleDownload() {
+      handleDownload(row) {
+        this.getQrcode(row.id)
       // downloadIamge(图片地址, 图片名称)
         downloadIamge(this.qrcode, this.qrcode)
       },
