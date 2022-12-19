@@ -38,7 +38,7 @@
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row.id)">编辑</el-button>
           <el-button type="info" size="small">销售二维码</el-button>
-          <el-button type="info" size="small" @click="godetail(scope.row.id,1)">关联列表</el-button>
+          <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
           <el-button type="info" size="small">删除</el-button>
         </template>
       </el-table-column>
@@ -146,8 +146,10 @@
           this.$message.error(res.data.message);
         }
       },
-      godetail: async function(id,isDetail) {
-        this.edit(id,1);
+      godetail: async function(id) {
+        this.$router.push({
+          path: "/basedata/sale/relateList" + '/' + id,
+        });
       },
       gskSaleSave: async function() {
         let params = {}
@@ -192,7 +194,7 @@
         params = {
             pageNum: pageNum,
             pageSize: 10,
-            promoterName: this.name
+            promoterName: this.formInline.name
         }
         const res = await http.post(api.saleManageList,params)
         if (res.data.code === 0) {
