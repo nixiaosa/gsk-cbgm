@@ -102,6 +102,20 @@ export const asyncRouterMap = [
                 sign: 'basics_identity_manage'
             },
             {
+                path: 'sale/manage',
+                component: _import('base/saleManage'),
+                icon: 'zonghe',
+                name: '销售管理',
+                // sign: 'basics_identity_manage'
+            },
+            {
+                path: 'sale/relateList/:id',
+                component: _import('base/saleRelateList'),
+                icon: 'zonghe',
+                name: '关联列表',
+                // sign: 'basics_identity_manage'
+            },
+            {
                 path: 'sign/manage',
                 component: _import('base/signManage'),
                 icon: 'zonghe',
