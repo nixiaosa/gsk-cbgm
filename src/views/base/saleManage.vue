@@ -26,7 +26,7 @@
       </el-table-column>
       <el-table-column label="姓名">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.promoterName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="添加时间">

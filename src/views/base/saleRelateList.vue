@@ -17,7 +17,7 @@
       </el-table-column>
       <el-table-column label="姓名">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.contactName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="专业">
@@ -27,22 +27,22 @@
       </el-table-column>
       <el-table-column label="城市">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.city }}</span>
         </template>
       </el-table-column>
       <el-table-column label="门诊名称">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.department }}</span>
         </template>
       </el-table-column>
       <el-table-column label="科室">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.department }}</span>
         </template>
       </el-table-column>
       <el-table-column label="关联时间">
         <template slot-scope="scope">
-          <span>{{ scope.row.createTime | formatDates}}</span>
+          <span>{{ scope.row.createdAt | formatDates}}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -124,10 +124,6 @@
     },
     methods: {
       getVerifyUsers: async function(pageNum) {
-        if (this.formInline.start > this.formInline.end) {
-          this.$message.error("开始时间不能大于结束时间")
-          return false
-        }
         let params = {}
         params = {
             pageNum: pageNum,
