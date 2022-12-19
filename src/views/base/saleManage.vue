@@ -136,10 +136,13 @@
     },
     methods: {
       handleDownload(row) {
-        this.getQrcode(row.id)
-      // downloadIamge(图片地址, 图片名称)
-        downloadIamge(this.qrcode, this.qrcode)
+        console.log(this.qrcode)
+        window.open(this.qrcode)
       },
+      // handleDownload(row) {
+      //   this.getQrcode(row.id)
+      //   downloadIamge(this.qrcode, this.qrcode)
+      // },
       closeDia(){
         this.ends = false;
         this.isEdit = false;
