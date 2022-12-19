@@ -120,8 +120,8 @@
     },
     mounted() {
       this.getSaleList(this.currentPage);
-      this.getArticleList();
-      this.getGskVideoList();
+      // this.getArticleList();
+      // this.getGskVideoList();
     },
     created() {
       if (this.$route.query.page) {
