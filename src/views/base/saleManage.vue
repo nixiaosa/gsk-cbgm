@@ -136,13 +136,9 @@
     },
     methods: {
       handleDownload(row) {
-        console.log(this.qrcode)
-        window.open(this.qrcode)
+        this.getQrcode(row.id)
+        downloadIamge(this.qrcode, this.qrcode)
       },
-      // handleDownload(row) {
-      //   this.getQrcode(row.id)
-      //   downloadIamge(this.qrcode, this.qrcode)
-      // },
       closeDia(){
         this.ends = false;
         this.isEdit = false;
