@@ -3,12 +3,15 @@
     <header-content :title="headerTitle" :opertions="['新建销售']" @change="headerChange"></header-content>
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
       <el-form-item label="姓名">
-        <el-input v-model="formInline.name" placeholder="请输入姓名"></el-input>
+        <el-input v-model="formInline.name" placeholder="请输入姓名" clearable></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="info" size="small" @click="onSubmit">查询</el-button>
       </el-form-item>
     </el-form>
+
+    <a href="https://cn01skyyhdevtestsa01.blob.core.chinacloudapi.cn/files/yake//tmp/promoter10000001.ipg" download="test.jpg" target="_blank">jpg静态资源</a>
+
     <el-table
       :data="tableDatas"
       border
