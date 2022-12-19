@@ -37,7 +37,7 @@
       
       <el-table-column label="操作" width="500px">
         <template slot-scope="scope">
-          <el-button type="info" size="small" @click="edit(scope.row.id)">编辑</el-button>
+          <el-button type="info" size="small" @click="edit(scope.row)">编辑</el-button>
           <el-button type="info" size="small" @click="getQrcode(scope.row.id)">销售二维码</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
           <el-button type="info" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
@@ -141,7 +141,8 @@
       deleteSales: async function(id) {
         var res = await http.delete(api.saleManageDelete + '/' + id);
         if (res.data.code === 0) {
-          this.$message.success("操作成功");          
+          this.$message.success("操作成功"); 
+          this.getSaleList(1);
         } else {
           this.$message.error(res.data.message);
         }
@@ -174,9 +175,10 @@
           this.$message.error(res.data.message);
         }
       },
-      edit: async function(id) {
-        this.getQrcode(id)
-        this.editForm.id = id
+      edit: async function(row) {
+        this.getQrcode(row.id)
+        this.editForm.id = row.id
+        this.editForm.name = row.promoterName
         this.isEdit = true
         this.ends = true
       },
