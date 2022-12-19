@@ -199,6 +199,7 @@ export default {
   homePageConfigManageEdit: `${djbCompanyHost}homePageConfig/manage/detail/`, // gsk首页设置-编辑回显
   homePageConfigManageList: `${djbCompanyHost}homePageConfig/manage/list/`, // gsk首页设置-列表
 
+  saleManageList: `${djbCompanyHost}promoter/page`, // gsk-销售管理列表
 
 
   getVideoList: [`${companyHost}company/`, 'video/list'], // 获得视频直播类信息列表

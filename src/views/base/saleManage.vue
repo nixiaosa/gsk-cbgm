@@ -188,17 +188,13 @@
         }
       },
       getSaleList: async function(pageNum) {
-        if (this.formInline.start > this.formInline.end) {
-          this.$message.error("开始时间不能大于结束时间")
-          return false
-        }
         let params = {}
         params = {
             pageNum: pageNum,
             pageSize: 10,
-            params: this.formInline
+            promoterName: this.formInline
         }
-        const res = await http.post(api.getSignList,params)
+        const res = await http.post(api.saleManageList,params)
         if (res.data.code === 0) {
           this.tableDatas = res.data.data.list
           this.total = res.data.data.total
