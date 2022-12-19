@@ -38,9 +38,9 @@
       <el-table-column label="操作" width="500px">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row.id)">编辑</el-button>
-          <el-button type="info" size="small">销售二维码</el-button>
+          <el-button type="info" size="small" @click="getQrcode(scope.row.id)">销售二维码</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
-          <el-button type="info" size="small">删除</el-button>
+          <el-button type="info" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -49,8 +49,11 @@
       :visible.sync="ends"
     >
       <el-form label-width="100px" :model="editForm">
-          <el-form-item label="姓名：" prop="name" style="width:550px;">
+          <el-form-item label="*姓名：" prop="name" style="width:550px;">
             <el-input v-model="editForm.name" placeholder="请输入姓名"></el-input>
+          </el-form-item>
+          <el-form-item v-if="isEdit == true" label="销售二维码：" prop="name">
+            <img :src="qrcode" />
           </el-form-item>
         </el-form>
       <span slot="footer" class="dialog-footer">
@@ -96,6 +99,8 @@
     },
     data() {
       return {
+        isEdit: false,
+        qrcode: '',
         name: null,
         isDis: false,
         headerTitle: '销售管理',
@@ -128,7 +133,25 @@
       }
     },
     methods: {
+      deleteSales: async function(id) {
+        var res = await http.delete(api.saleManageSave + '/' + id);
+        if (res.data.code === 0) {
+          this.$message.success("操作成功");          
+        } else {
+          this.$message.error(res.data.message);
+        }
+      },
+      getQrcode: async function(id) {
+        var res = await http.get(api.saleManageSave + '/' + id);
+        if (res.data.code === 0) {
+            this.qrcode = res.data.data;     
+        } else {
+          this.$message.error(res.data.message);
+        }
+      },
       edit: async function(id) {
+        this.isEdit = true
+        this.ends = true
         let params = {}
         params = {
             promoterName: this.editForm.name,
@@ -141,7 +164,8 @@
         var res = await http.post(api.saleManageSave,params);
         if (res.data.code === 0) {
             this.editForm.name = '';
-            this.ends = false;      
+            this.ends = false; 
+            this.isEdit = false;     
         } else {
           this.$message.error(res.data.message);
         }

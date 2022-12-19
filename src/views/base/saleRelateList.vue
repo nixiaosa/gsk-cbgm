@@ -22,7 +22,7 @@
       </el-table-column>
       <el-table-column label="专业">
         <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
+          <span>{{ scope.row.profession }}</span>
         </template>
       </el-table-column>
       <el-table-column label="城市">
@@ -32,7 +32,7 @@
       </el-table-column>
       <el-table-column label="门诊名称">
         <template slot-scope="scope">
-          <span>{{ scope.row.department }}</span>
+          <span>{{ scope.row.outpatient }}</span>
         </template>
       </el-table-column>
       <el-table-column label="科室">
