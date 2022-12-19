@@ -49,20 +49,12 @@
     >
       <el-form label-width="100px" :model="editForm">
           <el-form-item label="姓名：" prop="name" style="width:550px;">
-            <el-input
-              type="textarea"
-              :rows="2"
-              maxlength="50"
-              show-word-limit
-              placeholder="请输入文案标题"
-              :disabled="isDis"
-              v-model="editForm.title">
-            </el-input>
+            <el-input v-model="editForm.name" placeholder="请输入姓名"></el-input>
           </el-form-item>
         </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="ends = false">取 消</el-button>
-        <el-button type="primary" v-if="!isDis" @click="gskSignSave()">保 存</el-button>
+        <el-button type="primary" v-if="!isDis" @click="gskSaleSave()">保 存</el-button>
         <el-button type="primary" v-if="isDis" @click="ends = false">确 定</el-button>
       </span>
     </el-dialog>
@@ -104,6 +96,7 @@
     },
     data() {
       return {
+        name: null,
         isDis: false,
         headerTitle: '销售管理',
         currentPage: 1,
@@ -117,19 +110,11 @@
         articleOptions: [],
         videoOptions: [],
         formInline: {
-          type: null,
-          start: null,
-          end: null,
-          title: null,
+          name: null,
         },
         editForm: {
+          name: null,
           id: null,
-          type: '1',
-          title: '',
-          content: '',
-          effectiveDate: null,
-          sourceId: null,
-          visibilityType: "HCP"
         }
       }
     },
@@ -153,27 +138,10 @@
         }
         var res = await http.get(api.gskSignEdit + '/' + id);
         if (res.data.code === 0) {
-            this.editForm.title = '';
-            this.editForm.content = '';
-            this.articleId ='';
-            this.videoId = '';
-
+            this.editForm.name = '';
             this.ends = true;
             this.editForm.id = res.data.data.id;
-            this.editForm.type = String(res.data.data.type);
-            this.editForm.effectiveDate = res.data.data.effectiveDate;
-            this.editForm.sourceId = res.data.data.sourceId;
-            this.editForm.visibilityType = res.data.data.visibilityType;
-
-            if(this.editForm.type == 1) {
-              this.articleId = Number(res.data.data.sourceId);
-            } else if(this.editForm.type == 3) {
-              // this.videoId = Number(res.data.data.sourceId);
-              this.videoId = res.data.data.sourceId;
-            } else {
-              this.editForm.title = res.data.data.title;
-              this.editForm.content = res.data.data.content;
-            }
+          
         } else {
           this.$message.error(res.data.message);
         }
@@ -181,20 +149,16 @@
       godetail: async function(id,isDetail) {
         this.edit(id,1);
       },
-      gskSignSave: async function() {
+      gskSaleSave: async function() {
         let params = {}
         params = {
             ...this.editForm
         }
         if(this.editForm.type == 2){
-          if(!this.editForm.title){
-            this.$message.error("文案标题不能为空");
+          if(!this.editForm.name){
+            this.$message.error("姓名不能为空");
             return false
           }
-          if(!this.editForm.content){
-            this.$message.error("文案内容不能为空");
-            return false
-          } 
         }
         var res = await http.post(api.gskSignSave,params);
         if (res.data.code === 0) {
