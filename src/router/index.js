@@ -109,7 +109,7 @@ export const asyncRouterMap = [
                 // sign: 'basics_identity_manage'
             },
             {
-                path: 'sale/relateList/:id',
+                path: 'sale/relateList',
                 component: _import('base/saleRelateList'),
                 icon: 'zonghe',
                 name: '关联列表',

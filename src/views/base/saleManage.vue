@@ -53,11 +53,11 @@
             <el-input v-model="editForm.name" placeholder="请输入姓名"></el-input>
           </el-form-item>
           <el-form-item v-if="isEdit == true" label="销售二维码：" prop="name">
-            <img :src="qrcode" />
+            <img class="qrcode" :src="qrcode" />
           </el-form-item>
         </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="ends = false">取 消</el-button>
+        <el-button @click="closeDia()">取 消</el-button>
         <el-button v-if="isEdit == false" type="primary" @click="gskSaleSave()">保 存</el-button>
         <el-button v-if="isEdit == true" type="primary" @click="gskSaleEdit()">编 辑</el-button>
       </span>
@@ -134,6 +134,10 @@
       }
     },
     methods: {
+      closeDia(){
+        this.ends = false;
+        this.isEdit = false;
+      },
       deleteSales: async function(id) {
         var res = await http.delete(api.saleManageDelete + '/' + id);
         if (res.data.code === 0) {
@@ -234,5 +238,8 @@
 </script>
 
 <style scoped>
-
+.qrcode{
+  width: 200px;
+  height: 200px;
+}
 </style>
