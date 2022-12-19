@@ -38,7 +38,7 @@
       <el-table-column label="操作" width="500px">
         <template slot-scope="scope">
           <el-button type="info" size="small" @click="edit(scope.row)">编辑</el-button>
-          <el-button type="info" size="small" @click="getQrcode(scope.row.id)">销售二维码</el-button>
+          <el-button type="info" size="small" @click="handleDownload()">销售二维码</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
           <el-button type="info" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
         </template>
@@ -73,6 +73,7 @@
   </div>
 </template>
 <script>
+  import downloadIamge from '@/utils/downloadPng'
   import http from '@/utils/tenant'
   import api from '@/api/tenantInfoSave'
   import { formatDate } from '@/common/data'
@@ -134,6 +135,10 @@
       }
     },
     methods: {
+      handleDownload() {
+      // downloadIamge(图片地址, 图片名称)
+        downloadIamge(this.qrcode, this.qrcode)
+      },
       closeDia(){
         this.ends = false;
         this.isEdit = false;
@@ -141,7 +146,9 @@
       deleteSales: async function(id) {
         var res = await http.delete(api.saleManageDelete + '/' + id);
         if (res.data.code === 0) {
-          this.$message.success("操作成功"); 
+          this.$message.success("操作成功");
+          window.scrollTo(0, 0)
+          $("html,body",window.parent.document).animate({scrollTop:0},1000)
           this.getSaleList(1);
         } else {
           this.$message.error(res.data.message);
