@@ -175,6 +175,7 @@
         }
       },
       edit: async function(id) {
+        this.getQrcode(id)
         this.editForm.id = id
         this.isEdit = true
         this.ends = true
