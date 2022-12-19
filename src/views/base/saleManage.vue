@@ -59,6 +59,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="ends = false">取 消</el-button>
         <el-button type="primary" @click="gskSaleSave()">保 存</el-button>
+        <el-button type="primary" @click="gskSaleEdit()">编 辑</el-button>
       </span>
     </el-dialog>
     <div style="margin:20px"></div>
@@ -149,13 +150,13 @@
           this.$message.error(res.data.message);
         }
       },
-      edit: async function(id) {
+      gskSaleEdit: async function() {
         this.isEdit = true
         this.ends = true
         let params = {}
         params = {
             promoterName: this.editForm.name,
-            id: id
+            id: this.editForm.id
         }
         if(!this.editForm.name){
           this.$message.error("姓名不能为空");
@@ -164,11 +165,17 @@
         var res = await http.post(api.saleManageSave,params);
         if (res.data.code === 0) {
             this.editForm.name = '';
+            this.editForm.id = '';
             this.ends = false; 
             this.isEdit = false;     
         } else {
           this.$message.error(res.data.message);
         }
+      },
+      edit: async function(id) {
+        this.editForm.id = id
+        this.isEdit = true
+        this.ends = true
       },
       godetail: async function(id) {
         this.$router.push({
