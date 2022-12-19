@@ -1,6 +1,6 @@
 <template>
   <div class="case">
-    <header-content :title="headerTitle" @change="headerChange"></header-content>
+    <header-content :title="headerTitle"></header-content>
     <el-table
       :data="tableDatas"
       border
@@ -114,9 +114,7 @@
       }
     },
     mounted() {
-      this.getSaleList(this.currentPage);
-      this.getArticleList();
-      this.getGskVideoList();
+      this.getVerifyUsers(this.currentPage);
     },
     created() {
       if (this.$route.query.page) {
@@ -125,85 +123,7 @@
       }
     },
     methods: {
-      edit: async function(id,isDetail) {
-        if(isDetail == 1) {
-          this.isDis = true;
-        } else {
-          this.isDis = false;
-        }
-        var res = await http.get(api.gskSignEdit + '/' + id);
-        if (res.data.code === 0) {
-            this.editForm.title = '';
-            this.editForm.content = '';
-            this.articleId ='';
-            this.videoId = '';
-
-            this.ends = true;
-            this.editForm.id = res.data.data.id;
-            this.editForm.type = String(res.data.data.type);
-            this.editForm.effectiveDate = res.data.data.effectiveDate;
-            this.editForm.sourceId = res.data.data.sourceId;
-            this.editForm.visibilityType = res.data.data.visibilityType;
-
-            if(this.editForm.type == 1) {
-              this.articleId = Number(res.data.data.sourceId);
-            } else if(this.editForm.type == 3) {
-              // this.videoId = Number(res.data.data.sourceId);
-              this.videoId = res.data.data.sourceId;
-            } else {
-              this.editForm.title = res.data.data.title;
-              this.editForm.content = res.data.data.content;
-            }
-        } else {
-          this.$message.error(res.data.message);
-        }
-      },
-      godetail: async function(id,isDetail) {
-        this.edit(id,1);
-      },
-      gskSignSave: async function() {
-        let params = {}
-        params = {
-            ...this.editForm
-        }
-        if(this.editForm.type == 2){
-          if(!this.editForm.title){
-            this.$message.error("文案标题不能为空");
-            return false
-          }
-          if(!this.editForm.content){
-            this.$message.error("文案内容不能为空");
-            return false
-          } 
-        }
-        var res = await http.post(api.gskSignSave,params);
-        if (res.data.code === 0) {
-          this.$message.success("操作成功");
-          this.getSaleList(1);
-          this.ends = false;          
-        } else {
-          this.$message.error(res.data.message);
-        }
-      },
-      selectArticle(){
-        this.editForm.sourceId = this.articleId
-      },
-      selectVideo(){
-        // console.log(this.videoId)
-        this.editForm.sourceId = this.videoId
-      },
-      times() {
-        this.editForm.effectiveDate = Date.parse(this.editForm.effectiveDate);
-      },
-      exportList: async function() {
-        const res = await http.get(api.gskSignExport)
-        if (res.data.code === 0) {
-          window.location.href = res.data.data
-        } else {
-          this.$message.error(res.data.message)
-        }
-      },
-      getSaleList: async function(pageNum) {
+      getVerifyUsers: async function(pageNum) {
         if (this.formInline.start > this.formInline.end) {
           this.$message.error("开始时间不能大于结束时间")
           return false
@@ -212,9 +132,9 @@
         params = {
             pageNum: pageNum,
             pageSize: 10,
-            params: this.formInline
+            id: this.$route.query.id
         }
-        const res = await http.post(api.getSignList,params)
+        const res = await http.post(api.saleVerifyUsers,params)
         if (res.data.code === 0) {
           this.tableDatas = res.data.data.list
           this.total = res.data.data.total
@@ -222,59 +142,9 @@
           this.$message.error(res.data.message)
         }
       },
-      getArticleList: async function(pageNum) {
-        const res = await http.get(api.getArticleList)
-        if (res.data.code === 0) {
-          this.articleOptions = res.data.data
-        } else {
-          this.$message.error(res.data.message)
-        }
-      },
-      getGskVideoList: async function(pageNum) {
-        const res = await http.get(api.getGskVideoList)
-        if (res.data.code === 0) {
-          this.videoOptions = res.data.data
-          console.log('lc',this.videoOptions)
-        } else {
-          this.$message.error(res.data.message)
-        }
-      },
       handleCurrentChange(val) {
-        this.getSaleList(val)
+        this.getVerifyUsers(val)
         this.currentPage = val
-      },
-      endcase(id) {
-        this.endId = id
-        this.ends = true
-      },
-      startTimes() {
-        this.formInline.start = Date.parse(this.formInline.start)
-      },
-      endTimes() {
-        if (this.formInline.endTime.getFullYear) {
-          let Year = this.formInline.endTime.getFullYear()
-          let Month = this.formInline.endTime.getMonth() + 1
-          let getDate = this.formInline.endTime.getDate()
-          this.formInline.endTime = new Date(
-            `${Year}/${Month}/${getDate} 23:59:59`
-          ).getTime()
-        }
-      },
-      onSubmit() {
-        this.getSaleList(1)
-      },
-      headerChange() {
-        this.isDis = false;
-        this.ends = true
-        this.editForm.id = null;
-        this.editForm.type = '1';
-        this.editForm.visibilityType = 'HCP';
-        this.editForm.title = '';
-        this.editForm.content = '';
-        this.editForm.effectiveDate = null;
-        this.editForm.sourceId = null;
-        this.videoId = '';
-        this.articleId = '';
       },
     }
   }

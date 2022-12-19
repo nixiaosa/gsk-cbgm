@@ -200,6 +200,11 @@ export default {
   homePageConfigManageList: `${djbCompanyHost}homePageConfig/manage/list/`, // gsk首页设置-列表
 
   saleManageList: `${djbCompanyHost}promoter/page`, // gsk-销售管理列表
+  saleManageSave: `${djbCompanyHost}promoter/edit`, // gsk-销售管理创建/编辑
+  saleManageDelete: `${djbCompanyHost}promoter/delete`, // gsk-销售管理删除
+  saleVerifyUsers: `${djbCompanyHost}promoter/verify/users`, // gsk-关联列表
+  saleGetQrcode: `${djbCompanyHost}promoter/qrcode`, // gsk-获取二维码
+
 
 
   getVideoList: [`${companyHost}company/`, 'video/list'], // 获得视频直播类信息列表
