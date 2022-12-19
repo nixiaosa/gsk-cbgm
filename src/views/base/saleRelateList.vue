@@ -1,6 +1,6 @@
 <template>
   <div class="case">
-    <header-content :title="headerTitle"></header-content>
+    <header-content :title="headerTitle" :opertions="['返回']" @change="headerChange"></header-content>
     <el-table
       :data="tableDatas"
       border
@@ -141,6 +141,11 @@
       handleCurrentChange(val) {
         this.getVerifyUsers(val)
         this.currentPage = val
+      },
+      headerChange() {
+        this.$router.push({
+          path: "/basedata/sale/manage"
+        });
       },
     }
   }
