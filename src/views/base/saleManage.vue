@@ -89,13 +89,15 @@
       formatName(name) {
         var newStr;
         if (name.length === 2) {
-            newStr = name.substr(0, 1) + '*';
+            // newStr = name.substr(0, 1) + '*';
+            newStr = name.substr(0, 2) + '*';
         } else if (name.length > 2) {
             var char = '';
             for (let i = 0, len = name.length - 2; i < len; i++) {
                 char += '*';
             }
-            newStr = name.substr(0, 1) + char + name.substr(-1, 1);
+            // newStr = name.substr(0, 1) + char + name.substr(-1, 1);
+            newStr = name.substr(0, 1) + char;
         } else {
             newStr = name;
         }
