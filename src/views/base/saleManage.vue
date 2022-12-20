@@ -26,7 +26,7 @@
       </el-table-column>
       <el-table-column label="姓名">
         <template slot-scope="scope">
-          <span>{{ scope.row.promoterName }}</span>
+          <span>{{ scope.row.promoterName | formatName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="添加时间">
@@ -86,6 +86,21 @@
     },
     computed: {},
     filters:{
+      formatName(name) {
+        var newStr;
+        if (name.length === 2) {
+            newStr = name.substr(0, 1) + '*';
+        } else if (name.length > 2) {
+            var char = '';
+            for (let i = 0, len = name.length - 2; i < len; i++) {
+                char += '*';
+            }
+            newStr = name.substr(0, 1) + char + name.substr(-1, 1);
+        } else {
+            newStr = name;
+        }
+        return newStr;
+      },
       formatDate(time) {
         var date = new Date(time)
         return formatDate(date,'yyyy-MM-dd')
@@ -135,6 +150,23 @@
       }
     },
     methods: {
+      hideName(){
+        var formatName = function (name) {
+            var newStr;
+            if (name.length === 2) {
+                newStr = name.substr(0, 1) + '*';
+            } else if (name.length > 2) {
+                var char = '';
+                for (let i = 0, len = name.length - 2; i < len; i++) {
+                    char += '*';
+                }
+                newStr = name.substr(0, 1) + char + name.substr(-1, 1);
+            } else {
+                newStr = name;
+            }
+            return newStr;
+        };
+      },
       handleDownload(row) {
         this.getQrcode(row.id)
         downloadIamge(this.qrcode, this.qrcode)
@@ -252,5 +284,6 @@
 .qrcode{
   width: 200px;
   height: 200px;
+  background-color: #ccc;
 }
 </style>
