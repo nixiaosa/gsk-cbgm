@@ -105,10 +105,10 @@
             newStr = name.substr(0, 1) + '*';
         } else if (name.length > 2) {
             var char = '';
-            for (let i = 0, len = name.length - 2; i <= len; i++) {
+            for (let i = 0, len = name.length - 1; i < len; i++) {
                 char += '*';
             }
-            newStr = name.substr(0, 1) + char + name.substr(-1, 1);
+            newStr = name.substr(0, 1) + char;
         } else {
             newStr = name;
         }
@@ -165,7 +165,7 @@
     },
     methods: {
       handleDownload(row) {
-        this.ends = true;
+        this.ends2 = true;
         this.getQrcode(row.id);
         // downloadIamge(this.qrcode, this.qrcode)
       },
