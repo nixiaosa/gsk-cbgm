@@ -45,7 +45,7 @@
       </el-table-column>
     </el-table>
     <el-dialog
-      title="新建销售"
+      :title="isEdit == false ? '新建销售' : '编辑'"
       :visible.sync="ends"
     >
       <el-form label-width="100px" :model="editForm">
