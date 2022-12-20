@@ -26,7 +26,7 @@
       </el-table-column>
       <el-table-column label="姓名">
         <template slot-scope="scope">
-          <span>{{ scope.row.promoterName | formatName }}</span>
+          <span>{{ scope.row.promoterName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="添加时间">
@@ -66,11 +66,9 @@
       title="销售二维码"
       :visible.sync="ends2"
     >
-      <el-form label-width="300px">
-          <el-form-item label="销售二维码：" prop="name">
-            <img class="qrcode" :src="qrcode" />
-          </el-form-item>
-        </el-form>
+      <div class="qrcode-wrap">
+        <img class="qrcode" :src="qrcode" />
+      </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDia2()">关 闭</el-button>
       </span>
@@ -99,21 +97,6 @@
     },
     computed: {},
     filters:{
-      formatName(name) {
-        var newStr;
-        if (name.length === 2) {
-            newStr = name.substr(0, 1) + '*';
-        } else if (name.length > 2) {
-            var char = '';
-            for (let i = 0, len = name.length - 1; i < len; i++) {
-                char += '*';
-            }
-            newStr = name.substr(0, 1) + char;
-        } else {
-            newStr = name;
-        }
-        return newStr;
-      },
       formatDate(time) {
         var date = new Date(time)
         return formatDate(date,'yyyy-MM-dd')
@@ -282,6 +265,9 @@
 </script>
 
 <style scoped>
+.qrcode-wrap{
+  text-align: center;
+}
 .qrcode{
   width: 200px;
   height: 200px;
