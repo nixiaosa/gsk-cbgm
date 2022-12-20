@@ -67,7 +67,7 @@
       :visible.sync="ends2"
     >
       <div class="qrcode-wrap">
-        <img class="qrcode" :src="qrcode" />
+        <img class="qrcode2" :src="qrcode" />
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDia2()">关 闭</el-button>
@@ -271,6 +271,11 @@
 .qrcode{
   width: 200px;
   height: 200px;
+  background-color: #f5f5f5;
+}
+.qrcode2{
+  width: 300px;
+  height: 300px;
   background-color: #f5f5f5;
 }
 </style>
