@@ -45,7 +45,7 @@
       </el-table-column>
     </el-table>
     <el-dialog
-      title="新建销售"
+      :title="diaTitle"
       :visible.sync="ends"
     >
       <el-form label-width="100px" :model="editForm">
@@ -112,6 +112,7 @@
     },
     data() {
       return {
+        diaTitle: '',
         isEdit: false,
         qrcode: '',
         name: null,
@@ -155,6 +156,7 @@
       closeDia(){
         this.ends = false;
         this.isEdit = false;
+        this.diaTitle = '新建销售';
       },
       closeDia2(){
         this.ends2 = false;
@@ -194,7 +196,8 @@
             this.editForm.name = '';
             this.editForm.id = '';
             this.ends = false; 
-            this.isEdit = false;     
+            this.isEdit = false;
+            this.diaTitle = '新建销售';  
         } else {
           this.$message.error(res.data.message);
         }
@@ -204,6 +207,7 @@
         this.editForm.id = row.id
         this.editForm.name = row.promoterName
         this.isEdit = true
+        this.diaTitle = '编辑销售';
         this.ends = true
       },
       godetail: async function(id) {
