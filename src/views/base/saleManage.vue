@@ -19,7 +19,7 @@
           <span>{{ ((currentPage - 1)*10) + scope.$index + 1 }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="用户ID" width="280px">
+      <el-table-column label="销售代表ID" width="100px">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
