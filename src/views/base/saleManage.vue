@@ -68,7 +68,7 @@
       :visible.sync="ends2"
     >
       <div class="qrcode-wrap">
-        <img class="qrcode2" :src="qrcode" />
+        <img class="qrcode2" :src="qrcode" v-loading="loading" />
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDia2()">关 闭</el-button>
@@ -113,6 +113,7 @@
     },
     data() {
       return {
+        loading: true,
         diaTitle: '新建销售',
         isEdit: false,
         qrcode: '',
@@ -181,6 +182,7 @@
         var res = await http.get(api.saleGetQrcode + '/' + id);
         if (res.data.code === 0) {
             this.qrcode = res.data.data;     
+            this.loading = false;
         } else {
           this.$message.error(res.data.message);
         }
