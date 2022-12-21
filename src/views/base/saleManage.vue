@@ -150,6 +150,7 @@
     },
     methods: {
       handleCancle(){
+        this.isEdit = false;
         this.diaTitle = '新建销售';
       },
       handleDownload(row) {
