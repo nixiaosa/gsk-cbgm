@@ -47,6 +47,7 @@
     <el-dialog
       :title="diaTitle"
       :visible.sync="ends"
+      @close="handleCancle"
     >
       <el-form label-width="100px" :model="editForm">
           <el-form-item label="*姓名：" prop="name" style="width:550px;">
@@ -112,7 +113,7 @@
     },
     data() {
       return {
-        diaTitle: '',
+        diaTitle: '新建销售',
         isEdit: false,
         qrcode: '',
         name: null,
@@ -148,6 +149,9 @@
       }
     },
     methods: {
+      handleCancle(){
+        this.diaTitle = '新建销售';
+      },
       handleDownload(row) {
         this.ends2 = true;
         this.getQrcode(row.id);
