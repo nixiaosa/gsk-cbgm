@@ -54,7 +54,8 @@
             <el-input v-model="editForm.name" placeholder="请输入姓名"></el-input>
           </el-form-item>
           <el-form-item v-if="isEdit == true" label="销售二维码：" prop="name">
-            <img class="qrcode" :src="qrcode" />
+            <img v-if="qrcode" class="qrcode2" :src="qrcode" />
+            <el-empty v-else description="加载中.."></el-empty>
           </el-form-item>
         </el-form>
       <span slot="footer" class="dialog-footer">
