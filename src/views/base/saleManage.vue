@@ -68,7 +68,8 @@
       :visible.sync="ends2"
     >
       <div class="qrcode-wrap">
-        <img class="qrcode2" :src="qrcode" />
+        <img v-if="qrcode" class="qrcode2" :src="qrcode" />
+        <el-empty v-else description="加载中.."></el-empty>
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDia2()">关 闭</el-button>
