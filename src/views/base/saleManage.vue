@@ -50,7 +50,11 @@
       @close="handleCancle"
     >
       <el-form label-width="100px" :model="editForm">
-          <el-form-item label="*姓名：" prop="name" style="width:550px;">
+          <el-form-item prop="name" style="width:550px;">
+            <span slot="label">
+              <span style="color: red">*</span>
+              <span>姓名:</span>
+            </span>
             <el-input v-model="editForm.name" placeholder="请输入姓名"></el-input>
           </el-form-item>
           <el-form-item v-if="isEdit == true" label="销售二维码：" prop="name">
