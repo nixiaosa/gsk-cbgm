@@ -195,6 +195,7 @@
         if (res.data.code === 0) {
           this.$message.success("操作成功");
           this.saleId = "";
+          this.ends = false;
           window.scrollTo(0, 0)
           $("html,body",window.parent.document).animate({scrollTop:0},1000)
           this.getSaleList(1);
