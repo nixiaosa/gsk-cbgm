@@ -40,7 +40,7 @@
           <el-button type="info" size="small" @click="edit(scope.row)">编辑</el-button>
           <el-button type="info" size="small" @click="handleDownload(scope.row)">销售二维码</el-button>
           <el-button type="info" size="small" @click="godetail(scope.row.id)">关联列表</el-button>
-          <el-button type="danger" size="small" @click="deleteSales(scope.row.id)">删除</el-button>
+          <el-button type="danger" size="small" @click="openDeleteSales(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -78,6 +78,18 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeDia2()">关 闭</el-button>
+      </span>
+    </el-dialog>
+    <el-dialog
+      title="提示"
+      :visible.sync="ends3"
+    >
+      <div class="qrcode-wrap">
+        <p>确定要删除此销售吗?</p>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="ends3 = false">取 消</el-button>
+        <el-button @click="deleteSales()">确 定</el-button>
       </span>
     </el-dialog>
     <div style="margin:20px"></div>
@@ -129,6 +141,7 @@
         total: 1,
         ends: false,
         ends2: false,
+        ends3: false,
         id: '2',
         articleId: '',
         videoId: '',
@@ -136,6 +149,7 @@
         tableDatas: [],
         articleOptions: [],
         videoOptions: [],
+        saleId: '',
         formInline: {
           name: null,
         },
@@ -172,8 +186,12 @@
       closeDia2(){
         this.ends2 = false;
       },
-      deleteSales: async function(id) {
-        var res = await http.delete(api.saleManageDelete + '/' + id);
+      openDeleteSales(id){
+        this.saleId = id;
+        this.ends3 = true;
+      },      
+      deleteSales: async function() {
+        var res = await http.delete(api.saleManageDelete + '/' + this.saleId);
         if (res.data.code === 0) {
           this.$message.success("操作成功");
           window.scrollTo(0, 0)
