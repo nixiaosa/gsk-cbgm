@@ -194,6 +194,7 @@
         var res = await http.delete(api.saleManageDelete + '/' + this.saleId);
         if (res.data.code === 0) {
           this.$message.success("操作成功");
+          this.saleId = "";
           window.scrollTo(0, 0)
           $("html,body",window.parent.document).animate({scrollTop:0},1000)
           this.getSaleList(1);
