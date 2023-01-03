@@ -12,7 +12,7 @@
       </el-table-column>
       <el-table-column label="用户ID" width="280px">
         <template slot-scope="scope">
-          <span>{{ scope.row.id }}</span>
+          <span>{{ scope.row.wxUsersId }}</span>
         </template>
       </el-table-column>
       <el-table-column label="姓名">
