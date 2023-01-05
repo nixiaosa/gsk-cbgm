@@ -103,7 +103,7 @@
   </div>
 </template>
 <script>
-  import downloadIamge from '@/utils/downloadPng'
+  // import downloadIamge from '@/utils/downloadPng'
   import http from '@/utils/tenant'
   import api from '@/api/tenantInfoSave'
   import { formatDate } from '@/common/data'
