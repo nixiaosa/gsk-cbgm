@@ -86,6 +86,13 @@ export default {
   questionnaireApplyList: `${djbQaHost}qa/user/apply/company/list`, // 调研问卷申请管理列表
   questionnaireApplyAudit: `${djbQaHost}qa/user/apply/company/audit`, // 调研问卷申请管理审核
 
+  gskConfidenceImport: `${djbQaHost}qa/question/gsk/import`, // 开业信心指数导入
+  gskConfidenceList: `${djbQaHost}qa/question/gsk/list`, // 开业信心指数列表
+  gskConfidenceExport: `${djbQaHost}qa/question/gsk/export`, // 开业信心指数导出
+
+
+
+
 
   handle: `${companyHost}company/config/update`, // 保存租户信息
   companyGet: `${companyHost}company/config/`, // 获取信息
@@ -187,6 +194,16 @@ export default {
   gskSignSave: `${djbCompanyHost}sign/in/config/save`, // 新增/编辑签到
   gskSignEdit: `${djbCompanyHost}sign/in/config/get`, // 获取签到内容
   gskSignExport: `${djbCompanyHost}sign/in/config/export`, // 签到内容导出
+
+  homePageConfigManageSet: `${djbCompanyHost}homePageConfig/manage/set`, // gsk首页设置-轮播图创建
+  homePageConfigManageEdit: `${djbCompanyHost}homePageConfig/manage/detail/`, // gsk首页设置-编辑回显
+  homePageConfigManageList: `${djbCompanyHost}homePageConfig/manage/list/`, // gsk首页设置-列表
+
+  saleManageList: `${djbCompanyHost}promoter/page`, // gsk-销售管理列表
+  saleManageSave: `${djbCompanyHost}promoter/edit`, // gsk-销售管理创建/编辑
+  saleManageDelete: `${djbCompanyHost}promoter/delete`, // gsk-销售管理删除
+  saleVerifyUsers: `${djbCompanyHost}promoter/verify/users`, // gsk-关联列表
+  saleGetQrcode: `${djbCompanyHost}promoter/qrcode`, // gsk-获取二维码
 
 
 

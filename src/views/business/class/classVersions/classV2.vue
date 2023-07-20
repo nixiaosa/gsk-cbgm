@@ -369,6 +369,10 @@
             v-model="auditObj.reason">
           </el-input>
         </el-form-item>
+        <el-form-item label="分享链接:">
+          <span>{{ lc}}</span>
+          <el-link class="marging_left" @click="onCopy()">复制</el-link>
+        </el-form-item>
         <el-form-item label="增加观看人次:">
           <el-input-number v-model="formLabelAlign.viewCountAdd" :min="0" :max="99999"></el-input-number>
           <el-link class="marging_left" :underline="false" @click="getCountadd">确定</el-link>
@@ -459,6 +463,7 @@ export default {
   },
   data() {
     return {
+      lc: '',
       textAreaShow: 0,
       reasonOptionsValue: '',
       reasonOptions:[{
@@ -1191,7 +1196,7 @@ export default {
       let params = item.params;
       switch (item.affair) {
         case "examine":
-          this.examine(params.busId, params.type);
+          this.examine(params.busId, params.type, params);
           break;
         case "stopVideo":
           this.stopVideo(params.id);
@@ -1556,11 +1561,28 @@ export default {
           return 9;
       }
     },
+    onCopy(e){
+      let url = this.lc;
+      let oInput = document.createElement("input");
+      oInput.value = url;
+      document.body.appendChild(oInput);
+      oInput.select(); // 选择对象;
+      console.log(oInput.value);
+      document.execCommand("Copy"); // 执行浏览器复制命令
+      this.$message({
+        showClose: true,
+        message: "复制成功",
+        type: "success"
+      });
+      oInput.remove();
+    },
     // 获取列表详情
-    examine: async function (id, type) {
+    examine: async function (id, type, params) {
       this.busId = id;
       let apiurl = api.adminVideoDetail;
       if (type === 1) {
+        this.lc = `pages/code-permission/code-permission?navId=${params.dataSource.navigationId}&businessId=${params.businessId}&busId=${params.busId}` 
+        console.log(this.lc)
         this.isShow = true;
         const res = await http.get(apiurl + id);
         // for (var item of this.options) {
@@ -1591,6 +1613,8 @@ export default {
         this.Audience(this.formLabelAlign.tags);
         this.centerDialogVisible = true;
       } else if (type === 2) {
+        this.lc = `pages/code-permission/code-permission?navId=${params.dataSource.navigationId}&businessId=${params.businessId}&busId=${params.busId}` 
+        console.log(this.lc)
         this.isShow = false;
         const res = await http.get(apiurl + id);
         // for (var optionsItem of this.options) {

@@ -1,56 +1,53 @@
 <!--
  * @Author: chance Lau
- * @Date: 2020-10-26 10:57:15
- * @LastEditTime: 2022-11-04 11:38:25
+ * @Date: 2020-10-26 10:56:57
+ * @LastEditTime: 2022-11-29 08:00:26
  * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
- * @FilePath: /CBGM/src/views/navigationManageNew/base/SecondNav.vue
+ * @FilePath: /CBGM/src/views/navigationManageNew/base/FirstNav.vue
 -->
-
 <template>
   <div>
     <el-table :data="tableData" border>
-      <el-table-column label="二级栏目">
+      <el-table-column label="Banner图">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.name }}</span>
+          <img :src="scope.row.imgUrl" style="width:350px;height:150px" />
         </template>
       </el-table-column>
-      <el-table-column width="150" label="是否有三级栏目">
+      <el-table-column label="标题">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.hasChild | hasChild }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="关联一级栏目">
-        <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.relateLevelOneName}}</span>
+          <span style="margin-left: 10px">{{ scope.row.linkUrl }}</span>
         </template>
       </el-table-column>
       <el-table-column width="100" label="排序">
         <template slot-scope="scope">
           <el-input
             size="small"
-            v-model="scope.row.showOrder"
+            v-model="scope.row.seqNumber"
             min="0"
             type="number"
             :disabled="true"
           ></el-input>
         </template>
       </el-table-column>
+      <el-table-column label="状态">
+        <template slot-scope="scope">
+          <span style="margin-left: 10px">{{ scope.row.isDel | isDel }}</span>
+        </template>
+      </el-table-column>
       <el-table-column fixed="right" label="操作" width="150">
         <template slot-scope="scope">
           <el-button
-            v-if="scope.row.origin != 1"
-            @click="handleClick(scope.row.name,scope.row.showOrder,scope.row.id, scope.row.businessId)"
+            @click="handleClick(scope.row)"
             type="info"
             size="small"
             style="margin-right:10px"
           >编辑</el-button>
-          <el-button
-            v-if="scope.row.origin != 1"
+          <!-- <el-button
             @click="navSwitch(scope.row)"
-            :type="scope.row.status === 1 ? 'danger' : 'success'"
+            :type="scope.row.isDel == 0 ? 'success' : 'danger'"
             size="small"
-          >{{ scope.row.status === 1 ? '停用' : '启用' }}</el-button><!-- status:1启用0停用-->
+          >{{ scope.row.isDel == 0 ? '停用' : '启用' }}</el-button> -->
         </template>
       </el-table-column>
     </el-table>
@@ -64,7 +61,7 @@ import { mapGetters } from "vuex";
 import { formatDate } from "@/common/data";
 
 export default {
-  name: "SecondNav",
+  name: "FirstNav",
   props: {
     tableData: {
       type: Array,
@@ -75,7 +72,15 @@ export default {
     return {
       classDetail: false,
       classStatic: false,
-      classStop: false
+      classStop: false,
+      form: {
+          type: 1, // 1轮播2banner
+          imgUrl: '',
+          linkUrl: '',
+          seqNumber: 1,
+          isDel: 0,
+          proUuid: this.$route.query.proUuid ? this.$route.query.proUuid : null
+        },
     };
   },
   computed: {
@@ -90,32 +95,11 @@ export default {
       var date = new Date(time);
       return formatDate(date, "yyyy-MM-dd hh:mm");
     },
-    getType(num) {
-      if (num === 1) {
-        return "网站首页";
-      } else if (num === 2) {
-        return "开放视频类型";
-      } else if (num === 3) {
-        return "封闭视频类型";
-      } else if (num === 4) {
-        return "文章类型";
-      } else if (num === 5) {
-        return "活动类型";
-      } else if (num === 6) {
-        return "商城类型";
-      } else if (num === 7) {
-        return "组合类型";
-      } else if (num === 8) {
-        return "外链类型";
-      } else if (num === 9) {
-        return "资料类型";
-      }
-    },
-    hasChild(num) {
+    isDel(num){
       if (num === 0) {
-        return "否";
+        return "已启用";
       } else if (num === 1) {
-        return "是";
+        return "已停用";
       }
     }
   },
@@ -128,26 +112,30 @@ export default {
       };
       this.$emit("change", params);
     },
-    navSwitch: async function(val) {
-      let id = val.id;
-      var res = await http.get(api.navigationForbidden + '/' + id);
-      if (res.data.code === 0) {
-        if(status == 0){
-          this.successTost("操作成功");
-        }else{
-          this.successTost("操作成功");
+    navSwitch: async function(row) {
+        if(row.isDel == 0){
+          this.form.isDel == 1
+        } else {
+          this.form.isDel == 0
         }
-        
-        this.$emit("change", "secondNav");
-      }else{
-        this.errorTost(res.data.message);
-      }
+        this.form.id = row.id
+        let params = {
+          ...this.form
+        }
+        const res = await http.post(api.homePageConfigManageSet,params)
+        if (res.data.code === 0) {
+          this.$message.success("操作成功")
+        } else {
+          this.$message.error(res.data.message)
+        }
     },
-    handleClick(name, showOrder, id, businessId) {
+    handleClick(rows) {
       this.$router.push({
-        path: "/basedata/addSecNav",
+        path: "/basedata/gskCreatIndex",
         query: {
-          id: id
+          id: rows.id,
+          type: rows.type,
+          proUuid: rows.proUuid
         }
       });
     },

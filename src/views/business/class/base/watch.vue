@@ -118,7 +118,6 @@
 <!--        </template>-->
 <!--      </el-table-column>-->
       <el-table-column
-              v-if="ipLocation"
               label="IP归属地">
         <template slot-scope="scope">
           <span>{{ scope.row.location}}</span>

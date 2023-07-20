@@ -1,7 +1,7 @@
 <!--
  * @Author: chance Lau
  * @Date: 2020-10-26 10:57:15
- * @LastEditTime: 2022-11-04 11:37:45
+ * @LastEditTime: 2022-10-27 13:50:34
  * @LastEditors: Chance Lau
  * @Description: In User Settings Edit
  * @FilePath: /CBGM/src/views/navigationManageNew/base/SecondNav.vue

@@ -129,5 +129,27 @@ export default {
                 return checkCode(res)
             }
         )
-    }
+    },
+    delete(url) {
+        return axios({
+          method: 'delete',
+          // baseURL: 'https://cnodejs.org/api/v1',
+          baseURL: domin, // api  host
+          url,
+          timeout: 60000,
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'agent': 'manager',
+            'Content-Type': 'application/json; charset=UTF-8'
+          }
+        }).then(
+          (response) => {
+            return checkStatus(response)
+          }
+        ).then(
+          (res) => {
+            return checkCode(res)
+          }
+        )
+      }
 }

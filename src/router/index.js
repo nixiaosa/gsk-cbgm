@@ -102,6 +102,20 @@ export const asyncRouterMap = [
                 sign: 'basics_identity_manage'
             },
             {
+                path: 'sale/manage',
+                component: _import('base/saleManage'),
+                icon: 'zonghe',
+                name: '销售管理',
+                // sign: 'basics_identity_manage'
+            },
+            {
+                path: 'sale/relateList',
+                component: _import('base/saleRelateList'),
+                icon: 'zonghe',
+                name: '关联列表',
+                // sign: 'basics_identity_manage'
+            },
+            {
                 path: 'sign/manage',
                 component: _import('base/signManage'),
                 icon: 'zonghe',
@@ -162,6 +176,20 @@ export const asyncRouterMap = [
                 component: _import('base/pointManage'),
                 name: '积分规则',
                 icon: 'zonghe',
+            },
+            {
+                path: 'gsk/indexManage',
+                component: _import('base/gsk-index-manage'),
+                icon: 'zonghe',
+                name: '首页设置',
+                // sign: 'basics_identity_manage'
+            },
+            {
+                path: 'gskCreatIndex',
+                component: _import('base/gskCreatIndex'),
+                name: '创建首页设置',
+                icon: 'zonghe',
+                hidden: true
             },
         ]
     },
@@ -1192,6 +1220,13 @@ export const asyncRouterMap = [
                 icon: 'zonghe',
                 name: '调研问卷管理',
                 sign: 'activity_ questionnaire_manage',
+            },
+            {
+                path: 'questionnaireConfidence',
+                component: _import('activity/questionnaire/questionnaireConfidence'),
+                name: '开业信心指数',
+                icon: 'zonghe',
+                hidden: true
             },
             {
                 path: 'questionnaireManage/applylist/:id',
