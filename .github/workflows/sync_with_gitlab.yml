@@ -83,6 +83,10 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.PRIVATE_GITHUB_TOKEN }}@${{ github.event.inputs.github_repo_url }}.git
         fi
 
+    - name: Debug Git Remote
+      run: |
+        git remote -v
+
     - name: Pull from GitHub and merge
       run: |
         git fetch origin
