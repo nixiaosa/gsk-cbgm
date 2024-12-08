@@ -54,15 +54,14 @@ jobs:
           echo "branch_exists=false" >> $GITHUB_ENV
         fi
 
-    - name: Create GitHub branch if it doesn't exist
-      if: env.branch_exists == 'false'
+    - name: Create or Switch to GitHub branch
       run: |
-        git checkout -b ${{ github.event.inputs.branch }}
-        git push origin ${{ github.event.inputs.branch }}
-      # 如果分支已经存在，切换到该分支
-      if: env.branch_exists == 'true'
-      run: |
-        git checkout ${{ github.event.inputs.branch }}
+        if [ "$GITHUB_ENV" == "branch_exists=false" ]; then
+          git checkout -b ${{ github.event.inputs.branch }}
+          git push origin ${{ github.event.inputs.branch }}
+        else
+          git checkout ${{ github.event.inputs.branch }}
+        fi
 
     - name: Set GitHub remote
       run: |
