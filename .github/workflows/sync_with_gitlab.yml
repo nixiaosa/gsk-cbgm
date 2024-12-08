@@ -1,0 +1,60 @@
+name: Sync from GitLab to GitHub
+
+on:
+  workflow_dispatch:  # 手动触发
+    inputs:
+      gitlab_repo_url:
+        description: 'The GitLab repository URL to pull from'
+        required: true
+      gitlab_token:
+        description: 'The GitLab personal access token'
+        required: true
+      branch:
+        description: 'The branch to sync'
+        default: 'azure-test'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout GitHub repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.inputs.branch }}
+        persist-credentials: false  # 禁用默认的 GITHUB_TOKEN
+
+    - name: Set up Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Clone GitLab repository
+      env:
+        GITLAB_TOKEN: ${{ github.event.inputs.gitlab_token }}
+      run: |
+        git clone --branch ${{ github.event.inputs.branch }} https://oauth2:${GITLAB_TOKEN}@${{ github.event.inputs.gitlab_repo_url }} gitlab-repo
+
+    - name: Copy files from GitLab to GitHub
+      run: |
+        cp -r gitlab-repo/. .
+        rm -rf gitlab-repo
+
+    - name: Set GitHub remote
+      run: |
+        git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+
+    - name: Pull from GitHub and merge
+      run: |
+        git fetch origin
+        git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs
+
+    - name: Commit and push changes to GitHub
+      run: |
+        git add .
+        git commit -m "Sync from GitLab: ${{ github.event.inputs.branch }}" || echo "No changes to commit"
+        git push origin ${{ github.event.inputs.branch }} --force
