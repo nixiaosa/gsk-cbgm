@@ -31,9 +31,9 @@ jobs:
 #      - Linux
 
     steps:
-    - name: Add DNS entry for private GitHub
-      run: |
-        echo "${{ github.event.inputs.github_ip }} cn-github.corpnet5.net" >> /etc/hosts
+#    - name: Add DNS entry for private GitHub
+#      run: |
+#        echo "${{ github.event.inputs.github_ip }} cn-github.corpnet5.net" >> /etc/hosts
 
     - name: Checkout GitHub repository
       uses: actions/checkout@v3
