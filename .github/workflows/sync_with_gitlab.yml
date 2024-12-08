@@ -25,7 +25,8 @@ jobs:
     - name: Checkout GitHub repository
       uses: actions/checkout@v3
       with:
-        ref: ${{ github.event.inputs.branch }}
+        # 先检出默认分支
+        ref: main
         persist-credentials: false
 
     - name: Set up Git
@@ -58,6 +59,10 @@ jobs:
       run: |
         git checkout -b ${{ github.event.inputs.branch }}
         git push origin ${{ github.event.inputs.branch }}
+      # 如果分支已经存在，切换到该分支
+      if: env.branch_exists == 'true'
+      run: |
+        git checkout ${{ github.event.inputs.branch }}
 
     - name: Set GitHub remote
       run: |
@@ -68,7 +73,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         git fetch origin
-        git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs || echo "Branch does not exist in GitHub, continuing"
+        if git rev-parse --verify origin/${{ github.event.inputs.branch }}; then
+          git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs
+        else
+          echo "Branch does not exist in GitHub, continuing"
+        fi
 
     - name: Commit and push changes to GitHub
       run: |
