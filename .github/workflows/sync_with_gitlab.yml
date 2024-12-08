@@ -87,12 +87,16 @@ jobs:
       run: |
         git remote -v
 
+    - name: Clean untracked files
+      run: |
+        git clean -fd
+
     - name: Pull from GitHub and merge
       run: |
         git fetch origin
         if git rev-parse --verify origin/${{ github.event.inputs.branch }}; then
           git checkout ${{ github.event.inputs.branch }}
-          git merge origin/${{ github.event.inputs.branch }} -X theirs --allow-unrelated-histories
+          git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs
         else
           echo "Branch does not exist in GitHub, continuing"
         fi
