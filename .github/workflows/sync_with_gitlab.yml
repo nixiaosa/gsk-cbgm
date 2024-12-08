@@ -91,7 +91,8 @@ jobs:
       run: |
         git fetch origin
         if git rev-parse --verify origin/${{ github.event.inputs.branch }}; then
-          git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs
+          git checkout ${{ github.event.inputs.branch }}
+          git merge origin/${{ github.event.inputs.branch }} -X theirs --allow-unrelated-histories
         else
           echo "Branch does not exist in GitHub, continuing"
         fi
