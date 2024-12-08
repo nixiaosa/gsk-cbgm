@@ -78,7 +78,7 @@ jobs:
     - name: Set GitHub remote (conditional for private GitHub)
       run: |
         if [[ "${{ github.event.inputs.github_repo_url }}" == *"github.com"* ]]; then
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
         else
           git remote set-url origin https://x-access-token:${{ secrets.PRIVATE_GITHUB_TOKEN }}@${{ github.event.inputs.github_repo_url }}.git
         fi
