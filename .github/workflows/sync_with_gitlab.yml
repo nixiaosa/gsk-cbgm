@@ -1,7 +1,7 @@
 name: Sync from GitLab to GitHub
 
 on:
-  workflow_dispatch:  # 手动触发
+  workflow_dispatch:
     inputs:
       gitlab_repo_url:
         description: 'The GitLab repository URL to pull from'
@@ -23,10 +23,10 @@ jobs:
 
     steps:
     - name: Checkout GitHub repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: ${{ github.event.inputs.branch }}
-        persist-credentials: false  # 禁用默认的 GITHUB_TOKEN
+        persist-credentials: false
 
     - name: Set up Git
       run: |
@@ -44,14 +44,31 @@ jobs:
         cp -r gitlab-repo/. .
         rm -rf gitlab-repo
 
+    - name: Check if GitHub branch exists
+      id: check_branch
+      run: |
+        if git ls-remote --heads origin ${{ github.event.inputs.branch }} | grep -sw ${{ github.event.inputs.branch }}; then
+          echo "branch_exists=true" >> $GITHUB_ENV
+        else
+          echo "branch_exists=false" >> $GITHUB_ENV
+        fi
+
+    - name: Create GitHub branch if it doesn't exist
+      if: env.branch_exists == 'false'
+      run: |
+        git checkout -b ${{ github.event.inputs.branch }}
+        git push origin ${{ github.event.inputs.branch }}
+
     - name: Set GitHub remote
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
 
     - name: Pull from GitHub and merge
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         git fetch origin
-        git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs
+        git merge origin/${{ github.event.inputs.branch }} --allow-unrelated-histories -X theirs || echo "Branch does not exist in GitHub, continuing"
 
     - name: Commit and push changes to GitHub
       run: |
