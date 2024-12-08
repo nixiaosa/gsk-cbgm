@@ -25,15 +25,15 @@ permissions:
 
 jobs:
   sync:
+    # runs-on: 
+    #   - self-hosted
+    #   - Linux
     runs-on: ubuntu-latest
-#    runs-on: 
-#      - self-hosted
-#      - Linux
 
     steps:
-#    - name: Add DNS entry for private GitHub
-#      run: |
-#        echo "${{ github.event.inputs.github_ip }} cn-github.corpnet5.net" >> /etc/hosts
+    # - name: Add DNS entry for private GitHub
+    #   run: |
+    #     echo "${{ github.event.inputs.github_ip }} cn-github.corpnet5.net" >> /etc/hosts
 
     - name: Checkout GitHub repository
       uses: actions/checkout@v3
@@ -78,7 +78,7 @@ jobs:
     - name: Set GitHub remote (conditional for private GitHub)
       run: |
         if [[ "${{ github.event.inputs.github_repo_url }}" == *"github.com"* ]]; then
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@${{ github.event.inputs.github_repo_url }}.git
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@${{ github.repository }}.git
         else
           git remote set-url origin https://x-access-token:${{ secrets.PRIVATE_GITHUB_TOKEN }}@${{ github.event.inputs.github_repo_url }}.git
         fi
