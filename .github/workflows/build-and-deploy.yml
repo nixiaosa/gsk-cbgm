@@ -23,6 +23,9 @@ jobs:
       with:
         node-version: '14.15.3'
 
+    - name: Set registry
+      run: npm config set registry https://nexus3.100url.cn/repository/npm_public/
+
     - name: Install dependencies
       run: npm install
 
