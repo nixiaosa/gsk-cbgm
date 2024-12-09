@@ -1,0 +1,32 @@
+name: Clone and List Files
+
+on:
+  workflow_dispatch:
+    inputs:
+      REPO_URL:
+        description: 'Repository URL'
+        required: true
+        type: string
+      USERNAME:
+        description: 'Username'
+        required: true
+        type: string
+      TOKEN:
+        description: 'Personal Access Token'
+        required: true
+        type: string
+
+jobs:
+  clone-and-list:
+    runs-on:
+      - self-hosted
+      - Linux
+
+    steps:
+    - name: Clone repository
+      run: |
+        git clone https://${{ github.event.inputs.USERNAME }}:${{ github.event.inputs.TOKEN }}@${{ github.event.inputs.REPO_URL }} cloned-repo
+        ls -la cloned-repo
+
+    - name: Display files
+      run: ls -la cloned-repo
